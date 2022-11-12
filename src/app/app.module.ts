@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,7 +21,6 @@ import { LoginComponent } from './user-account/login/login.component';
 import { RegisterComponent } from './user-account/register/register.component';
 import { FormsModule } from '@angular/forms';
 import {
-  HttpClient,
   HttpClientModule,
   HTTP_INTERCEPTORS,
 } from '@angular/common/http';
@@ -48,6 +50,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent],
