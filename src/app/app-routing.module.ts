@@ -3,19 +3,22 @@ import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './user-account/login/login.component';
 import { RegisterComponent } from './user-account/register/register.component';
+import { InnerPgComponent } from './view/inner-pg/inner-pg.component';
 import { ViewComponent } from './view/view.component';
 import { WildCardComponent } from './wild-card/wild-card.component';
 
 const routes: Routes = [
-  {path:'', component:ViewComponent},
-  {path:'login', component:LoginComponent},
-  {path:'register', component:RegisterComponent},
+  { path: '', redirectTo: 'view', pathMatch: 'full' },
+  { path: 'view', component: ViewComponent },
+  { path: 'view/:id',component:InnerPgComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   //wildcardcomponent should always be at the bottom,
-  {path:'**',component:WildCardComponent}
+  { path: '**', component: WildCardComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
