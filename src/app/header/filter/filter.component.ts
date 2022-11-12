@@ -31,10 +31,7 @@ export class FilterComponent implements OnInit {
   ngOnInit(): void {}
 
   openDialog() {
-    const dialogRef = this.dialog.open(FilterModalComponent, {
-      height: '400px',
-      width: '620px',
-    });
+    const dialogRef = this.dialog.open(FilterModalComponent);
 
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
