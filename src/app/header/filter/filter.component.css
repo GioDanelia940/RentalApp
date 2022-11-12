@@ -1,0 +1,15 @@
+.d-flex{
+	margin-left: 10px;
+}
+
+.filter-icons{
+	width: 84px;
+	border-bottom: 1px solid transparent;
+	transition: all .3s;
+
+}
+
+.filter-icons:hover{
+	border-bottom: 1px solid black;
+	
+}

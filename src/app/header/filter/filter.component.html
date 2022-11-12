@@ -1,1 +1,6 @@
-<p>filter works!</p>
+<div class="icon-container d-flex justify-content-between">
+  <span class="filter-icons" *ngFor="let icon of filterItems">
+    <fa-icon [icon]="icon"></fa-icon>
+    <p>{{ icon.iconName }}</p>
+  </span>
+</div>
