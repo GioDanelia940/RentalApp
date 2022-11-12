@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { LoginComponent } from './user-account/login/login.component';
+import { RegisterComponent } from './user-account/register/register.component';
 import { ViewComponent } from './view/view.component';
 import { WildCardComponent } from './wild-card/wild-card.component';
 
 const routes: Routes = [
   {path:'', component:ViewComponent},
+  {path:'login', component:LoginComponent},
+  {path:'register', component:RegisterComponent},
   //wildcardcomponent should always be at the bottom,
   {path:'**',component:WildCardComponent}
 ];
