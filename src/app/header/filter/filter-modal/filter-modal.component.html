@@ -1,1 +1,42 @@
-<p>filter-modal works!</p>
+<h2 mat-dialog-title>Install Angular</h2>
+<form #form="ngForm" (ngSubmit)="onSubmit(form)">
+  <mat-dialog-content class="mat-typography">
+    <h2>Type of place</h2>
+    <div class="place-type-wrapper">
+      <div class="place-type-el">
+        <input
+          ngModel
+          class="test"
+          type="checkbox"
+          id="EntirePlace"
+          name="entirePlace"
+        />
+        <label for="EntirePlace">
+          <p class="place-type-header">Entire place</p>
+          <p class="text-muted">A place all to yourself</p>
+        </label>
+      </div>
+      <div class="place-type-el">
+        <input
+          ngModel
+          class="test"
+          type="checkbox"
+          id="privateRoom"
+          name="privateRoom"
+        />
+        <label for="privateRoom">
+          <p class="place-type-header">private room</p>
+          <p class="text-muted">
+            Your own room in a home or a hotel, plus some shared common spaces
+          </p>
+        </label>
+      </div>
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button type="button" mat-button mat-dialog-close>Cancel</button>
+    <button type="submit" mat-button [mat-dialog-close]="true" cdkFocusInitial>
+      Install
+    </button>
+  </mat-dialog-actions>
+</form>

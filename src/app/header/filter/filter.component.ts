@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+
 import {
   faArrowCircleDown,
   faArrowRightArrowLeft,
   faGlassMartini,
 } from '@fortawesome/free-solid-svg-icons';
+import { FilterModalComponent } from './filter-modal/filter-modal.component';
 
 @Component({
   selector: 'app-filter',
@@ -23,7 +26,18 @@ export class FilterComponent implements OnInit {
     faArrowRightArrowLeft,
     faArrowCircleDown,
   ];
-  constructor() {}
+  constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {}
+
+  openDialog() {
+    const dialogRef = this.dialog.open(FilterModalComponent, {
+      height: '400px',
+      width: '620px',
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 }
