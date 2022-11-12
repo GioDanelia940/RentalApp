@@ -1,24 +1,31 @@
-.d-flex{
-	margin-top: 10px;
-	margin-left: -25px;
+.icon-container {
+  border-top: 1px solid rgba(192, 192, 192, 0.5);
+  background-color: white;
 }
 
-.filter-icons{
-	width: 84px;
-	border-bottom: 1px solid transparent;
-	transition: all .3s;
-	cursor: pointer;
+.filter-icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s;
+  cursor: pointer;
 }
 
-.filter-icons:hover{
-	border-bottom: 1px solid black;
-	
+.filter-icons:hover {
+  border-bottom: 1px solid black;
 }
 
-.modal-btn{
-	border: 1px solid #DDDDDD;
-	border-radius: 10%;
-	width: 115px;
-	height: 50px;
+.modal-btn {
+  border: 1px solid #dddddd;
+  border-radius: 10%;
+  width: 115px;
+  height: 50px;
 }
-
+.inner-box {
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
+  flex-direction: row;
+}

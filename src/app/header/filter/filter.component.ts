@@ -1,12 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-
-import {
-  faArrowCircleDown,
-  faArrowRightArrowLeft,
-  faGlassMartini,
-} from '@fortawesome/free-solid-svg-icons';
 import { FilterModalComponent } from './filter-modal/filter-modal.component';
+import { FilterServiceService } from './filter-service.service';
+import { FilterItem } from './filterItem.model';
 
 @Component({
   selector: 'app-filter',
@@ -15,20 +11,15 @@ import { FilterModalComponent } from './filter-modal/filter-modal.component';
 })
 export class FilterComponent implements OnInit {
   //dummy filter array
-  filterItems: any[] = [
-    faGlassMartini,
-    faArrowRightArrowLeft,
-    faArrowCircleDown,
-    faGlassMartini,
-    faArrowRightArrowLeft,
-    faArrowCircleDown,
-    faGlassMartini,
-    faArrowRightArrowLeft,
-    faArrowCircleDown,
-  ];
-  constructor(public dialog: MatDialog) {}
+  filterItems!: FilterItem[];
+  constructor(
+    public dialog: MatDialog,
+    private filterService: FilterServiceService
+  ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.filterItems = this.filterService.filterItems;
+  }
 
   openDialog() {
     const dialogRef = this.dialog.open(FilterModalComponent);
