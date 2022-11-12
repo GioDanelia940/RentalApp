@@ -10,7 +10,7 @@ h2{
 	display: flex;
 	align-items: center;
 	width: 310px;
-	overflow: hidden;
+	margin-left: 2px;
 }
 
 .place-type-el p {
