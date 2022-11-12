@@ -1,0 +1,32 @@
+h2{
+	font-weight:500;
+}
+
+.place-type-wrapper{
+	display: flex;
+}
+
+.place-type-el{
+	display: flex;
+	align-items: center;
+	width: 310px;
+	margin-left: 2px;
+}
+
+.place-type-el p {
+	margin-left: 9px;
+	margin-bottom: 0;
+}
+
+.place-type-header{
+	color: rgb(34, 34, 34) !important;
+    font-size: 16px !important;
+    line-height: 20px !important;
+	margin-bottom: 0px;
+	margin-bottom: 4px!important;
+}
+
+input[type=checkbox]{
+	height: 24px;
+	min-width: 24px;
+}

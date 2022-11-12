@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,12 +21,12 @@ import { LoginComponent } from './user-account/login/login.component';
 import { RegisterComponent } from './user-account/register/register.component';
 import { FormsModule } from '@angular/forms';
 import {
-  HttpClient,
   HttpClientModule,
   HTTP_INTERCEPTORS,
 } from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { WildCardComponent } from './wild-card/wild-card.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +43,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     UserAccountComponent,
     LoginComponent,
     RegisterComponent,
+    WildCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +52,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent],
