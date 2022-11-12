@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { FilterServiceService } from 'src/app/header/filter/filter-service.service';
 import { Card } from '../card.model';
 
 @Component({
@@ -9,7 +11,15 @@ import { Card } from '../card.model';
 export class CardItemComponent implements OnInit {
   @Input() card!: Card;
   @Input() index!: number;
-  constructor() {}
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private filterService: FilterServiceService
+  ) {}
 
   ngOnInit(): void {}
+  toInnerPage(index: number) {
+    this.router.navigate([index], { relativeTo: this.route });
+    this.filterService.displayed.emit(false);
+  }
 }
