@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FilterServiceService {
-
-  constructor() { }
+  displayed: EventEmitter<Boolean> = new EventEmitter<Boolean>();
+  constructor() {}
 }

@@ -1,6 +1,6 @@
 <nav>
   <mat-toolbar class="header-container">
-    <span style="cursor: pointer;" routerLink="">
+    <span style="cursor: pointer;" (click)="toHomePage()">
       <svg
         xmlns:xlink="http://www.w3.org/1999/xlink"
         xmlns="http://www.w3.org/2000/svg"
@@ -19,8 +19,8 @@
       </svg>
     </span>
     <div class="header-buttons">
-      <button routerLink="login" mat-raised-button color="primary">Log in</button>
-      <button routerLink="register" mat-raised-button color="accent">Register</button>
+      <button (click)="tologin()" mat-raised-button color="primary">Log in</button>
+      <button (click)="toRegister()" mat-raised-button color="accent">Register</button>
     </div>
   </mat-toolbar>
 </nav>
