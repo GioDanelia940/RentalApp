@@ -8,7 +8,7 @@ import { FilterServiceService } from './filter/filter-service.service';
 })
 export class HeaderComponent implements OnInit {
   displayFilter: Boolean = true;
-  constructor(private filterService: FilterServiceService) {}
+  constructor(private filterService: FilterServiceService,) {}
 
   ngOnInit(): void {
     this.filterService.displayed.subscribe((condition: Boolean) => {

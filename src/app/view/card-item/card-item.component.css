@@ -2,11 +2,18 @@
   width: 400px;
   height: 400px;
   margin: 7px;
+  
 }
 .card-img {
   width: 400px;
   height: 300px;
+  border-radius: 4%!important;
 }
 a {
-    text-decoration: none;
+  text-decoration: none;
 }
+
+mat-card{
+  box-shadow: none!important;
+}
+
