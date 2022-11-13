@@ -20,6 +20,5 @@ export class FilterServiceService {
     new FilterItem(faArrowRightArrowLeft, 'placeHolder'),
     new FilterItem(faArrowCircleDown, 'placeHolder'),
   ];
-  displayed: EventEmitter<Boolean> = new EventEmitter<Boolean>();
   constructor() {}
 }
