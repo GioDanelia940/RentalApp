@@ -42,6 +42,7 @@ import { WildCardComponent } from './wild-card/wild-card.component';
     LoginComponent,
     RegisterComponent,
     WildCardComponent
+    
   ],
   imports: [
     BrowserModule,

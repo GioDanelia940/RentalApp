@@ -2,7 +2,7 @@
     width: 650px;
     height: 820px;
     background-color: rgb(230, 237, 237);
-    margin-top: 50px;
+    margin-top: 50px !important;
     border-radius: 15px;
 }
 .container h1{
