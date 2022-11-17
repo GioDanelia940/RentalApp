@@ -14,6 +14,7 @@ export class LoginComponent implements OnInit {
   }
   onFormSubmit(form:NgForm){
     console.log(form);
+    form.reset();
 
   }
 }

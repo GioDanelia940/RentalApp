@@ -15,6 +15,7 @@ export class RegisterComponent implements OnInit {
 
   onFormSubmit(form:NgForm){
     console.log(form)
+    form.reset();
 
   }
 }
