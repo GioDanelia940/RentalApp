@@ -24,6 +24,7 @@ import {
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WildCardComponent } from './wild-card/wild-card.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +41,8 @@ import { WildCardComponent } from './wild-card/wild-card.component';
     UserAccountComponent,
     LoginComponent,
     RegisterComponent,
-    WildCardComponent,
+    WildCardComponent
+    
   ],
   imports: [
     BrowserModule,
