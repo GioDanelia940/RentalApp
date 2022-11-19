@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
+import { PaymentsComponent } from './sharedComponents/payments/payments.component';
 import { LoginComponent } from './user-account/login/login.component';
 import { RegisterComponent } from './user-account/register/register.component';
 import { InnerPgComponent } from './view/inner-pg/inner-pg.component';
@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'view/:id',component:InnerPgComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  {path: 'payments/:id', component:PaymentsComponent},
   //wildcardcomponent should always be at the bottom,
   { path: '**', component: WildCardComponent },
 ];

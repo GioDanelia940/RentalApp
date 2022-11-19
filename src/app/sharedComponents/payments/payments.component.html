@@ -1,1 +1,84 @@
-<p>payments works!</p>
+<article>
+  <header class="header-wrapper">
+    <div class="payments-header">
+      <a class="back-btn" type="button">
+        <svg
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 0 32 32"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-label="Back"
+          role="img"
+          focusable="false"
+          style="
+            display: block;
+            fill: none;
+            height: 16px;
+            width: 16px;
+            stroke: currentcolor;
+            stroke-width: 3;
+            overflow: visible;
+          "
+          width="32"
+          height="32"
+        >
+          <g fill="none" stroke="#222222" stroke-width="3px">
+            <path
+              d="m20 28-11.29289322-11.2928932c-.39052429-.3905243-.39052429-1.0236893 0-1.4142136l11.29289322-11.2928932"
+              stroke="#222222"
+              fill="none"
+              stroke-width="3px"
+            ></path>
+          </g>
+        </svg>
+      </a>
+      <h1>Request to book</h1>
+    </div>
+  </header>
+  <body>
+    <section class="left-side-wrapper">
+      <div class="left-side-container">
+        <div class="your-trip">
+          <h2>Your trip</h2>
+          <div>
+            <h3>Dates</h3>
+            <p>Mar 28 – Apr 2, 2023</p>
+          </div>
+          <div>
+            <h3>Guests</h3>
+            <p>1 guest</p>
+          </div>
+          <hr />
+        </div>
+        <div class="how-to-pay">  
+          <h2>Choose how to pay</h2>
+          <fieldset>
+            <div (click)="inputChecked(inputCheckbox)" [ngClass]="{'active-border':payFull}" class="pay-in-full">
+              <div class="payment-wrapper col-md-12 ">
+                <div class="col-md-11">
+                  <div class="payment-option-title">
+                    <h3>Pay in full</h3>
+                    <p>$3000</p>
+                  </div>
+                  <p class="text-muted">Pay the total now and you're all set</p>
+                </div>
+                <mat-radio-button #inputCheckbox class="col-md-1" value="1" checked></mat-radio-button>
+              </div>
+            </div>
+            <div (click)="inputChecked(inputCheckbox2)" [ngClass]="{'active-border':payPart}" class="pay-in-part ">
+              <div class="payment-wrapper col-md-12 ">
+                <div class="col-md-11">
+                  <div class="payment-option-title">
+                    <h3>Pay in full</h3>
+                    <p>$3000</p>
+                  </div>
+                  <p class="text-muted">Pay the total now and you're all set</p>
+                </div>
+                <mat-radio-button #inputCheckbox2 class="col-md-1" value="2"></mat-radio-button>
+              </div>
+            </div>
+          </fieldset>
+        </div>
+      </div>
+    </section>
+  </body>
+</article>
