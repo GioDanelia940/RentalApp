@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PhoneIndexService } from 'src/app/sharedServices/accountServices/phone-index.service';
 
 @Component({
   selector: 'app-payments',
@@ -8,18 +9,24 @@ import { Component, OnInit } from '@angular/core';
 export class PaymentsComponent implements OnInit {
   payFull: boolean = true;
   payPart: boolean = false;
-  constructor() {}
+  selectedValue!:string
+  phoneIndexArr:any[] = []
+  test!:string
+  constructor(private phoneIndexService: PhoneIndexService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.phoneIndexArr = this.phoneIndexService.phoneIndex
+  }
 
   inputChecked(input: any) {
     if (input.value == 1) {
       this.payFull = true;
       this.payPart = false;
-    }else{
+    } else {
       this.payFull = false;
       this.payPart = true;
     }
     return (input.checked = true);
   }
+
 }

@@ -41,7 +41,7 @@
           <h2>Your trip</h2>
           <div>
             <h3>Dates</h3>
-            <p>Mar 28 – Apr 2, 2023</p>
+            <p>Dec 11 – 16</p>
           </div>
           <div>
             <h3>Guests</h3>
@@ -68,15 +68,36 @@
               <div class="payment-wrapper col-md-12 ">
                 <div class="col-md-11">
                   <div class="payment-option-title">
-                    <h3>Pay in full</h3>
-                    <p>$3000</p>
+                    <h3>Pay part now, part later</h3>
+                    <p>$1500</p>
                   </div>
-                  <p class="text-muted">Pay the total now and you're all set</p>
+                  <p class="text-muted">Pay $1500 now, and the rest ($1500) will be automatically charged to the 
+                    same payment method on Nov 26, 2022. No extra fees.
+                  </p>
                 </div>
                 <mat-radio-button #inputCheckbox2 class="col-md-1" value="2"></mat-radio-button>
               </div>
             </div>
           </fieldset>
+        </div>
+        <hr>
+        <div class="login-register">
+          <h3>Log in or sign up to book</h3>
+          <form>
+            <mat-form-field appearance="outline" >
+              <mat-label>Country/Region</mat-label>
+              <mat-select  [(ngModel)]="selectedValue" name="food">
+                <mat-option *ngFor="let phoneIndex of phoneIndexArr" [value]="phoneIndex.name">
+                  {{phoneIndex.name}} ({{phoneIndex.code}})
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Phone number</mat-label>
+              <input type="number" matInput [(ngModel)]="test">
+            </mat-form-field>
+            <button mat-raised-button color="accent">Continue</button>
+          </form>
         </div>
       </div>
     </section>
