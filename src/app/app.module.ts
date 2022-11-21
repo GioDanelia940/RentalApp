@@ -16,7 +16,7 @@ import { TermsComponent } from './footer/terms/terms.component';
 import { UserAccountComponent } from './user-account/user-account.component';
 import { LoginComponent } from './user-account/login/login.component';
 import { RegisterComponent } from './user-account/register/register.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {
   HttpClientModule,
   HTTP_INTERCEPTORS,
@@ -26,6 +26,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WildCardComponent } from './wild-card/wild-card.component';
 import { ImageSliderComponent } from './sharedComponents/image-slider/image-slider.component';
 import { PaymentsComponent } from './sharedComponents/payments/payments.component';
+import { AccountDetailsComponent } from './user-account/account-details/account-details.component';
+import { OrderHistoryComponent } from './user-account/order-history/order-history.component';
+import { PasswordComponent } from './user-account/password/password.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,10 @@ import { PaymentsComponent } from './sharedComponents/payments/payments.componen
     RegisterComponent,
     WildCardComponent,
     ImageSliderComponent,
-    PaymentsComponent
+    PaymentsComponent,
+    AccountDetailsComponent,
+    OrderHistoryComponent,
+    PasswordComponent
     
   ],
   imports: [
@@ -55,7 +61,8 @@ import { PaymentsComponent } from './sharedComponents/payments/payments.componen
     HttpClientModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],
