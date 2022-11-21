@@ -13,7 +13,15 @@ export class AccountDetailsComponent implements OnInit {
   constructor(private accountService: AccountServiceService) {}
   userDetailForm!: FormGroup;
   ngOnInit(): void {
-    this.user = this.accountService.currentUser;
+    if (localStorage.getItem('user') === null) {
+      localStorage.setItem(
+        'user',
+        JSON.stringify(this.accountService.currentUser)
+      );
+      this.user = JSON.parse(<string>localStorage.getItem('user'));
+    } else {
+      this.user = JSON.parse(<string>localStorage.getItem('user'));
+    }
     this.userDetailForm = new FormGroup({
       firstName: new FormControl(this.user.firstName, [
         Validators.required,
@@ -62,7 +70,6 @@ export class AccountDetailsComponent implements OnInit {
     });
   }
   onSubmit() {
-    console.log(this.userDetailForm);
     this.user.changeValues(
       this.userDetailForm.get('firstName')?.value,
       this.userDetailForm.get('lastName')?.value,
@@ -73,6 +80,5 @@ export class AccountDetailsComponent implements OnInit {
         `cardNumber.${this.userDetailForm.get('card')?.value}`
       )?.value
     );
-    console.log(this.user);
   }
 }
