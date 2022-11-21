@@ -104,7 +104,7 @@ h3{
 }
 
 .login-register{
-	margin-bottom: 800px;
+	margin-bottom: 100px;
 }
 
 .submit-btn{
@@ -119,11 +119,7 @@ h3{
 	width: 560px;
 }
 
-mat-form-field-flex{
-	background-color: white;
-}
-
-::ng-deep .mat-form-field-appearance-fill .mat-form-field-flex {
+.mat-form-field-appearance-fill .mat-form-field-flex {
     background-color: #fff; 
 }
 
@@ -179,4 +175,26 @@ input::-webkit-inner-spin-button {
 	height: 52px;
 	border: 1px solid black;
 	border-radius: 10px;
+}
+
+
+.dynamic-socials-text-wrapper{
+	display: flex !important;
+    align-items: center !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+}
+
+button:active{
+	transform: scale(0.96);
+}
+
+.svg{
+	flex: 0 1 0% !important;
+
+}
+
+.dynamic-socials-text{
+	flex: 1 1 0% !important;
+	margin-bottom: 1px;
 }

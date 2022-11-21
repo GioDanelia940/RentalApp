@@ -104,24 +104,12 @@
           <h3>Log in or sign up to book</h3>
           <form #form="ngForm" (ngSubmit)="onSubmit(form)">
             <mat-form-field appearance="outline">
-              <mat-label>Country/Region</mat-label>
-              <mat-select [(ngModel)]="selectedValue" name="country">
-                <mat-option
-                  *ngFor="let phoneIndex of phoneIndexArr"
-                  [value]="{ name: phoneIndex.name, code: phoneIndex.code }"
-                >
-                  {{ phoneIndex.name }} ({{ phoneIndex.code }})
-                </mat-option>
-              </mat-select>
+              <mat-label>enter you email</mat-label>
+              <input type="email" ngModel matInput name="email" />
             </mat-form-field>
             <mat-form-field appearance="outline">
-              <mat-label>Phone number</mat-label>
-              <input
-                type="number"
-                name="phoneNumber"
-                matInput
-                [(ngModel)]="test"
-              />
+              <mat-label>enter password</mat-label>
+              <input type="password" name="password" matInput ngModel />
             </mat-form-field>
             <button
               class="submit-btn"
@@ -212,32 +200,6 @@
                   fill="#222222"
                 />
               </svg>
-            </button>
-            <button id="dynamicBtn" class="dynamic-socials-button">
-              <div class="text-wrapper">
-                <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g clip-path="url(#clip0_2_19)">
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M22.5 4H1.5C0.67 4 0 4.67 0 5.51V18.5C0 19.33 0.67 20 1.5 20H22.49C22.6887 20.0013 22.8856 19.9632 23.0694 19.8878C23.2532 19.8124 23.4202 19.7012 23.5607 19.5607C23.7012 19.4202 23.8124 19.2532 23.8878 19.0694C23.9632 18.8856 24.0013 18.6887 24 18.49V5.51C24 4.67 23.33 4 22.5 4V4ZM23 18.2L16.86 10.29L23 5.63V18.21V18.2ZM22.17 5L12.48 12.36C12.22 12.56 11.76 12.56 11.5 12.36L1.83 5H22.18H22.17ZM1 5.63L7.14 10.3L1 18.18V5.63ZM1.63 19L7.93 10.9L10.9 13.16C11.52 13.63 12.47 13.63 13.09 13.16L16.06 10.9L22.35 19H1.63Z"
-                    fill="#222222"
-                  />
-                </g>
-                <defs>
-                  <clipPath id="clip0_2_19">
-                    <rect width="24" height="24" fill="white" />
-                  </clipPath>
-                </defs>
-              </svg>
-              <p>continue with email</p>
-              </div>
             </button>
           </div>
         </div>

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { PhoneIndexService } from 'src/app/sharedServices/accountServices/phone-index.service';
 
 @Component({
   selector: 'app-payments',
@@ -12,12 +11,9 @@ export class PaymentsComponent implements OnInit {
   payPart: boolean = false;
   selectedValue!: string;
   phoneIndexArr: any[] = [];
-  test!: string;
-  constructor(private phoneIndexService: PhoneIndexService) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    this.phoneIndexArr = this.phoneIndexService.phoneIndex;
-  }
+  ngOnInit(): void {}
 
   inputChecked(input: any) {
     if (input.value == 1) {
@@ -31,6 +27,6 @@ export class PaymentsComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
-    console.log(form.value)
+    console.log(form.value);
   }
 }
