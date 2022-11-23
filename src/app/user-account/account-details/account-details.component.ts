@@ -22,6 +22,9 @@ export class AccountDetailsComponent implements OnInit {
     } else {
       this.user = JSON.parse(<string>localStorage.getItem('user'));
     }
+    this.accountService.userUpdated.subscribe((updatedUser: User) => {
+      this.user = updatedUser;
+    });
     this.userDetailForm = new FormGroup({
       firstName: new FormControl(this.user.firstName, [
         Validators.required,
@@ -70,15 +73,20 @@ export class AccountDetailsComponent implements OnInit {
     });
   }
   onSubmit() {
-    this.user.changeValues(
-      this.userDetailForm.get('firstName')?.value,
-      this.userDetailForm.get('lastName')?.value,
-      this.userDetailForm.get('country')?.value,
-      this.userDetailForm.get('city')?.value,
-      this.userDetailForm.get('card')?.value,
-      this.userDetailForm.get(
-        `cardNumber.${this.userDetailForm.get('card')?.value}`
-      )?.value
+    this.accountService.updateUser(
+      new User(
+        this.user.email,
+        this.user.password,
+        this.userDetailForm.get('firstName')?.value,
+        this.userDetailForm.get('lastName')?.value,
+        this.userDetailForm.get('country')?.value,
+        this.userDetailForm.get('city')?.value,
+        this.userDetailForm.get('card')?.value,
+        this.userDetailForm.get(
+          `cardNumber.${this.userDetailForm.get('card')?.value}`
+        )?.value
+      )
     );
+    console.log(this.accountService.users);
   }
 }
