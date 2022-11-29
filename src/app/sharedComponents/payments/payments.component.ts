@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { CardServiceService } from 'src/app/view/card-service.service';
 
 @Component({
   selector: 'app-payments',
@@ -11,9 +12,14 @@ export class PaymentsComponent implements OnInit {
   payPart: boolean = false;
   selectedValue!: string;
   phoneIndexArr: any[] = [];
-  constructor() {}
+  cardEl!:any
 
-  ngOnInit(): void {}
+  constructor(private cardService: CardServiceService) {}
+
+  ngOnInit(): void {
+    this.cardEl = this.cardService.getCard(0)
+    console.log(this.cardEl)
+  }
 
   inputChecked(input: any) {
     if (input.value == 1) {

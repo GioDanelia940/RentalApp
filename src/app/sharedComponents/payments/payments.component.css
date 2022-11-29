@@ -1,6 +1,10 @@
 body{
 	margin-top: 30px;
+	display: flex;
+	justify-content: center;
 }
+
+
 
 .header-wrapper{
 	max-width: 1120px;
@@ -38,11 +42,10 @@ h1{
 
 
 .left-side-wrapper{
-	max-width: 1280px;
+	max-width: 680px;
 }
 
 .left-side-container{
-	width: 50%;
 	display: flex;
 	flex-direction: column;
 	padding-left: 80px;
@@ -197,4 +200,78 @@ button:active{
 .dynamic-socials-text{
 	flex: 1 1 0% !important;
 	margin-bottom: 1px;
+}
+
+.right-side-wrapper{
+	margin-left: 90px;
+}
+
+.right-side-card{
+	width: 500px;
+	border: 1px solid rgb(221, 221, 221);
+	border-radius: 12px;
+	padding: 24px;
+	position: sticky;
+	top: 0;
+}
+
+.hotel-info-card{
+	display: flex;
+}
+
+.card-img{
+	max-height: 106px;
+	max-width: 124px;
+	border-radius: 8px;
+	
+}
+
+.card-info{
+	padding-left: 12px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.text-sm{
+	font-size: 12px;
+}
+
+.card-stars{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
+.rating{
+	margin: 0;
+	padding-left: 4px;
+}
+
+.booking-covered{
+	display: flex;
+	align-items: center;
+	text-align: center;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+.booking-covered svg{
+	vertical-align: baseline!important;
+}
+
+.price-header{
+	font-size: 22px;
+	margin-bottom: 24px;
+}
+
+
+.d-flex-j-c-b{
+	display: flex;
+	justify-content: space-between;
+}
+
+.total-fee p{
+	font-weight: bold;
 }
