@@ -9,17 +9,26 @@ import { User } from '../user.model';
   styleUrls: ['./account-details.component.css'],
 })
 export class AccountDetailsComponent implements OnInit {
-  user!: User;
+  user: User = new User(1, '', '', true, '', '', '', '', '', '');
   constructor(private accountService: AccountServiceService) {}
   userDetailForm!: FormGroup;
   ngOnInit(): void {
+    if (localStorage.getItem('user') === null) {
+      localStorage.setItem(
+        'user',
+        JSON.stringify(new User(1, '', '', true, '', '', '', '', '', ''))
+      );
+      this.user = JSON.parse(<string>localStorage.getItem('user'));
+    } else {
+      this.user = JSON.parse(<string>localStorage.getItem('user'));
+    }
     this.userDetailForm = new FormGroup({
-      firstName: new FormControl(this.user.firstName, [
+      firstName: new FormControl(this.user.email, [
         Validators.required,
         Validators.maxLength(50),
         Validators.pattern('^[a-zA-Z ]*$'),
       ]),
-      lastName: new FormControl(this.user.lastName, [
+      lastName: new FormControl(this.user.password, [
         Validators.required,
         Validators.maxLength(50),
         Validators.pattern('^[a-zA-Z ]*$'),
@@ -60,6 +69,5 @@ export class AccountDetailsComponent implements OnInit {
       }),
     });
   }
-  onSubmit() {
-  }
+  onSubmit() {}
 }

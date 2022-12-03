@@ -7,7 +7,6 @@ import { User } from './user.model';
 })
 export class AccountServiceService {
   userUpdated: Subject<User> = new Subject<User>();
-  currentIndex: number = 0;
-
+  userLogged: Subject<boolean> = new Subject<boolean>();
   constructor() {}
 }

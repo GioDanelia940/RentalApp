@@ -11,9 +11,10 @@ import { User } from '../user-account/user.model';
   providedIn: 'root',
 })
 export class FirebaseWorkerService {
+  userData!: any;
   constructor(
     private firestore: AngularFirestore,
-    public auth: AngularFireAuth
+    private auth: AngularFireAuth
   ) {}
 
   signIn(email: string, password: string) {
