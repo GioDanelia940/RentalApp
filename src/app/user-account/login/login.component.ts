@@ -26,7 +26,6 @@ export class LoginComponent implements OnInit {
         console.log('sign in was called');
         result.subscribe((user: any) => {
           localStorage.setItem('user', JSON.stringify(user));
-          this.router.navigate(['']);
           this.accountService.userUpdated.next(
             JSON.parse(<string>localStorage.getItem('user'))
           );

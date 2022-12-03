@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { FirebaseWorkerService } from 'src/app/sharedServices/firebase-worker.service';
+import { AccountServiceService } from '../account-service.service';
 import { User } from '../user.model';
 
 @Component({
@@ -9,7 +11,10 @@ import { User } from '../user.model';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  constructor(private firebaseWorker: FirebaseWorkerService) {}
+  constructor(
+    private firebaseWorker: FirebaseWorkerService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
 
@@ -27,6 +32,8 @@ export class RegisterComponent implements OnInit {
       '',
       ''
     );
-    this.firebaseWorker.signUp(tempUser);
+    this.firebaseWorker.signUp(tempUser).then((Response) => {
+      console.log(Response);
+    });
   }
 }

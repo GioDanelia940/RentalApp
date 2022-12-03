@@ -4,6 +4,7 @@ import {
   AngularFirestore,
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
+import { Router } from '@angular/router';
 import { Observable } from '@firebase/util';
 import { User } from '../user-account/user.model';
 
@@ -14,7 +15,8 @@ export class FirebaseWorkerService {
   userData!: any;
   constructor(
     private firestore: AngularFirestore,
-    private auth: AngularFireAuth
+    private auth: AngularFireAuth,
+    private router: Router
   ) {}
 
   signIn(email: string, password: string) {
@@ -26,6 +28,7 @@ export class FirebaseWorkerService {
             console.log(user);
           }
         });
+        this.router.navigate(['']);
         return this.getUserDoc(result.user?.uid ?? '');
       })
       .catch((error) => {
@@ -38,6 +41,7 @@ export class FirebaseWorkerService {
       .createUserWithEmailAndPassword(user.email, user.password)
       .then((result) => {
         this.setUserDataForSignUp(result.user, user);
+        this.router.navigate(['']);
       })
       .catch((error) => {
         window.alert(error.message);
