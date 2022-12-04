@@ -18,9 +18,13 @@ export class NavigationComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    if (localStorage.getItem('logged') === null) {
+      this.logged = false;
+    } else {
+      this.logged = JSON.parse(<string>localStorage.getItem('logged'));
+    }
     this.accountService.userLogged.subscribe((response) => {
       this.logged = response;
-      console.log(this.logged);
     });
   }
   toHomePage() {
@@ -36,7 +40,7 @@ export class NavigationComponent implements OnInit {
     this.router.navigate(['account']);
   }
   SignOut() {
-    localStorage.removeItem('user');
+    this.firebaseWorker.SignOut();
     this.accountService.userLogged.next(false);
     this.router.navigate(['']);
   }
