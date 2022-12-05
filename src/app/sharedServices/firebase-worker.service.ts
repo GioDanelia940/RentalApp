@@ -9,6 +9,7 @@ import { Observable } from '@firebase/util';
 import { Subscription } from 'rxjs';
 import { AccountServiceService } from '../user-account/account-service.service';
 import { User } from '../user-account/user.model';
+import { getAuth, updatePassword } from 'firebase/auth';
 
 @Injectable({
   providedIn: 'root',
@@ -43,6 +44,7 @@ export class FirebaseWorkerService implements OnDestroy {
             console.log('sign in successful');
             localStorage.setItem('user', JSON.stringify(user));
             localStorage.setItem('logged', JSON.stringify(true));
+            this.accountService.userLogged.next(true);
             this.accountService.userUpdated.next(
               JSON.parse(<string>localStorage.getItem('user'))
             );
@@ -87,7 +89,17 @@ export class FirebaseWorkerService implements OnDestroy {
   getUserDoc(id: string): any {
     return this.firestore.collection('users').doc(id).valueChanges();
   }
-
+  updateFirePassword(newPassword:string) {
+    let auth = getAuth();
+    let currentUser = auth.currentUser;
+    updatePassword(currentUser!, newPassword)
+      .then(() => {
+        console.log('password changed successfully');
+      })
+      .catch((error) => {
+        window.alert(error.message);
+      });
+  }
   setUserDataForSignUp(fireUser: any, user: User) {
     console.log(user);
     const userRef: AngularFirestoreDocument<any> = this.firestore.doc(

@@ -27,7 +27,6 @@ export class LoginComponent implements OnInit, OnDestroy {
       .signIn(form.value.email, form.value.password)
       .then((result) => {
         console.log('sign in was called');
-        this.accountService.userLogged.next(true);
       });
   }
   ngOnDestroy(): void {}
