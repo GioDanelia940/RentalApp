@@ -48,7 +48,6 @@ export class FirebaseWorkerService implements OnDestroy {
             this.accountService.userUpdated.next(
               JSON.parse(<string>localStorage.getItem('user'))
             );
-            this.accountService.userLogged.next(true);
           }
         );
       })
