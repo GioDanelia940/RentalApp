@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PaymentsComponent } from './sharedComponents/payments/payments.component';
+import { AuthGuard } from './sharedServices/accountServices/auth.guard';
 import { AccountDetailsComponent } from './user-account/account-details/account-details.component';
 import { LoginComponent } from './user-account/login/login.component';
 import { OrderHistoryComponent } from './user-account/order-history/order-history.component';
@@ -21,6 +22,7 @@ const routes: Routes = [
   {
     path: 'account',
     component: UserAccountComponent,
+    canActivate: [AuthGuard],
     children: [
       { path: '', redirectTo: 'account-details', pathMatch: 'full' },
       { path: 'account-details', component: AccountDetailsComponent },
