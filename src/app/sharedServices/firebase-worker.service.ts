@@ -88,7 +88,7 @@ export class FirebaseWorkerService implements OnDestroy {
   getUserDoc(id: string): any {
     return this.firestore.collection('users').doc(id).valueChanges();
   }
-  updateFirePassword(newPassword:string) {
+  updateFirePassword(newPassword: string) {
     let auth = getAuth();
     let currentUser = auth.currentUser;
     updatePassword(currentUser!, newPassword)
@@ -119,5 +119,11 @@ export class FirebaseWorkerService implements OnDestroy {
     return userRef.set(userData, {
       merge: true,
     });
+  }
+  update(user: User, id: string) {
+    return this.firestore
+      .collection('users')
+      .doc(user.id)
+      .update(Object.assign({}, user));
   }
 }

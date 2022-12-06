@@ -1,5 +1,5 @@
 export class User {
-  id!: number;
+  id!: string;
   email!: string;
   password!: string;
   verifiedUser!:boolean;
@@ -10,7 +10,7 @@ export class User {
   cardType!: string;
   cardNumber!: string;
   constructor(
-    id: number,
+    id: string,
     email: string,
     password: string,
     verifiedUser:boolean,

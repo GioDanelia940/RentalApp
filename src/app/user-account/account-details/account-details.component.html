@@ -2,7 +2,11 @@
   <div class="d-flex flex-column mt-2 m-lg-2 w-75">
     <mat-form-field appearance="fill">
       <mat-label>first Name</mat-label>
-      <input matInput formControlName="firstName" />
+      <input
+        matInput
+        formControlName="firstName"
+        [readonly]="!changeDetails"
+      />
       <mat-error
         *ngIf="
           userDetailForm.get('firstName')?.invalid &&
@@ -13,7 +17,7 @@
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Last Name</mat-label>
-      <input matInput formControlName="lastName" />
+      <input matInput formControlName="lastName" [readonly]="!changeDetails" />
       <mat-error
         *ngIf="
           userDetailForm.get('lastName')?.invalid &&
@@ -24,7 +28,7 @@
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>Country</mat-label>
-      <input matInput formControlName="country" />
+      <input matInput formControlName="country" [readonly]="!changeDetails" />
       <mat-error
         *ngIf="
           userDetailForm.get('country')?.invalid &&
@@ -35,7 +39,7 @@
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>City</mat-label>
-      <input matInput formControlName="city" />
+      <input matInput formControlName="city" [readonly]="!changeDetails" />
       <mat-error
         *ngIf="
           userDetailForm.get('city')?.invalid &&
@@ -46,7 +50,7 @@
     </mat-form-field>
     <mat-form-field appearance="fill">
       <mat-label>select card</mat-label>
-      <mat-select formControlName="card">
+      <mat-select formControlName="card" [disabled]="!changeDetails">
         <mat-option value="masterCard">master card</mat-option>
         <mat-option value="visa">visa</mat-option>
         <mat-option value="americanExpress">american express</mat-option>
@@ -59,7 +63,11 @@
         style="width: 100%"
       >
         <mat-label>master card</mat-label>
-        <input matInput formControlName="masterCard" />
+        <input
+          matInput
+          formControlName="masterCard"
+          [readonly]="!changeDetails"
+        />
         <mat-error
           *ngIf="
             userDetailForm.get('cardNumber.masterCard')?.invalid &&
@@ -74,7 +82,7 @@
         style="width: 100%"
       >
         <mat-label>visa</mat-label>
-        <input matInput formControlName="visa" />
+        <input matInput formControlName="visa" [readonly]="!changeDetails" />
         <mat-error
           *ngIf="
             userDetailForm.get('cardNumber.visa')?.invalid &&
@@ -89,7 +97,11 @@
         style="width: 100%"
       >
         <mat-label>American Express</mat-label>
-        <input matInput formControlName="americanExpress" />
+        <input
+          matInput
+          formControlName="americanExpress"
+          [readonly]="!changeDetails"
+        />
         <mat-error
           *ngIf="
             userDetailForm.get('cardNumber.americanExpress')?.invalid &&
@@ -103,12 +115,33 @@
   <div class="d-flex justify-content-center">
     <button
       mat-raised-button
+      color="primary"
+      type="button"
+      style="width: 10rem"
+      (click)="changeToggle()"
+      *ngIf="!changeDetails"
+    >
+      change
+    </button>
+    <button
+      mat-raised-button
       color="accent"
       type="submit"
       style="width: 10rem"
       [disabled]="!userDetailForm.valid || !userDetailForm.touched"
+      *ngIf="changeDetails"
     >
       apply
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      type="button"
+      style="width: 10rem; margin-left: 10px"
+      (click)="changeToggle()"
+      *ngIf="changeDetails"
+    >
+      cancel
     </button>
   </div>
 </form>

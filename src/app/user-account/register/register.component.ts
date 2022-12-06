@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
   onFormSubmit(form: NgForm) {
     console.log(form);
     let tempUser: User = new User(
-      1,
+      '1',
       form.value.email,
       form.value.password,
       true,
