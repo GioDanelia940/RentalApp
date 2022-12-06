@@ -26,6 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { WildCardComponent } from './wild-card/wild-card.component';
 import { ImageSliderComponent } from './sharedComponents/image-slider/image-slider.component';
 import { PaymentsComponent } from './sharedComponents/payments/payments.component';
+import { PrivacyComponent } from './footer/privacy/privacy.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { PaymentsComponent } from './sharedComponents/payments/payments.componen
     RegisterComponent,
     WildCardComponent,
     ImageSliderComponent,
-    PaymentsComponent
+    PaymentsComponent,
+    PrivacyComponent
     
   ],
   imports: [

@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
+import { ContactUsComponent } from './footer/contact-us/contact-us.component';
+import { PrivacyComponent } from './footer/privacy/privacy.component';
+import { TermsComponent } from './footer/terms/terms.component';
 import { LoginComponent } from './user-account/login/login.component';
 import { RegisterComponent } from './user-account/register/register.component';
 import { InnerPgComponent } from './view/inner-pg/inner-pg.component';
@@ -13,8 +16,13 @@ const routes: Routes = [
   { path: 'view/:id',component:InnerPgComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'contact', component:ContactUsComponent},
+  { path: 'privacy', component:PrivacyComponent},
+  { path: 'terms' , component:TermsComponent},
   //wildcardcomponent should always be at the bottom,
   { path: '**', component: WildCardComponent },
+  
+
 ];
 
 @NgModule({
