@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CardServiceService } from './card-service.service';
-import { Card } from './card.model';
+import { ApiServiceService } from '../sharedServices/cardApiService/api-service.service';
 
 @Component({
   selector: 'app-view',
@@ -8,10 +7,12 @@ import { Card } from './card.model';
   styleUrls: ['./view.component.css'],
 })
 export class ViewComponent implements OnInit {
-  cards!: Card[];
-  constructor(private cardService: CardServiceService) {}
+  cards!: any[];
+  constructor(private http:ApiServiceService) {}
 
   ngOnInit(): void {
-    this.cards = this.cardService.cards;
+   this.http.getAllHotels().subscribe(response => this.cards = response)
   }
+
+  
 }
