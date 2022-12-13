@@ -7,9 +7,8 @@
       class="card-img"
     />
     <mat-card-content>
-      <mat-card-title>{{ card.name }}</mat-card-title>
-      <mat-card-subtitle>{{ card.distance }} km away</mat-card-subtitle>
-      <mat-card-subtitle>{{ card.price }}$ - night</mat-card-subtitle>
+      <mat-card-title>{{ card.city }}, {{card.country}}</mat-card-title>
+      <mat-card-subtitle>{{ card.rooms[0].price }}$ - night</mat-card-subtitle>
     </mat-card-content>
   </mat-card>
 </a>
