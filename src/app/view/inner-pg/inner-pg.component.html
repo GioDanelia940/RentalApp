@@ -1,3 +1,49 @@
-<h1>this is inner page for cards</h1>
-<img src="{{ card.img }}" alt="" />
-<p>{{ card.country }}</p>
+<div class="container">
+  <div class="d-flex flex-column" style="margin-top: 25px">
+    <div>
+      <h1 style="font-size: 30px; font-weight: 500">{{ card.name }}</h1>
+    </div>
+    <div class="d-flex justify-content-between" style="font-size: 15px">
+      <div
+        class="d-flex justify-content-evenly align-items-center"
+        style="width: 30%"
+      >
+        <span>
+          <span>
+            <span style="margin-right: 5px">
+              <fa-icon [icon]="faPerson"></fa-icon>
+            </span>
+          </span>
+          <span>Superhost</span>
+        </span>
+        <span>·</span>
+        <span>
+          <span style="text-decoration: underline; font-weight: 500">
+            {{ card.address }}
+          </span>
+        </span>
+      </div>
+      <div class="d-flex justify-content-center" style="width: 20%">
+        <span class="share-button d-flex align-items-center p-2">
+          <span>
+            <span style="margin-right: 5px">
+              <fa-icon [icon]="faArrowUpFromBracket"></fa-icon>
+            </span>
+          </span>
+          <span>share</span>
+        </span>
+        <span class="share-button d-flex align-items-center p-2">
+          <span>
+            <span style="margin-right: 5px">
+              <fa-icon [icon]="faHeart"></fa-icon>
+            </span>
+          </span>
+          <span>save</span>
+        </span>
+      </div>
+    </div>
+  </div>
+  <div class="image-slider">
+    <img src="{{ card.rooms[0].images[0] }}" alt="" />
+  </div>
+</div>
