@@ -9,10 +9,6 @@ export class ApiServiceService {
 
   constructor(private http: HttpClient) { }
 
-  getAllCategory():Observable<any>{
-    const categoryApi ='http://airbnb-dev.us-east-1.elasticbeanstalk.com/api/Category'
-    return this.http.get(categoryApi)
-  }
 
   getAllHotels():Observable<any>{
     const hotelApi ='http://airbnb-dev.us-east-1.elasticbeanstalk.com/api/Hotel'
@@ -24,7 +20,5 @@ export class ApiServiceService {
     return this.http.get(hotelById)
   }
 
-  filterByCategory(){
-
-  }
+  
 }

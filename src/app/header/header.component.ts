@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-header',
@@ -7,14 +8,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
+  testSubject :Subject<boolean> = new Subject<boolean>()
+  checkHeader:boolean = true
   constructor(private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.testSubject.subscribe(response => this.checkHeader = response)
+  }
   checkDisplay() {
-    if (this.router.url == '/view') {
+    if (this.router.url.substring(0,5) == '/view' && this.router.url.length == 5) {
+      this.testSubject.next(true)
       return true;
-    } else {
-      return false;
+    } else if(this.router.url.substring(0,6) == '/view?') {
+      this.testSubject.next(true)
+      return true;
+    }else{
+      this.testSubject.next(false)
+      return false
     }
   }
 }

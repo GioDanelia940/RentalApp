@@ -1,22 +1,21 @@
-import { Injectable, EventEmitter } from '@angular/core';
-import {
-  faArrowCircleDown,
-  faArrowRightArrowLeft,
-  faGlassMartini,
-} from '@fortawesome/free-solid-svg-icons';
-import { FilterItem } from './filterItem.model';
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
 export class FilterServiceService {
-  filterItems: FilterItem[] = [
-    new FilterItem(faGlassMartini, 'placeHolder'),
-    new FilterItem(faArrowRightArrowLeft, 'placeHolder'),
-    new FilterItem(faArrowCircleDown, 'placeHolder'),
-    new FilterItem(faGlassMartini, 'placeHolder'),
-    new FilterItem(faArrowRightArrowLeft, 'placeHolder'),
-    new FilterItem(faArrowCircleDown, 'placeHolder'),
-    new FilterItem(faGlassMartini, 'placeHolder'),
-  ];
-  constructor() {}
+ 
+  constructor(private http:HttpClient) {}
+
+  getAllCategory():Observable<any>{
+    const categoryApi ='http://airbnb-dev.us-east-1.elasticbeanstalk.com/api/Category'
+    return this.http.get(categoryApi)
+  }
+
+  filterByCategoryId(id:string){
+    const api = `http://airbnb-dev.us-east-1.elasticbeanstalk.com/api/Hotel/filter-by-category?Id=${id}`  
+    return this.http.get(api)
+  }
+  
 }
