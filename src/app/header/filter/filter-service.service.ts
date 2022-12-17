@@ -17,8 +17,6 @@ export class FilterServiceService {
     new FilterItem(faArrowRightArrowLeft, 'placeHolder'),
     new FilterItem(faArrowCircleDown, 'placeHolder'),
     new FilterItem(faGlassMartini, 'placeHolder'),
-    new FilterItem(faArrowRightArrowLeft, 'placeHolder'),
-    new FilterItem(faArrowCircleDown, 'placeHolder'),
   ];
   constructor() {}
 }

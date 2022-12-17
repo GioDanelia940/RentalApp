@@ -9,7 +9,7 @@ export class ApiServiceService {
 
   constructor(private http: HttpClient) { }
 
-  getCategory():Observable<any>{
+  getAllCategory():Observable<any>{
     const categoryApi ='http://airbnb-dev.us-east-1.elasticbeanstalk.com/api/Category'
     return this.http.get(categoryApi)
   }
