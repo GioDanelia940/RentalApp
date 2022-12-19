@@ -23,7 +23,6 @@ export class FilterComponent implements OnInit {
 
   openDialog() {
     const dialogRef = this.dialog.open(FilterModalComponent);
-
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
     });

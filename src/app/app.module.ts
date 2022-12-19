@@ -30,6 +30,7 @@ import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AmenitiesModalComponent } from './view/inner-pg/amenities-modal/amenities-modal.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     AccountDetailsComponent,
     PasswordComponent,
     OrderHistoryComponent,
+    AmenitiesModalComponent,
   ],
   imports: [
     BrowserModule,
