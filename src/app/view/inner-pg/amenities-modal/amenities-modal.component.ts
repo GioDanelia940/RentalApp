@@ -17,8 +17,8 @@ export class AmenitiesModalComponent implements OnInit {
   faXmark: any = faXmark;
   offers!: any;
   constructor(
-    public dialogRef: MatDialogRef<AmenitiesModalComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    private dialogRef: MatDialogRef<AmenitiesModalComponent>,
+    @Inject(MAT_DIALOG_DATA) private data: any
   ) {}
 
   ngOnInit(): void {

@@ -110,11 +110,41 @@
           Every booking includes free protection from Host cancellations,
           listing inaccuracies, and other issues like trouble checking in.
         </div>
+        <div>
+          <button
+            style="
+              text-decoration: underline;
+              margin-top: 10px;
+              font-size: 16px;
+              font-weight: 500;
+              background-color: white;
+              border: none;
+            "
+            (click)="openDialogAircover()"
+          >
+            Learn more
+          </button>
+        </div>
       </div>
       <hr />
       <div style="margin: 35px 0">
         <h1>Description</h1>
-        <p>{{ card.description }}</p>
+        <p>{{ makeSubstring(card.description) }}</p>
+        <div *ngIf="card.description.length > 500">
+          <button
+            style="
+              text-decoration: underline;
+              margin-top: 10px;
+              font-size: 16px;
+              font-weight: 500;
+              background-color: white;
+              border: none;
+            "
+            (click)="openDialogDescription(card.description)"
+          >
+            Learn more
+          </button>
+        </div>
       </div>
       <hr />
       <div class="d-flex flex-column" style="margin: 35px 0">
@@ -130,7 +160,7 @@
         </div>
         <button
           class="mn-button"
-          (click)="openDialog(card.placeOffers)"
+          (click)="openDialogAmenities(card.placeOffers)"
         >
           Show all {{ card.placeOffers.length }} Amenities
         </button>

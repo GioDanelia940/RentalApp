@@ -12,6 +12,8 @@ import {
 import { faHeart, faCalendar } from '@fortawesome/free-regular-svg-icons';
 import { MatDialog } from '@angular/material/dialog';
 import { AmenitiesModalComponent } from './amenities-modal/amenities-modal.component';
+import { AircoverModalComponent } from './aircover-modal/aircover-modal.component';
+import { DescriptionModalComponent } from './description-modal/description-modal.component';
 @Component({
   selector: 'app-inner-pg',
   templateUrl: './inner-pg.component.html',
@@ -62,7 +64,7 @@ export class InnerPgComponent implements OnInit {
     });
     return baths;
   }
-  openDialog(offers: any): void {
+  openDialogAmenities(offers: any): void {
     const dialogRef = this.dialog.open(AmenitiesModalComponent, {
       width: '780px',
       height: '800px',
@@ -71,5 +73,27 @@ export class InnerPgComponent implements OnInit {
     dialogRef.afterClosed().subscribe((result) => {
       console.log(`Dialog result: ${result}`);
     });
+  }
+  openDialogAircover(): void {
+    const dialogRef = this.dialog.open(AircoverModalComponent, {
+      width: '1000px',
+      height: '500px',
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  openDialogDescription(text: string): void {
+    const dialogRef = this.dialog.open(DescriptionModalComponent, {
+      width: '1000px',
+      data: { text: text },
+    });
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
+  makeSubstring(text: String) {
+    let newText = text.substring(0, 500);
+    return newText.substring(0, newText.lastIndexOf(' '));
   }
 }

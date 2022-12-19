@@ -31,6 +31,8 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { AmenitiesModalComponent } from './view/inner-pg/amenities-modal/amenities-modal.component';
+import { AircoverModalComponent } from './view/inner-pg/aircover-modal/aircover-modal.component';
+import { DescriptionModalComponent } from './view/inner-pg/description-modal/description-modal.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +57,8 @@ import { AmenitiesModalComponent } from './view/inner-pg/amenities-modal/ameniti
     PasswordComponent,
     OrderHistoryComponent,
     AmenitiesModalComponent,
+    AircoverModalComponent,
+    DescriptionModalComponent,
   ],
   imports: [
     BrowserModule,
