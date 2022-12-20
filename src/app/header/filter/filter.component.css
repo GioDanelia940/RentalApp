@@ -58,7 +58,7 @@ p-carousel p{
 }
 
 ::ng-deep .p-carousel-items-content{
-	width: 1500px!important;
+	width: 1510px!important;
 	text-align: center;
   border-bottom: 1px solid transparent!important;
 }
@@ -67,9 +67,14 @@ p{
 	margin: 0;
 }
 
-::ng-deep .p-carousel-next{
-	margin-left: -25px!important;
+
+
+::ng-deep .p-carousel-prev{
+	margin-right: -10px!important;
 	margin-top: -10px!important;
 }
 
+::ng-deep .p-disabled{
+  visibility: hidden!important;
+}
 
