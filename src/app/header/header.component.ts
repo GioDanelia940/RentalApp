@@ -11,10 +11,12 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {}
   checkDisplay() {
-    if (this.router.url == '/view') {
+    if (this.router.url.substring(0,5) == '/view' && this.router.url.length < 7) {
       return true;
-    } else {
-      return false;
+    } else if(this.router.url.substring(0,6) == '/view?') {
+      return true;
+    }else{
+      return false
     }
   }
 }

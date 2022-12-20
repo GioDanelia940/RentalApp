@@ -34,6 +34,9 @@ import { AmenitiesModalComponent } from './view/inner-pg/amenities-modal/ameniti
 import { AircoverModalComponent } from './view/inner-pg/aircover-modal/aircover-modal.component';
 import { DescriptionModalComponent } from './view/inner-pg/description-modal/description-modal.component';
 
+import {CarouselModule} from 'primeng/carousel';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,6 +75,7 @@ import { DescriptionModalComponent } from './view/inner-pg/description-modal/des
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
+    CarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent],

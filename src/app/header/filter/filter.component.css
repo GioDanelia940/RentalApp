@@ -1,17 +1,18 @@
 .icon-container {
-  border-top: 1px solid rgba(192, 192, 192, 0.5);
   background-color: white;
+  margin-top: 20px;
 }
 
 .filter-icons {
-  display: flex;
+  /* display: flex;
   justify-content: center;
   align-items: center;
-  padding: 5px;
+  padding: 5px; */
   border-bottom: 1px solid transparent;
   transition: all 0.3s;
   cursor: pointer;
 }
+
 
 .filter-icons:hover {
   border-bottom: 1px solid black;
@@ -23,9 +24,52 @@
   width: 115px;
   height: 50px;
 }
+
 .inner-box {
   display: flex;
-  width: 100%;
+  width: 86%;
   box-sizing: border-box;
   flex-direction: row;
+  margin-left: 15px;
 }
+
+
+img{
+	width: 24px;
+	height: 24px;
+}
+
+p-carousel button{
+	border: none;
+  border-bottom: 1px solid transparent !important;
+  transition: all 0.3s;
+	background: none;
+	cursor: pointer;
+}
+
+p-carousel button:hover{
+  border-bottom: 1px solid #DDDD!important;
+
+}
+
+p-carousel p{
+  font-size: 12px!important;
+  color: #717171;
+}
+
+::ng-deep .p-carousel-items-content{
+	width: 1500px!important;
+	text-align: center;
+  border-bottom: 1px solid transparent!important;
+}
+
+p{
+	margin: 0;
+}
+
+::ng-deep .p-carousel-next{
+	margin-left: -25px!important;
+	margin-top: -10px!important;
+}
+
+

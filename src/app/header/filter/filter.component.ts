@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FilterModalComponent } from './filter-modal/filter-modal.component';
 import { FilterServiceService } from './filter-service.service';
-import { FilterItem } from './filterItem.model';
 
 @Component({
   selector: 'app-filter',
@@ -10,15 +10,17 @@ import { FilterItem } from './filterItem.model';
   styleUrls: ['./filter.component.css'],
 })
 export class FilterComponent implements OnInit {
-  //dummy filter array
-  filterItems!: FilterItem[];
+  filterCat!: any[];
   constructor(
     public dialog: MatDialog,
-    private filterService: FilterServiceService
+    public router: Router,
+    public route: ActivatedRoute,
+    public http:FilterServiceService
   ) {}
 
   ngOnInit(): void {
-    this.filterItems = this.filterService.filterItems;
+    this.http.getAllCategory().subscribe(response => this.filterCat = response)
+    
   }
 
   openDialog() {
@@ -27,4 +29,16 @@ export class FilterComponent implements OnInit {
       console.log(`Dialog result: ${result}`);
     });
   }
+
+  setQueryParams(id: string) {
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: {
+        Id: id,
+      },
+    });
+  }
+
+ 
+
 }

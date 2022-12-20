@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { FilterServiceService } from '../header/filter/filter-service.service';
 import { ApiServiceService } from '../sharedServices/cardApiService/api-service.service';
 
 @Component({
@@ -8,10 +10,16 @@ import { ApiServiceService } from '../sharedServices/cardApiService/api-service.
 })
 export class ViewComponent implements OnInit {
   cards!: any[];
-  constructor(private http:ApiServiceService) {}
+  constructor(private http:ApiServiceService, private route:ActivatedRoute,private filterS:FilterServiceService) {}
 
   ngOnInit(): void {
-   this.http.getAllHotels().subscribe(response => this.cards = response)
+    this.route.queryParams.subscribe((response) => {
+      if (response['Id']) {
+        this.filterS.filterByCategoryId(response['Id']).subscribe((response:any) => this.cards = response);
+      } else {
+        this.http.getAllHotels().subscribe((response) => this.cards = response);
+      }
+    });
   }
 
   

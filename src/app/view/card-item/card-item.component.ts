@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Card } from '../card.model';
 
 @Component({
   selector: 'app-card-item',
@@ -13,6 +12,7 @@ export class CardItemComponent implements OnInit {
   constructor(private router: Router, private route: ActivatedRoute) {}
 
   ngOnInit(): void {
+
   }
 
   toInnerPage(index: number) {
