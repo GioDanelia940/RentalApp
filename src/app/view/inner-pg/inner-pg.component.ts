@@ -5,6 +5,7 @@ import { CardServiceService } from '../card-service.service';
 import { Card } from '../card.model';
 import {
   faStar,
+  faChildren,
   faPerson,
   faMedal,
   faArrowUpFromBracket,
@@ -27,6 +28,7 @@ export class InnerPgComponent implements OnInit {
   faStar: any = faStar;
   faMedal: any = faMedal;
   faCalendar: any = faCalendar;
+  faChildren: any = faChildren;
   constructor(
     private dialog: MatDialog,
     private cardService: CardServiceService,
@@ -59,10 +61,21 @@ export class InnerPgComponent implements OnInit {
   bathRoomCount(room: Array<any>): number {
     let baths = 0;
     room.forEach((bedroom) => {
-      console.log(parseInt(bedroom.bedsCount));
       baths += bedroom.bathRoomsCount;
     });
     return baths;
+  }
+  childPolicy(rooms: Array<any>) {
+    let text: string = 'Children are not allowed, ';
+    rooms.forEach((element, index) => {
+      if (element.childPolicy == true) {
+        if (text === 'Children are not allowed, ') {
+          text = 'Children are allowed in : ';
+        }
+        text += `room ${index + 1}, `;
+      }
+    });
+    return text.substring(0, text.length - 2);
   }
   openDialogAmenities(offers: any): void {
     const dialogRef = this.dialog.open(AmenitiesModalComponent, {
