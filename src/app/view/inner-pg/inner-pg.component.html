@@ -1,5 +1,4 @@
-
-<div class="container" style="height: 2000px">
+<div class="container" style="height: 3000px">
   <div class="d-flex flex-column" style="margin-top: 25px">
     <div>
       <h1 style="font-size: 30px; font-weight: 500">{{ card.name }}</h1>
@@ -106,10 +105,9 @@
           </div>
           <div class="d-flex flex-column">
             <div style="margin-left: 15px; font-size: 20px; font-weight: 400">
-              {{childPolicy(card.rooms)}}
+              {{ childPolicy(card.rooms) }}
             </div>
           </div>
-          
         </div>
       </div>
       <hr />
@@ -178,6 +176,29 @@
         </button>
       </div>
     </div>
-    <div></div>
+    <hr />
+    <div style="margin: 25px 0">
+      <div class="d-flex">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR8jHWqdlzhWF9BkKJeGpw2nHlImVzgnL2blQMl77LPpcbNbmAPdLKo2wXWXrXrWx4Tnio&usqp=CAU"
+          style="height: 55px; width: 55px; border-radius: 50%"
+        />
+        <h1 style="margin-left: 20px; margin-top: 5px">
+          Hosted by {{ card.hostInformation.hostName }}
+        </h1>
+      </div>
+      <div class="d-flex" style="margin: 15px 10px; font-size: 16px">
+        <fa-icon [icon]="faUserCheck"></fa-icon>
+        <p style="margin-left: 8px">Identity verified</p>
+        <fa-icon [icon]="faMedal" style="margin-left: 8px"></fa-icon>
+        <p style="margin-left: 8px">Superhost</p>
+      </div>
+      <div style="margin: 17px 8px">
+        <p style="font-size: 20px">Contact Information</p>
+        <p>Phone number : {{ card.hostInformation.phoneNumber }}</p>
+        <p>Email Address : {{ card.hostInformation.emailAddress }}</p>
+      </div>
+    </div>
+    <hr />
   </div>
 </div>

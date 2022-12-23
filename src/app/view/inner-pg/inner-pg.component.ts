@@ -4,6 +4,7 @@ import { ApiServiceService } from 'src/app/sharedServices/cardApiService/api-ser
 import { CardServiceService } from '../card-service.service';
 import { Card } from '../card.model';
 import {
+  faUserCheck,
   faStar,
   faChildren,
   faPerson,
@@ -29,6 +30,7 @@ export class InnerPgComponent implements OnInit {
   faMedal: any = faMedal;
   faCalendar: any = faCalendar;
   faChildren: any = faChildren;
+  faUserCheck: any = faUserCheck;
   constructor(
     private dialog: MatDialog,
     private cardService: CardServiceService,
