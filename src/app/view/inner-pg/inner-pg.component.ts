@@ -117,4 +117,11 @@ export class InnerPgComponent implements OnInit {
     }
     return text;
   }
+  getAllImages(rooms: Array<any>) {
+    let images:Array<string> = [];
+    rooms.forEach(room => {
+      images = [...images, ...room.images];
+    })
+    return images;
+  }
 }

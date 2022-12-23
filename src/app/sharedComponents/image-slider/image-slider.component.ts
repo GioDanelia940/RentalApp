@@ -3,14 +3,11 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
   selector: 'app-image-slider',
   templateUrl: './image-slider.component.html',
-  styleUrls: ['./image-slider.component.css']
+  styleUrls: ['./image-slider.component.css'],
 })
 export class ImageSliderComponent implements OnInit {
-
-  constructor() { }
+  constructor() {}
   @Input() sliderImages!: string[];
-
-  ngOnInit(): void {
-  }
-
+  @Input() height!: string;
+  ngOnInit(): void {}
 }

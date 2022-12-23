@@ -8,6 +8,10 @@
   width: 400px;
   height: 300px;
   border-radius: 4%!important;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(45, 44, 44);
+  object-fit: fill;
 }
 a {
   text-decoration: none;
