@@ -38,6 +38,14 @@ import {CarouselModule} from 'primeng/carousel';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { MapComponent } from './view/inner-pg/map/map.component';
 import { InnerPgFooterComponent } from './view/inner-pg/inner-pg-footer/inner-pg-footer.component';
+<<<<<<< HEAD
+import { PrivacyComponent } from './footer/privacy/privacy.component';
+import { CalendarComponent } from './sharedComponents/calendar/calendar.component';
+=======
+import { GoogleMapsModule } from '@angular/google-maps';
+import { MapComponent } from './view/inner-pg/map/map.component';
+import { InnerPgFooterComponent } from './view/inner-pg/inner-pg-footer/inner-pg-footer.component';
+>>>>>>> master
 
 
 @NgModule({
@@ -67,6 +75,16 @@ import { InnerPgFooterComponent } from './view/inner-pg/inner-pg-footer/inner-pg
     DescriptionModalComponent,
     MapComponent,
     InnerPgFooterComponent,
+<<<<<<< HEAD
+    PrivacyComponent,
+    CalendarComponent,
+=======
+    AmenitiesModalComponent,
+    AircoverModalComponent,
+    DescriptionModalComponent,
+    MapComponent,
+    InnerPgFooterComponent,
+>>>>>>> master
   ],
   imports: [
     BrowserModule,
