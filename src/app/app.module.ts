@@ -35,6 +35,9 @@ import { AircoverModalComponent } from './view/inner-pg/aircover-modal/aircover-
 import { DescriptionModalComponent } from './view/inner-pg/description-modal/description-modal.component';
 
 import {CarouselModule} from 'primeng/carousel';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { MapComponent } from './view/inner-pg/map/map.component';
+import { InnerPgFooterComponent } from './view/inner-pg/inner-pg-footer/inner-pg-footer.component';
 <<<<<<< HEAD
 import { PrivacyComponent } from './footer/privacy/privacy.component';
 import { CalendarComponent } from './sharedComponents/calendar/calendar.component';
@@ -67,6 +70,11 @@ import { InnerPgFooterComponent } from './view/inner-pg/inner-pg-footer/inner-pg
     AccountDetailsComponent,
     PasswordComponent,
     OrderHistoryComponent,
+    AmenitiesModalComponent,
+    AircoverModalComponent,
+    DescriptionModalComponent,
+    MapComponent,
+    InnerPgFooterComponent,
 <<<<<<< HEAD
     PrivacyComponent,
     CalendarComponent,
