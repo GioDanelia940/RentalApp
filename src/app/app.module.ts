@@ -30,7 +30,14 @@ import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AmenitiesModalComponent } from './view/inner-pg/amenities-modal/amenities-modal.component';
+import { AircoverModalComponent } from './view/inner-pg/aircover-modal/aircover-modal.component';
+import { DescriptionModalComponent } from './view/inner-pg/description-modal/description-modal.component';
+
 import {CarouselModule} from 'primeng/carousel';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { MapComponent } from './view/inner-pg/map/map.component';
+import { InnerPgFooterComponent } from './view/inner-pg/inner-pg-footer/inner-pg-footer.component';
 
 
 @NgModule({
@@ -55,6 +62,11 @@ import {CarouselModule} from 'primeng/carousel';
     AccountDetailsComponent,
     PasswordComponent,
     OrderHistoryComponent,
+    AmenitiesModalComponent,
+    AircoverModalComponent,
+    DescriptionModalComponent,
+    MapComponent,
+    InnerPgFooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -67,6 +79,7 @@ import {CarouselModule} from 'primeng/carousel';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
+    GoogleMapsModule,
     AngularFirestoreModule,
     CarouselModule
   ],
