@@ -122,6 +122,6 @@ export class InnerPgComponent implements OnInit {
     rooms.forEach(room => {
       images = [...images, ...room.images];
     })
-    return images;
+    return images.length>30 ? images.slice(0,30) : images;
   }
 }
