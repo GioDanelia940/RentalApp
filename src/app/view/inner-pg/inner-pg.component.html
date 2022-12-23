@@ -16,7 +16,7 @@
           </span>
           <span>{{ card.starCount }}.0</span>
         </span>
-        <span>·</span>
+        <span style="margin: 0 5px">·</span>
         <span>
           <span>
             <span style="margin-right: 5px">
@@ -25,7 +25,7 @@
           </span>
           <span>Superhost</span>
         </span>
-        <span>·</span>
+        <span style="margin: 0 5px">·</span>
         <span>
           <span style="text-decoration: underline; font-weight: 500">
             {{ card.city }},{{ card.country }}
@@ -180,7 +180,9 @@
     <div style="margin-top: 35px">
       <h1>Where you'll be</h1>
       <app-map [lat]="card.latitude" [lng]="card.longitude"> </app-map>
-      <div style="margin: 20px 0 5px 10px; font-size: 18px; font-weight: 500;">{{ card.city }},{{ card.country }}</div>
+      <div style="margin: 20px 0 5px 10px; font-size: 18px; font-weight: 500">
+        {{ card.city }},{{ card.country }}
+      </div>
     </div>
     <hr />
     <div style="margin: 25px 0">
