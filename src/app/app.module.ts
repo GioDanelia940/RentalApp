@@ -35,6 +35,8 @@ import { AircoverModalComponent } from './view/inner-pg/aircover-modal/aircover-
 import { DescriptionModalComponent } from './view/inner-pg/description-modal/description-modal.component';
 
 import {CarouselModule} from 'primeng/carousel';
+import { GoogleMapsModule } from '@angular/google-maps';
+import { MapComponent } from './view/inner-pg/map/map.component';
 
 
 @NgModule({
@@ -62,6 +64,7 @@ import {CarouselModule} from 'primeng/carousel';
     AmenitiesModalComponent,
     AircoverModalComponent,
     DescriptionModalComponent,
+    MapComponent,
   ],
   imports: [
     BrowserModule,
@@ -74,6 +77,7 @@ import {CarouselModule} from 'primeng/carousel';
     ReactiveFormsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
+    GoogleMapsModule,
     AngularFirestoreModule,
     CarouselModule
   ],

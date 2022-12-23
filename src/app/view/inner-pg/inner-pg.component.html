@@ -1,5 +1,5 @@
 <div class="container" style="height: 3000px">
-  <div class="d-flex flex-column" style="margin-top: 25px">
+  <section class="d-flex flex-column" style="margin-top: 25px">
     <div>
       <h1 style="font-size: 30px; font-weight: 500">{{ card.name }}</h1>
     </div>
@@ -51,11 +51,11 @@
         </span>
       </div>
     </div>
-  </div>
-  <div class="image-slider">
+  </section>
+  <section class="image-slider">
     <img src="{{ card.rooms[0].images[0] }}" alt="" />
-  </div>
-  <div class="d-flex flex-column" style="margin-top: 40px">
+  </section>
+  <section class="d-flex flex-column" style="margin-top: 40px">
     <div style="width: 70%; margin-left: 10px">
       <div class="d-flex justify-content-between align-items-center">
         <div class="d-flex flex-column" style="margin: 15px 0">
@@ -177,6 +177,11 @@
       </div>
     </div>
     <hr />
+    <div style="margin: 35px 0">
+      <h1>Where you'll be</h1>
+      <app-map [lat]="card.latitude" [lng]="card.longitude"> </app-map>
+    </div>
+    <hr />
     <div style="margin: 25px 0">
       <div class="d-flex">
         <img
@@ -200,5 +205,5 @@
       </div>
     </div>
     <hr />
-  </div>
+  </section>
 </div>
