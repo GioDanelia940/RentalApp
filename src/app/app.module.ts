@@ -30,6 +30,8 @@ import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import {GalleriaModule} from 'primeng/galleria';
+
 import { AmenitiesModalComponent } from './view/inner-pg/amenities-modal/amenities-modal.component';
 import { AircoverModalComponent } from './view/inner-pg/aircover-modal/aircover-modal.component';
 import { DescriptionModalComponent } from './view/inner-pg/description-modal/description-modal.component';
@@ -89,7 +91,8 @@ import { CalendarComponent } from './sharedComponents/calendar/calendar.componen
     AngularFireAuthModule,
     GoogleMapsModule,
     AngularFirestoreModule,
-    CarouselModule
+    CarouselModule,
+    GalleriaModule
   ],
   providers: [],
   bootstrap: [AppComponent],
