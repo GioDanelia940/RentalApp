@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ContactUsComponent } from './footer/contact-us/contact-us.component';
+import { PrivacyComponent } from './footer/privacy/privacy.component';
+import { TermsComponent } from './footer/terms/terms.component';
 import { PaymentsComponent } from './sharedComponents/payments/payments.component';
 import { AuthGuard } from './sharedServices/accountServices/auth.guard';
 import { AccountDetailsComponent } from './user-account/account-details/account-details.component';
@@ -18,6 +21,9 @@ const routes: Routes = [
   { path: 'view/:id', component: InnerPgComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
+  { path: 'contact', component:ContactUsComponent},
+  { path: 'privacy', component:PrivacyComponent},
+  { path: 'terms' , component:TermsComponent},
   { path: 'payments/:id', component: PaymentsComponent },
   {
     path: 'account',
