@@ -37,6 +37,7 @@ import { DescriptionModalComponent } from './view/inner-pg/description-modal/des
 import {CarouselModule} from 'primeng/carousel';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { MapComponent } from './view/inner-pg/map/map.component';
+import { InnerPgFooterComponent } from './view/inner-pg/inner-pg-footer/inner-pg-footer.component';
 
 
 @NgModule({
@@ -65,6 +66,7 @@ import { MapComponent } from './view/inner-pg/map/map.component';
     AircoverModalComponent,
     DescriptionModalComponent,
     MapComponent,
+    InnerPgFooterComponent,
   ],
   imports: [
     BrowserModule,

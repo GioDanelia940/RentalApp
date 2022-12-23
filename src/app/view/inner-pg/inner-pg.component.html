@@ -1,4 +1,4 @@
-<div class="container" style="height: 3000px">
+<div class="container" style="min-height: 2800px">
   <section class="d-flex flex-column" style="margin-top: 25px">
     <div>
       <h1 style="font-size: 30px; font-weight: 500">{{ card.name }}</h1>
@@ -6,7 +6,7 @@
     <div class="d-flex justify-content-between" style="font-size: 15px">
       <div
         class="d-flex justify-content-evenly align-items-center"
-        style="width: 30%"
+        style="min-width: 15%"
       >
         <span>
           <span>
@@ -28,7 +28,7 @@
         <span>·</span>
         <span>
           <span style="text-decoration: underline; font-weight: 500">
-            {{ card.address }}
+            {{ card.city }},{{ card.country }}
           </span>
         </span>
       </div>
@@ -177,9 +177,10 @@
       </div>
     </div>
     <hr />
-    <div style="margin: 35px 0">
+    <div style="margin-top: 35px">
       <h1>Where you'll be</h1>
       <app-map [lat]="card.latitude" [lng]="card.longitude"> </app-map>
+      <div style="margin: 20px 0 5px 10px; font-size: 18px; font-weight: 500;">{{ card.city }},{{ card.country }}</div>
     </div>
     <hr />
     <div style="margin: 25px 0">
@@ -204,6 +205,6 @@
         <p>Email Address : {{ card.hostInformation.emailAddress }}</p>
       </div>
     </div>
-    <hr />
   </section>
 </div>
+<app-inner-pg-footer></app-inner-pg-footer>
