@@ -30,7 +30,9 @@ import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import {CarouselModule} from 'primeng/carousel';
+import {CarouselModule,} from 'primeng/carousel';
+import {GalleriaModule} from 'primeng/galleria';
+
 
 
 @NgModule({
@@ -68,7 +70,8 @@ import {CarouselModule} from 'primeng/carousel';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    CarouselModule
+    CarouselModule,
+    GalleriaModule
   ],
   providers: [],
   bootstrap: [AppComponent],
