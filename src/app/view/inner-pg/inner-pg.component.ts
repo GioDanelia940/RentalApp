@@ -111,4 +111,10 @@ export class InnerPgComponent implements OnInit {
     let newText = text.substring(0, 500);
     return newText.substring(0, newText.lastIndexOf(' '));
   }
+  hostName(text: string) {
+    if (text.substring(0, 6) == 'Hosted') {
+      return text.substring(10, text.length);
+    }
+    return text;
+  }
 }
