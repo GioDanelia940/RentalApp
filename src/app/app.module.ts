@@ -42,6 +42,7 @@ import { MapComponent } from './view/inner-pg/map/map.component';
 import { InnerPgFooterComponent } from './view/inner-pg/inner-pg-footer/inner-pg-footer.component';
 import { PrivacyComponent } from './footer/privacy/privacy.component';
 import { CalendarComponent } from './sharedComponents/calendar/calendar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -92,7 +93,8 @@ import { CalendarComponent } from './sharedComponents/calendar/calendar.componen
     GoogleMapsModule,
     AngularFirestoreModule,
     CarouselModule,
-    GalleriaModule
+    GalleriaModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent],
