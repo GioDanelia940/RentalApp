@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class FilterModalComponent implements OnInit {
   form!:any
 
-  roomsButton = ['Any', 1, 2, 3, 4, 5, 6, 7, '8+'];
+  roomsButton = ['Any', 1, 2, 3, 4, 5, 6, 7, '8'];
   propertyType = ['Home', 'Villa'];
   typeOfPlace = ['private room', 'Entire place'];
   Essentials = [
