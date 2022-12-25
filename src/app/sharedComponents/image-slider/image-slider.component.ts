@@ -9,7 +9,5 @@ export class ImageSliderComponent implements OnInit {
   constructor() {}
   @Input() sliderImages!: string[];
   @Input() height!: string;
-  @Input() width!: string;
-
   ngOnInit(): void {}
 }
