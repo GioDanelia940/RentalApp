@@ -13,11 +13,11 @@ export class ViewComponent implements OnInit {
   constructor(private http:ApiServiceService, private route:ActivatedRoute,private filterS:FilterServiceService) {}
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe((response) => {
-      if (response['Id']) {
-        this.filterS.filterByCategoryId(response['Id']).subscribe((response:any) => this.cards = response);
+    this.route.queryParams.subscribe((params) => {
+      if (params['Id']) {
+        this.filterS.filterByCategoryId(params['Id']).subscribe((response:any) => this.cards = response);
       } else {
-        this.http.getAllHotels().subscribe((response) => this.cards = response);
+        this.filterS.getByAllCategory(params).subscribe((response:any) => this.cards = response)
       }
     });
   }

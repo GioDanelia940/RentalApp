@@ -25,31 +25,38 @@
   height: 50px;
 }
 
-.inner-box {
-  display: flex;
-  width: 86%;
-  box-sizing: border-box;
-  flex-direction: row;
-  margin-left: 15px;
-}
-
 
 img{
 	width: 24px;
 	height: 24px;
 }
 
+p-carousel{
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: row;
+  margin-left: 15px;
+  width: 87%;
+  margin-left: 15px;
+  text-align: center;
+}
+
+
+
 p-carousel button{
 	border: none;
-  border-bottom: 1px solid transparent !important;
+  border-bottom: 2px solid transparent !important;
   transition: all 0.3s;
 	background: none;
 	cursor: pointer;
 }
 
 p-carousel button:hover{
-  border-bottom: 1px solid #DDDD!important;
+  border-bottom: 2px solid #DDDD!important;
+}
 
+p-carousel button:focus{
+  border-bottom: 2px solid black!important;
 }
 
 p-carousel p{
@@ -58,7 +65,7 @@ p-carousel p{
 }
 
 ::ng-deep .p-carousel-items-content{
-	width: 1510px!important;
+	width: 40%!important;
 	text-align: center;
   border-bottom: 1px solid transparent!important;
 }
