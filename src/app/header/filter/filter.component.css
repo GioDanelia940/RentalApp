@@ -41,8 +41,6 @@ p-carousel{
   text-align: center;
 }
 
-
-
 p-carousel button{
 	border: none;
   border-bottom: 2px solid transparent !important;
@@ -65,7 +63,7 @@ p-carousel p{
 }
 
 ::ng-deep .p-carousel-items-content{
-	width: 40%!important;
+	width: 100%!important;
 	text-align: center;
   border-bottom: 1px solid transparent!important;
 }
@@ -73,8 +71,6 @@ p-carousel p{
 p{
 	margin: 0;
 }
-
-
 
 ::ng-deep .p-carousel-prev{
 	margin-right: -10px!important;

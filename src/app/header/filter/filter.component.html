@@ -1,6 +1,5 @@
 <mat-toolbar class="icon-container">
-  
-    <p-carousel  [value]="filterCat" [showIndicators]="false" [numVisible]="16" [numScroll]="16" >
+    <p-carousel style="display:block" [value]="filterCat" [showIndicators]="false" [numVisible]="16" [numScroll]="16" >
       <ng-template  let-product pTemplate="item">
         <button (click)="setQueryParams(product.id)" >
           <img src="{{product.icon}}"  class="product-image" />
@@ -8,7 +7,6 @@
         </button>
       </ng-template>
     </p-carousel>
-
   <button class="modal-btn" mat-button (click)="openDialog()">
     <svg
       xmlns:xlink="http://www.w3.org/1999/xlink"
