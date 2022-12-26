@@ -1,1 +1,23 @@
-<p>image-slider works!</p>
+<p-galleria
+  [value]="sliderImages"
+  [containerStyle]="{
+    display: 'flex',
+    margin: 'auto'
+  }"
+  [numVisible]="5"
+  [circular]="true"
+  [showItemNavigators]="true"
+  [showThumbnails]="false"
+  [showIndicators]="true"
+  [showItemNavigatorsOnHover]="true"
+  [showIndicatorsOnItem]="true"
+>
+  <ng-template pTemplate="item" let-item>
+    <img
+      [src]="item"
+      style="display: block"
+      [style.height]="height"
+      [style.width]="width"
+    />
+  </ng-template>
+</p-galleria>
