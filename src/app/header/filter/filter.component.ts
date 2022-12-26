@@ -24,10 +24,11 @@ export class FilterComponent implements OnInit {
   }
 
   openDialog() {
-    const dialogRef = this.dialog.open(FilterModalComponent);
+    const dialogRef = this.dialog.open(FilterModalComponent,{
+      maxWidth:'42vw'
+    });
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
     });
   }
 

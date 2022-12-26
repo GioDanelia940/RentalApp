@@ -58,7 +58,7 @@ hr{
 ::ng-deep .mat-button-toggle{
 	font-size: 12px!important;
 	background-color: white;
-	min-width: 90px!important;
+	min-width: 70px!important;
 	border: 1px solid rgb(34, 34, 34)!important;
 	border-radius: 30px!important;
 }
@@ -117,6 +117,24 @@ mat-button-toggle-group{
 	align-items: flex-start;
 }
 
-.test{
-	padding: 4px 0;
+.price-input-width {
+	min-width: 150px;
+  	max-width: 600px;
+}
+
+.price-input-wrapper{
+	display: flex;
+	align-items: center;
+	text-align: center;
+	width: inherit;
+}
+
+::ng-deep.price-input-wrapper .mat-form-field-wrapper {
+	padding: 0!important;
+}
+
+.price-input-container{
+	display: flex;
+	justify-content: center;
+	width: 100%;
 }

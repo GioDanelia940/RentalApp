@@ -1,6 +1,23 @@
 <h2 mat-dialog-title>Filter</h2>
 <form [formGroup]="form" (ngSubmit)="onSubmit()">
   <mat-dialog-content class="mat-typography">
+    <div>
+      <h2>Select price range</h2>
+      <div class="price-input-container">
+        <div class="price-input-wrapper">
+          <mat-form-field appearance="outline" class="price-input-width">
+            <mat-label>min price(USD)</mat-label>
+            <input matInput placeholder="10" formControlName="priceFrom" />
+          </mat-form-field>
+          <span> — </span>
+          <mat-form-field appearance="outline" class="price-input-width">
+            <mat-label>max price(USD</mat-label>
+            <input formControlName="priceTo" matInput placeholder="300" />
+          </mat-form-field>
+        </div>
+      </div>
+    </div>
+    <hr />
     <h2>Type of place</h2>
     <div class="place-type-wrapper">
       <mat-form-field appearance="outline">
@@ -94,7 +111,6 @@
           <div *ngFor="let item of Essentials" class="pd-4">
             <input
               (click)="handleAmenities($event)"
-
               type="checkbox"
               value="{{ item }}"
               id="{{ item }}"
@@ -111,7 +127,6 @@
           <div *ngFor="let item of features" class="pd-4">
             <input
               (click)="handleAmenities($event)"
-
               type="checkbox"
               value="{{ item }}"
               id="{{ item }}"
@@ -128,7 +143,6 @@
           <div *ngFor="let item of location" class="pd-4">
             <input
               (click)="handleAmenities($event)"
-
               type="checkbox"
               value="{{ item }}"
               id="{{ item }}"
@@ -145,7 +159,6 @@
           <div *ngFor="let item of safety" class="pd-4">
             <input
               (click)="handleAmenities($event)"
-
               type="checkbox"
               value="{{ item }}"
               id="{{ item }}"

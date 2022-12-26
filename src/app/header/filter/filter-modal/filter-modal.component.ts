@@ -8,7 +8,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./filter-modal.component.css'],
 })
 export class FilterModalComponent implements OnInit {
-  form!:any
+  form!: any;
 
   roomsButton = ['Any', 1, 2, 3, 4, 5, 6, 7, '8'];
   propertyType = ['Home', 'Villa'];
@@ -44,7 +44,7 @@ export class FilterModalComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private fb:FormBuilder
+    private fb: FormBuilder
   ) {}
 
   ngOnInit(): void {
@@ -95,14 +95,13 @@ export class FilterModalComponent implements OnInit {
 
   onSubmit() {
     let formValue = this.form.value;
-
     let jsonObj = JSON.stringify(formValue, (key, value) => {
       if (value !== null && value !== 'Any') {
         return value;
       }
     });
 
-    let filteredObj = JSON.parse(jsonObj);  
+    let filteredObj = JSON.parse(jsonObj);
 
     this.router.navigate([], {
       relativeTo: this.route,
