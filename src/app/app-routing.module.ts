@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { ContactUsComponent } from './footer/contact-us/contact-us.component';
 import { PrivacyComponent } from './footer/privacy/privacy.component';
 import { TermsComponent } from './footer/terms/terms.component';
+import { CalendarComponent } from './sharedComponents/calendar/calendar.component';
 import { PaymentsComponent } from './sharedComponents/payments/payments.component';
 import { AuthGuard } from './sharedServices/accountServices/auth.guard';
 import { AccountDetailsComponent } from './user-account/account-details/account-details.component';
@@ -24,6 +25,7 @@ const routes: Routes = [
   { path: 'contact', component:ContactUsComponent},
   { path: 'privacy', component:PrivacyComponent},
   { path: 'terms' , component:TermsComponent},
+  { path: 'calendar' , component:CalendarComponent},
   { path: 'payments/:id', component: PaymentsComponent },
   {
     path: 'account',
