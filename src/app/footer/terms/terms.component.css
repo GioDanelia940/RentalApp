@@ -1,5 +1,5 @@
 a{
-    text-decoration: none;
+    text-decoration: underline !important;
   }
   h1{
     font-size: 3rem;
