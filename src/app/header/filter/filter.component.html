@@ -1,5 +1,5 @@
 <mat-toolbar class="icon-container">
-    <p-carousel style="display:block" [value]="filterCat" [showIndicators]="false" [numVisible]="16" [numScroll]="16" >
+    <p-carousel [value]="filterCat" [showIndicators]="false" [numVisible]="16" [numScroll]="16" >
       <ng-template  let-product pTemplate="item">
         <button (click)="setQueryParams(product.id)" >
           <img src="{{product.icon}}"  class="product-image" />
