@@ -19,6 +19,6 @@ export class CalendarComponent implements OnInit {
   
   
    submitdata(){
-     this.dataEvent.emit.(this.value);
+     //this.dataEvent.emit(this.value);
    }
 }
