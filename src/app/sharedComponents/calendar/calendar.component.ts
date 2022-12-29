@@ -22,4 +22,4 @@ export class CalendarComponent implements OnInit {
     this.dataEvent.emit(this.dateRange);
   }
 
-}
+
