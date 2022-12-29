@@ -124,7 +124,8 @@ export class InnerPgComponent implements OnInit {
     })
     return images.length>30 ? images.slice(0,30) : images;
   }
-  takedata($event: any) {
-      console.log(Date)
+  
+  takedata(event: any) {
+      console.log(event)
   }
 }

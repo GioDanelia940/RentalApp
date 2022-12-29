@@ -1,11 +1,10 @@
 <div class="field ">
 	<p-calendar 
-	[(ngModel)]="value"
-	(click)="submitdata()"
+	[(ngModel)]="dateRange"
+	(onSelect)="submitdata()"
 	  [numberOfMonths]="2"
 	  [inline]="true" 
 	  selectionMode="range"
 	  inputId="multiplemonths">
 	</p-calendar>
-	
 </div>
