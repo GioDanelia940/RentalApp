@@ -15,9 +15,15 @@ export class OrderHistoryComponent implements OnInit {
     new Order('ef4ce06a-bb68-47bb-9c06-1e9b6e39ce8f', 2, 500),
     new Order('ef4ce06a-bb68-47bb-9c06-1e9b6e39ce8f', 2, 500),
   ];
+  hotels!: any[];
   constructor(private http: ApiServiceService) {}
 
   ngOnInit(): void {
-
+    this.http.getAllHotels().subscribe((response: any) => {
+      this.hotels = response;
+    });
+  }
+  getHotelById(id: string) {
+    return this.hotels.filter((hotel) => hotel.id == id)[0];
   }
 }
