@@ -9,8 +9,8 @@ import { Data } from '@angular/router';
   styleUrls: ['./calendar.component.css']
 })
 export class CalendarComponent implements OnInit {
-  @Output () dataEvent =new EventEmitter<string>();
-  public value!: Date;
+  @Output () dataEvent =new EventEmitter<Date[]>();
+  public dateRange!: Date [];
   
   constructor() { }
 
@@ -18,7 +18,8 @@ export class CalendarComponent implements OnInit {
   }
   
   
-   submitdata(){
-     //this.dataEvent.emit(this.value);
-   }
-}
+  submitdata(){
+    this.dataEvent.emit(this.dateRange);
+  }
+
+
