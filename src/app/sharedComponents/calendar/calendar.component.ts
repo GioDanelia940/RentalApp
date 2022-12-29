@@ -10,10 +10,12 @@ import { Data } from '@angular/router';
 export class CalendarComponent implements OnInit {
   @Output() dataEvent = new EventEmitter<Date[]>();
   public dateRange!: Date[];
-
+  minDate!:Date
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.minDate = new Date()
+  }
 
   submitdata() {
     this.dataEvent.emit(this.dateRange);
