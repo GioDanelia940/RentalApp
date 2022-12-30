@@ -1,4 +1,5 @@
-<div class="d-flex flex-column">
+<div *ngIf="orders!=undefined">
+  <div class="d-flex flex-column">
   <div
     class="d-flex justify-content-between"
     *ngFor="let order of orders"
@@ -35,4 +36,6 @@
       price {{ order.price }}$
     </div>
   </div>
+</div>
+
 </div>

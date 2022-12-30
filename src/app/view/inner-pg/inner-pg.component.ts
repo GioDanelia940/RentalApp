@@ -42,7 +42,6 @@ export class InnerPgComponent implements OnInit {
     this.route.params.subscribe((params: Params) => {
       this.ApiService.getHotelById(params['id']).subscribe((result) => {
         this.card = result;
-        console.log(this.card);
       });
     });
   }
