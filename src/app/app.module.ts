@@ -43,6 +43,12 @@ import { InnerPgFooterComponent } from './view/inner-pg/inner-pg-footer/inner-pg
 import { PrivacyComponent } from './footer/privacy/privacy.component';
 import { CalendarComponent } from './sharedComponents/calendar/calendar.component';
 import {CalendarModule} from 'primeng/calendar';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { ReservationComponent } from './view/inner-pg/reservation/reservation.component';
+import { MatNativeDateModule } from '@angular/material/core';
+import {InputNumberModule} from 'primeng/inputnumber';
+
+
 
 @NgModule({
   declarations: [
@@ -78,6 +84,7 @@ import {CalendarModule} from 'primeng/calendar';
     DescriptionModalComponent,
     MapComponent,
     InnerPgFooterComponent,
+    ReservationComponent,
   ],
   imports: [
     BrowserModule,
@@ -94,7 +101,10 @@ import {CalendarModule} from 'primeng/calendar';
     AngularFirestoreModule,
     CarouselModule,
     GalleriaModule,
-    CalendarModule
+    CalendarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    InputNumberModule
   ],
   providers: [],
   bootstrap: [AppComponent],

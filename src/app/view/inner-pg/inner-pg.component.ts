@@ -38,6 +38,7 @@ export class InnerPgComponent implements OnInit {
     private ApiService: ApiServiceService
   ) {}
 
+   
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
       this.ApiService.getHotelById(params['id']).subscribe((result) => {
@@ -46,6 +47,7 @@ export class InnerPgComponent implements OnInit {
       });
     });
   }
+
   personCount(room: Array<any>): number {
     let persons = 0;
     room.forEach((bedroom) => {
@@ -126,5 +128,9 @@ export class InnerPgComponent implements OnInit {
   }
   takedata($event: any) {
       console.log(Date)
+  }
+
+  getCardPrice(){
+    return Number(this.card.rooms[0].price);
   }
 }
