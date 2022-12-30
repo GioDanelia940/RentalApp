@@ -20,4 +20,8 @@ export class CalendarComponent implements OnInit {
   submitdata() {
     this.dataEvent.emit(this.dateRange);
   }
+
+
 }
+
+

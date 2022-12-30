@@ -43,6 +43,7 @@ import { InnerPgFooterComponent } from './view/inner-pg/inner-pg-footer/inner-pg
 import { PrivacyComponent } from './footer/privacy/privacy.component';
 import { CalendarComponent } from './sharedComponents/calendar/calendar.component';
 import {CalendarModule} from 'primeng/calendar';
+import { OrderModalComponent } from './user-account/order-history/order-modal/order-modal.component';
 
 @NgModule({
   declarations: [
@@ -78,6 +79,7 @@ import {CalendarModule} from 'primeng/calendar';
     DescriptionModalComponent,
     MapComponent,
     InnerPgFooterComponent,
+    OrderModalComponent,
   ],
   imports: [
     BrowserModule,
