@@ -123,7 +123,7 @@
       font-size: 16px;
     "
   >
-    <span *ngIf="true">
+    <span *ngIf="reserveDetailForm.get('range')?.get('end')?.value!=null">
       {{
         ((reserveDetailForm.get("range")?.get("start")?.value.getTime() -
           reserveDetailForm.get("range")?.get("end")?.value.getTime()) /
@@ -135,7 +135,7 @@
     </span>
   </p>
   <p style="float: right; margin-top: -30px; font-size: 16px">
-    <span *ngIf="true">
+    <span *ngIf="reserveDetailForm.get('range')?.get('end')?.value!=null">
       {{
         (((reserveDetailForm.get("range")?.get("start")?.value.getTime() -
           reserveDetailForm.get("range")?.get("end")?.value.getTime()) /
@@ -172,7 +172,7 @@
   <p
     style="float: right; margin-top: -30px; font-size: 16px; font-weight: bold"
   >
-    <span *ngIf="true">
+    <span *ngIf="reserveDetailForm.get('range')?.get('end')?.value!=null">
       {{
         (((reserveDetailForm.get("range")?.get("start")?.value.getTime() -
           reserveDetailForm.get("range")?.get("end")?.value.getTime()) /
