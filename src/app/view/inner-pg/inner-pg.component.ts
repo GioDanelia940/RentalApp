@@ -38,7 +38,6 @@ export class InnerPgComponent implements OnInit {
     private ApiService: ApiServiceService
   ) {}
 
-   
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
       this.ApiService.getHotelById(params['id']).subscribe((result) => {
@@ -120,17 +119,21 @@ export class InnerPgComponent implements OnInit {
     return text;
   }
   getAllImages(rooms: Array<any>) {
-    let images:Array<string> = [];
-    rooms.forEach(room => {
+    let images: Array<string> = [];
+    rooms.forEach((room) => {
       images = [...images, ...room.images];
-    })
-    return images.length>30 ? images.slice(0,30) : images;
+    });
+    return images.length > 30 ? images.slice(0, 30) : images;
   }
   takedata($event: any) {
-      console.log(Date)
+    console.log(Date);
   }
 
-  getCardPrice(){
-    return Number(this.card.rooms[0].price);
+  getCardPrice(room: Array<any>) : number {
+    let price = 0;
+    room.forEach((bedroom) => {
+      price += bedroom.price;
+    });
+    return price;
   }
 }

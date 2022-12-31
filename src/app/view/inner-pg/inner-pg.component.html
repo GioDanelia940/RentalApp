@@ -184,18 +184,19 @@
       </div>
       <div>
         <div style="height: 400px; width: 375px; margin: 20px 60px">
-          <app-reservation [payOnDay]="getCardPrice()"></app-reservation>
+          <app-reservation
+            [maxGuestCount]="personCount(card.rooms)"
+            [payOnDay]="getCardPrice(card.rooms)"
+          ></app-reservation>
         </div>
       </div>
     </div>
     <hr />
     <div style="margin-top: 35px">
-      <h1 style="margin: 0px 0 15x 0px; ">
-        {{ card.city }},{{ card.country }}
-      </h1>
+      <h1 style="margin: 0px 0 15x 0px">{{ card.city }},{{ card.country }}</h1>
       <app-calendar (dataEvent)="takedata($event)"> </app-calendar>
     </div>
-    <hr/>
+    <hr />
     <div style="margin-top: 35px">
       <h1>Where you'll be</h1>
       <app-map [lat]="card.latitude" [lng]="card.longitude"> </app-map>
