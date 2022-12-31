@@ -19,7 +19,6 @@
         <mat-datepicker-toggle
           matIconSuffix
           [for]="picker"
-          
         ></mat-datepicker-toggle>
         <mat-date-range-picker #picker></mat-date-range-picker>
       </mat-form-field>
@@ -123,25 +122,23 @@
       font-size: 16px;
     "
   >
-    <span *ngIf="reserveDetailForm.get('range')?.get('end')?.value!=null">
+    <span *ngIf="reserveDetailForm.get('range')?.get('end')?.value != null">
       {{
-        ((reserveDetailForm.get("range")?.get("start")?.value.getTime() -
-          reserveDetailForm.get("range")?.get("end")?.value.getTime()) /
-          (1000 * 3600 * 24)) *
-          -1 +
-          1
+        getRange(
+          reserveDetailForm.get("range")?.get("start")?.value,
+          reserveDetailForm.get("range")?.get("end")?.value
+        )
       }}
       * {{ payOnDay }}
     </span>
   </p>
   <p style="float: right; margin-top: -30px; font-size: 16px">
-    <span *ngIf="reserveDetailForm.get('range')?.get('end')?.value!=null">
+    <span *ngIf="reserveDetailForm.get('range')?.get('end')?.value != null">
       {{
-        (((reserveDetailForm.get("range")?.get("start")?.value.getTime() -
-          reserveDetailForm.get("range")?.get("end")?.value.getTime()) /
-          (1000 * 3600 * 24)) *
-          -1 +
-          1) *
+        getRange(
+          reserveDetailForm.get("range")?.get("start")?.value,
+          reserveDetailForm.get("range")?.get("end")?.value
+        )*
           payOnDay
       }}
     </span>
@@ -172,13 +169,12 @@
   <p
     style="float: right; margin-top: -30px; font-size: 16px; font-weight: bold"
   >
-    <span *ngIf="reserveDetailForm.get('range')?.get('end')?.value!=null">
+    <span *ngIf="reserveDetailForm.get('range')?.get('end')?.value != null">
       {{
-        (((reserveDetailForm.get("range")?.get("start")?.value.getTime() -
-          reserveDetailForm.get("range")?.get("end")?.value.getTime()) /
-          (1000 * 3600 * 24)) *
-          -1 +
-          1) *
+        getRange(
+          reserveDetailForm.get("range")?.get("start")?.value,
+          reserveDetailForm.get("range")?.get("end")?.value
+        ) *
           payOnDay
       }}
     </span>
