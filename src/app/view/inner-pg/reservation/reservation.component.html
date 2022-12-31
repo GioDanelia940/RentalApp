@@ -134,12 +134,11 @@
   </p>
   <p style="float: right; margin-top: -30px; font-size: 16px">
     <span *ngIf="reserveDetailForm.get('range')?.get('end')?.value != null">
-      {{
+      ${{
         getRange(
           reserveDetailForm.get("range")?.get("start")?.value,
           reserveDetailForm.get("range")?.get("end")?.value
-        )*
-          payOnDay
+        ) * payOnDay
       }}
     </span>
   </p>
@@ -153,7 +152,7 @@
   >
     Hospitality fees
   </p>
-  <p style="float: right; margin-top: -30px; font-size: 16px">$263</p>
+  <p style="float: right; margin-top: -30px; font-size: 16px">$163</p>
   <hr />
   <p
     style="
@@ -170,12 +169,13 @@
     style="float: right; margin-top: -30px; font-size: 16px; font-weight: bold"
   >
     <span *ngIf="reserveDetailForm.get('range')?.get('end')?.value != null">
-      {{
+      ${{
         getRange(
           reserveDetailForm.get("range")?.get("start")?.value,
           reserveDetailForm.get("range")?.get("end")?.value
         ) *
-          payOnDay
+          payOnDay +
+          163
       }}
     </span>
   </p>
