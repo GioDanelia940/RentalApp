@@ -2,23 +2,26 @@ import { DatePipe } from '@angular/common';
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Data } from '@angular/router';
 
-
 @Component({
   selector: 'app-calendar',
   templateUrl: './calendar.component.html',
-  styleUrls: ['./calendar.component.css']
+  styleUrls: ['./calendar.component.css'],
 })
 export class CalendarComponent implements OnInit {
-  @Output () dataEvent =new EventEmitter<string>();
-  public value!: Date;
-  
-  constructor() { }
+  @Output() dataEvent = new EventEmitter<Date[]>();
+  public dateRange!: Date[];
+  minDate!:Date
+  constructor() {}
 
   ngOnInit(): void {
+    this.minDate = new Date()
   }
-  
-  
-   submitdata(){
-     //this.dataEvent.emit(this.value);
-   }
+
+  submitdata() {
+    this.dataEvent.emit(this.dateRange);
+  }
+
+
 }
+
+

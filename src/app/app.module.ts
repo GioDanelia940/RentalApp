@@ -50,6 +50,8 @@ import {InputNumberModule} from 'primeng/inputnumber';
 
 
 
+import { OrderModalComponent } from './user-account/order-history/order-modal/order-modal.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -85,6 +87,7 @@ import {InputNumberModule} from 'primeng/inputnumber';
     MapComponent,
     InnerPgFooterComponent,
     ReservationComponent,
+    OrderModalComponent,
   ],
   imports: [
     BrowserModule,

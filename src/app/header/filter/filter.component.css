@@ -13,7 +13,6 @@
   cursor: pointer;
 }
 
-
 .filter-icons:hover {
   border-bottom: 1px solid black;
 }
@@ -25,13 +24,12 @@
   height: 50px;
 }
 
-
-img{
-	width: 24px;
-	height: 24px;
+img {
+  width: 24px;
+  height: 24px;
 }
 
-p-carousel{
+p-carousel {
   display: block;
   box-sizing: border-box;
   flex-direction: row;
@@ -41,43 +39,42 @@ p-carousel{
   text-align: center;
 }
 
-p-carousel button{
-	border: none;
+p-carousel button {
+  border: none;
   border-bottom: 2px solid transparent !important;
   transition: all 0.3s;
-	background: none;
-	cursor: pointer;
+  background: none;
+  cursor: pointer;
 }
 
-p-carousel button:hover{
-  border-bottom: 2px solid #DDDD!important;
+p-carousel button:hover {
+  border-bottom: 2px solid #dddd !important;
 }
 
-p-carousel button:focus{
-  border-bottom: 2px solid black!important;
+p-carousel button:focus {
+  border-bottom: 2px solid black !important;
 }
 
-p-carousel p{
-  font-size: 12px!important;
+p-carousel p {
+  font-size: 12px !important;
   color: #717171;
 }
 
-::ng-deep .p-carousel-items-content{
-	width: 100%!important;
-	text-align: center;
-  border-bottom: 1px solid transparent!important;
+::ng-deep .p-carousel-items-content {
+  width: 100% !important;
+  text-align: center;
+  border-bottom: 1px solid transparent !important;
 }
 
-p{
-	margin: 0;
+p {
+  margin: 0;
 }
 
-::ng-deep .p-carousel-prev{
-	margin-right: -10px!important;
-	margin-top: -10px!important;
+::ng-deep .p-carousel-prev {
+  margin-right: -10px !important;
+  margin-top: -10px !important;
 }
 
-::ng-deep .p-disabled{
-  visibility: hidden!important;
+::ng-deep .icon-container .p-disabled {
+  visibility: hidden !important;
 }
-
