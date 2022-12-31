@@ -1,0 +1,186 @@
+<div class="reservation">
+  <p style="font-weight: bold; font-size: 16px">{{ payOnDay }}$ night</p>
+  <form [formGroup]="reserveDetailForm" (ngSubmit)="onSubmit()">
+    <div class="datarange">
+      <mat-form-field appearance="fill">
+        <mat-label>Check In - Checkout</mat-label>
+        <mat-date-range-input
+          formGroupName="range"
+          [rangePicker]="picker"
+          [min]="minDate"
+        >
+          <input
+            matStartDate
+            formControlName="start"
+            placeholder="Start date"
+          />
+          <input matEndDate formControlName="end" placeholder="End date" />
+        </mat-date-range-input>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+          
+        ></mat-datepicker-toggle>
+        <mat-date-range-picker #picker></mat-date-range-picker>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Guests</mat-label>
+        <mat-select disableRipple>
+          <mat-option disabled value="1"
+            >Adults
+            <p style="margin-top: -20px">Age 13+</p>
+            <div style="display: flex; float: right; margin-top: -60px">
+              <p-inputNumber
+                [min]="0"
+                [max]="maxGuestCount"
+                formControlName="adults"
+                [showButtons]="true"
+                buttonLayout="horizontal"
+                spinnerMode="horizontal"
+                inputId="horizontal"
+                decrementButtonClass="p-button-secondary"
+                incrementButtonClass="p-button-secondary"
+                incrementButtonIcon="pi pi-plus"
+                decrementButtonIcon="pi pi-minus"
+              ></p-inputNumber>
+            </div>
+          </mat-option>
+          <mat-option disabled value="2"
+            >Children
+            <p style="margin-top: -20px">Age 2-12</p>
+            <div style="display: flex; float: right; margin-top: -60px">
+              <p-inputNumber
+                [min]="0"
+                [max]="maxGuestCount"
+                formControlName="children"
+                [showButtons]="true"
+                buttonLayout="horizontal"
+                spinnerMode="horizontal"
+                inputId="horizontal"
+                decrementButtonClass="p-button-secondary"
+                incrementButtonClass="p-button-secondary"
+                incrementButtonIcon="pi pi-plus"
+                decrementButtonIcon="pi pi-minus"
+              ></p-inputNumber>
+            </div>
+          </mat-option>
+          <mat-option disabled value="3"
+            >Infants
+            <p style="margin-top: -20px">Age under 2</p>
+            <div style="display: flex; float: right; margin-top: -60px">
+              <p-inputNumber
+                [min]="0"
+                [max]="maxGuestCount"
+                formControlName="infants"
+                [showButtons]="true"
+                buttonLayout="horizontal"
+                spinnerMode="horizontal"
+                inputId="horizontal"
+                decrementButtonClass="p-button-secondary"
+                incrementButtonClass="p-button-secondary"
+                incrementButtonIcon="pi pi-plus"
+                decrementButtonIcon="pi pi-minus"
+              ></p-inputNumber>
+            </div>
+          </mat-option>
+          <mat-option disabled value="4"
+            >Pets
+            <p style="margin-top: -20px">Bringing a service animal?</p>
+            <div style="display: flex; float: right; margin-top: -60px">
+              <p-inputNumber
+                [min]="0"
+                [max]="2"
+                formControlName="pets"
+                [showButtons]="true"
+                buttonLayout="horizontal"
+                spinnerMode="horizontal"
+                inputId="horizontal"
+                decrementButtonClass="p-button-secondary"
+                incrementButtonClass="p-button-secondary"
+                incrementButtonIcon="pi pi-plus"
+                decrementButtonIcon="pi pi-minus"
+              ></p-inputNumber>
+            </div>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <button
+      type="submit"
+      class="form-control regbutton"
+      mat-raised-button
+      color="accent"
+    >
+      Reserve
+    </button>
+  </form>
+  <p style="margin: 15px 71px">You won't be charged yet</p>
+  <p
+    style="
+      text-decoration: underline;
+      cursor: pointer;
+      margin-top: 25px;
+      font-size: 16px;
+    "
+  >
+    <span *ngIf="true">
+      {{
+        ((reserveDetailForm.get("range")?.get("start")?.value.getTime() -
+          reserveDetailForm.get("range")?.get("end")?.value.getTime()) /
+          (1000 * 3600 * 24)) *
+          -1 +
+          1
+      }}
+      * {{ payOnDay }}
+    </span>
+  </p>
+  <p style="float: right; margin-top: -30px; font-size: 16px">
+    <span *ngIf="true">
+      {{
+        (((reserveDetailForm.get("range")?.get("start")?.value.getTime() -
+          reserveDetailForm.get("range")?.get("end")?.value.getTime()) /
+          (1000 * 3600 * 24)) *
+          -1 +
+          1) *
+          payOnDay
+      }}
+    </span>
+  </p>
+  <p
+    style="
+      text-decoration: underline;
+      cursor: pointer;
+      margin-top: 15px;
+      font-size: 16px;
+    "
+  >
+    Hospitality fees
+  </p>
+  <p style="float: right; margin-top: -30px; font-size: 16px">$263</p>
+  <hr />
+  <p
+    style="
+      font-weight: bold;
+      text-decoration: underline;
+      cursor: pointer;
+      margin-top: 40px;
+      font-size: 16px;
+    "
+  >
+    Total before taxes
+  </p>
+  <p
+    style="float: right; margin-top: -30px; font-size: 16px; font-weight: bold"
+  >
+    <span *ngIf="true">
+      {{
+        (((reserveDetailForm.get("range")?.get("start")?.value.getTime() -
+          reserveDetailForm.get("range")?.get("end")?.value.getTime()) /
+          (1000 * 3600 * 24)) *
+          -1 +
+          1) *
+          payOnDay
+      }}
+    </span>
+  </p>
+</div>

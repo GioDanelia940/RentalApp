@@ -45,6 +45,7 @@ export class InnerPgComponent implements OnInit {
       });
     });
   }
+
   personCount(room: Array<any>): number {
     let persons = 0;
     room.forEach((bedroom) => {
@@ -117,14 +118,22 @@ export class InnerPgComponent implements OnInit {
     return text;
   }
   getAllImages(rooms: Array<any>) {
-    let images:Array<string> = [];
-    rooms.forEach(room => {
+    let images: Array<string> = [];
+    rooms.forEach((room) => {
       images = [...images, ...room.images];
-    })
-    return images.length>30 ? images.slice(0,30) : images;
+    });
+    return images.length > 30 ? images.slice(0, 30) : images;
   }
   
   takedata(event: any) {
       console.log(event)
+  }
+
+  getCardPrice(room: Array<any>) : number {
+    let price = 0;
+    room.forEach((bedroom) => {
+      price += bedroom.price;
+    });
+    return price;
   }
 }
