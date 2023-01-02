@@ -9,6 +9,8 @@ import { FormControl, FormGroup } from '@angular/forms';
 export class ReservationComponent implements OnInit {
   @Input() payOnDay!: number;
   @Input() maxGuestCount: number = 0;
+  testArr =  [['adults','13+'],['children','3-13'],['infants','Under 2'],['pets','Bringing a service animal?']]
+  value!:number
   dateSelection: boolean = false;
   minDate: Date = new Date();
   reserveDetailForm!: FormGroup;
@@ -27,11 +29,12 @@ export class ReservationComponent implements OnInit {
     });
   }
   onSubmit() {
-    console.log(new Date());
+    console.log(this.reserveDetailForm.value)
   }
   getRange(start: any, end: any) {
     let range = (start.getTime() - end.getTime()) / (1000 * 3600 * 24) * -1 + 1;
-    console.log(range);
     return Math.ceil(range);
   }
+
+  
 }
