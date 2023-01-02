@@ -30,8 +30,8 @@
 .datarange {
   border: solid 1px grey;
   width: 300px;
-  border-radius: 10px;
-  height: 130px;
+  border-radius: 5px;
+  height: 137px;
 }
 button {
   margin-top: 20px;
