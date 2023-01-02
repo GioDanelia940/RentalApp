@@ -84,3 +84,11 @@ p-inputnumber,
 ::ng-deep .reservation .p-inputnumber-buttons-horizontal .p-inputnumber-input {
   border: none;
 }
+
+::ng-deep .inputOnDataTable input{
+  width: 50px!important;
+}
+
+ ::ng-deep  .cdk-overlay-pane{
+  min-width: 338px!important;
+}
