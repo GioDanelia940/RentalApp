@@ -41,11 +41,14 @@
           <h2>Your trip</h2>
           <div>
             <h3>Dates</h3>
-            <p>Dec 11 – 16</p>
+            <p>
+              {{ paymentsObj.range.start | date }} -
+              {{ paymentsObj.range.end | date }}
+            </p>
           </div>
           <div>
             <h3>Guests</h3>
-            <p>1 guest</p>
+            <p>{{ setGuests() }}</p>
           </div>
           <hr />
         </div>
@@ -61,13 +64,12 @@
                 <div class="col-md-11">
                   <div class="payment-option-title">
                     <h3>Pay in full</h3>
-                    <p>$3000</p>
+                    <p>{{ paymentsObj.price | currency }}</p>
                   </div>
                   <p class="text-muted">Pay the total now and you're all set</p>
                 </div>
                 <mat-radio-button
                   #inputCheckbox
-                  class="col-md-1"
                   value="1"
                   checked
                 ></mat-radio-button>
@@ -82,137 +84,33 @@
                 <div class="col-md-11">
                   <div class="payment-option-title">
                     <h3>Pay part now, part later</h3>
-                    <p>$1500</p>
+                    <p>{{ paymentsObj.price / 2 | currency }}</p>
                   </div>
                   <p class="text-muted">
-                    Pay $1500 now, and the rest ($1500) will be automatically
-                    charged to the same payment method on Nov 26, 2022. No extra
-                    fees.
+                    Pay <span>{{ paymentsObj.price / 2 | currency }}</span> now,
+                    and the rest (<span>{{paymentsObj.price/2 | currency}}</span>) will
+                    be automatically charged to the same payment method on 
+                    <span>{{paymentsObj.range.start | date}}</span> No extra fees.
                   </p>
                 </div>
                 <mat-radio-button
                   #inputCheckbox2
-                  class="col-md-1"
                   value="2"
                 ></mat-radio-button>
               </div>
             </div>
           </fieldset>
         </div>
-        <hr />
-        <div class="login-register">
-          <h3>Log in or sign up to book</h3>
-          <form #form="ngForm" (ngSubmit)="onSubmit(form)">
-            <mat-form-field appearance="outline">
-              <mat-label>enter you email</mat-label>
-              <input type="email" ngModel matInput name="email" />
-            </mat-form-field>
-            <mat-form-field appearance="outline">
-              <mat-label>enter password</mat-label>
-              <input type="password" name="password" matInput ngModel />
-            </mat-form-field>
-            <button
-              class="submit-btn"
-              type="submit"
-              mat-raised-button
-              color="accent"
-            >
-              Continue
-            </button>
-          </form>
-          <div class="horizontal-line">or</div>
-          <div class="social-buttons-container">
-            <button id="facebook" class="social-buttons">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g mask="url(#mask0_1_5)">
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M23.9998 12.0734C23.9998 5.40589 18.6266 0 11.9993 0C5.372 0 -0.0012207 5.40589 -0.0012207 12.0734C-0.0012207 18.1001 4.38696 23.0945 10.1242 24V15.5647H7.07707V12.0734H10.1242V9.41326C10.1242 6.38786 11.9163 4.71669 14.6574 4.71669C15.9694 4.71669 17.3435 4.95213 17.3435 4.95213V7.9232H15.8294C14.3384 7.9232 13.8734 8.85386 13.8734 9.80867V12.0734H17.2015L16.6695 15.5637H13.8734V24C19.6116 23.0945 23.9998 18.1001 23.9998 12.0734Z"
-                    fill="#1877F2"
-                  />
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M16.671 15.5637L17.203 12.0734H13.8749V9.80867C13.8749 8.85386 14.3399 7.9232 15.831 7.9232H17.3441V4.95212C17.3441 4.95212 15.97 4.71669 14.6579 4.71669C11.9168 4.71669 10.1248 6.38685 10.1248 9.41326V12.0734H7.07763V15.5637H10.1248V24C11.3672 24.1962 12.6325 24.1962 13.8749 24V15.5647H16.671"
-                    fill="white"
-                  />
-                </g>
-              </svg>
-            </button>
-            <button id="google" class="social-buttons">
-              <svg
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <g clip-path="url(#clip0_2_12)">
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M12 4.64C14.2533 4.64 15.7733 5.61333 16.64 6.42667L20.0267 3.12C17.9467 1.18667 15.24 -3.57628e-07 12 -3.57628e-07C7.30667 -3.57628e-07 3.25333 2.69333 1.28 6.61333L5.16 9.62667C6.13333 6.73333 8.82667 4.64 12 4.64Z"
-                    fill="#EA4335"
-                  />
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M23.52 12.2667C23.52 11.28 23.44 10.56 23.2667 9.81333H12V14.2667H18.6133C18.48 15.3733 17.76 17.04 16.16 18.16L19.9467 21.0933C22.2133 19 23.52 15.92 23.52 12.2667Z"
-                    fill="#4285F4"
-                  />
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M5.17333 14.3733C4.91115 13.6094 4.77602 12.8077 4.77333 12C4.77333 11.1733 4.92 10.3733 5.16 9.62667L1.28 6.61333C0.439652 8.2847 0.00134052 10.1293 0 12C0 13.9333 0.466667 15.76 1.28 17.3867L5.17333 14.3733Z"
-                    fill="#FBBC05"
-                  />
-                  <path
-                    fill-rule="evenodd"
-                    clip-rule="evenodd"
-                    d="M12 24C15.24 24 17.96 22.9333 19.9467 21.0933L16.16 18.16C15.1467 18.8667 13.7867 19.36 12 19.36C8.82667 19.36 6.13334 17.2667 5.17334 14.3733L1.29333 17.3867C3.26667 21.3067 7.30667 24 12 24Z"
-                    fill="#34A853"
-                  />
-                </g>
-                <defs>
-                  <clipPath id="clip0_2_12">
-                    <rect width="24" height="24" fill="white" />
-                  </clipPath>
-                </defs>
-              </svg>
-            </button>
-            <button id="apple" class="social-buttons">
-              <svg
-                width="21"
-                height="24"
-                viewBox="0 0 21 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M11.5714 2.1C12.0427 1.49193 12.652 0.988439 13.3558 0.625439C14.0595 0.262439 14.8405 0.0488807 15.6429 0C15.7128 0.681516 15.635 1.3692 15.4141 2.02206C15.1932 2.67491 14.8338 3.27957 14.3571 3.8C13.9219 4.36584 13.3393 4.81885 12.6645 5.11628C11.9896 5.41372 11.2447 5.54578 10.5 5.5C10.4227 4.8951 10.4778 4.28185 10.662 3.69741C10.8462 3.11298 11.1556 2.56953 11.5714 2.1V2.1ZM6.21429 5.8C3.21429 5.8 0 8.3 0 13.1C0 18 3.75 24 6.75 24C7.82143 24 9.42857 23 11.0357 23C12.6429 23 13.8214 23.9 15.3214 23.9C18.6429 23.9 21 17.5 21 17.5C19.9762 17.0877 19.1051 16.4031 18.4954 15.5317C17.8857 14.6603 17.5643 13.6407 17.5714 12.6C17.5721 11.6878 17.8298 10.7918 18.3187 10.0019C18.8077 9.21202 19.5107 8.55611 20.3571 8.1C19.8079 7.33128 19.0565 6.70695 18.1748 6.28675C17.2931 5.86655 16.3107 5.66452 15.3214 5.7C13.1786 5.7 11.5714 6.8 10.7143 6.8C9.75 6.8 8.14286 5.8 6.21429 5.8V5.8Z"
-                  fill="#222222"
-                />
-              </svg>
-            </button>
-          </div>
-        </div>
       </div>
     </section>
     <section class="right-side-wrapper">
       <div class="right-side-card">
         <div class="hotel-info-card">
-          <img class="card-img" [src]="cardEl.img" />
+          <img class="card-img" [src]="cardEl.mainImages[0]" />
           <div class="card-info">
             <div class="card-description">
-              <p class="text-muted text-sm">{{ cardEl.country }}</p>
-              <p>{{ cardEl.city }}</p>
+              <p class="text-muted text-sm">{{ cardEl.country }}, {{ cardEl.city }}</p>
+              <p>{{ cardEl.name }}</p>
             </div>
             <div class="card-stars">
               <svg
@@ -237,7 +135,7 @@
                   fill="#222222"
                 ></path>
               </svg>
-              <p class="rating text-sm">5.00 (5 reviews)</p>
+              <p class="rating text-sm">{{cardEl.starCount}} ({{cardEl.freeCancellationDaysCount}} reviews)</p>
             </div>
           </div>
         </div>
@@ -288,29 +186,27 @@
             </svg>
           </p>
         </div>
-        <hr>
+        <hr />
         <div class="price-details">
           <h2 class="price-header">Price details</h2>
           <div class="price-wrapper">
             <div class="nights-stayed d-flex-j-c-b">
-              <p>$72.00 x 5 nights</p>
-              <p>$360.00</p>
+              <p>{{(paymentsObj.price - 163) / getRange() }} * {{getRange()}} nights</p>
+              <p>{{(paymentsObj.price - 163 )| currency}}</p>
             </div>
             <div class="cleaning-fee d-flex-j-c-b">
-              <p>Cleaning fee</p>
-              <p>$10.00</p>
+              <p>Hospitality fees</p>
+              <p>$163.00</p>
             </div>
-            <div class="service-fee d-flex-j-c-b">
-              <p>Service fee</p>
-              <p>$30.00</p>
-            </div>
-            <hr>
+            <hr />
             <div class="total-fee d-flex-j-c-b">
               <p>Total(USD)</p>
-              <p>$400.00</p>
+              <p>{{paymentsObj.price | currency}}</p>
             </div>
           </div>
         </div>
+        <hr>
+        <button class="submit-btn" mat-raised-button color="accent" (click)="onSubmit()">Confirm and pay</button>
       </div>
     </section>
   </body>

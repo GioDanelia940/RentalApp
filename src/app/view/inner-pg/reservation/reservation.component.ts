@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-reservation',
@@ -14,9 +15,12 @@ export class ReservationComponent implements OnInit {
   dateSelection: boolean = false;
   minDate: Date = new Date();
   reserveDetailForm!: FormGroup;
-  constructor() {}
+  paramsId!:string
+  totalPrice!:number
+  constructor(private router:Router, private route:ActivatedRoute) {}
 
   ngOnInit(): void {
+    this.route.params.subscribe(params => this.paramsId = params['id'])
     this.reserveDetailForm = new FormGroup({
       range: new FormGroup({
         start: new FormControl(new Date()),
@@ -26,13 +30,24 @@ export class ReservationComponent implements OnInit {
       children: new FormControl(),
       infants: new FormControl(),
       pets: new FormControl(),
+      price: new FormControl(this.totalPrice),
     });
   }
   onSubmit() {
-    console.log(this.reserveDetailForm.value)
+    let formValue = this.reserveDetailForm.value;
+    let jsonStr = JSON.stringify(formValue, (key, value) => {
+      if (value !== null && value !== 'Any') {
+        return value;
+      }
+    });
+    console.log(formValue)
+    localStorage.setItem('payments',jsonStr)
+    this.router.navigate([`/payments/${this.paramsId}`])
   }
+
   getRange(start: any, end: any) {
     let range = (start.getTime() - end.getTime()) / (1000 * 3600 * 24) * -1 + 1;
+    this.reserveDetailForm.controls['price'].setValue(range * this.payOnDay + 163)  
     return Math.ceil(range);
   }
 

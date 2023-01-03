@@ -115,7 +115,7 @@
   <p
     style="float: right; margin-top: -30px; font-size: 16px; font-weight: bold"
   >
-    <span *ngIf="reserveDetailForm.get('range')?.get('end')?.value != null">
+    <span  *ngIf="reserveDetailForm.get('range')?.get('end')?.value != null">
       ${{
         getRange(
           reserveDetailForm.get("range")?.get("start")?.value,

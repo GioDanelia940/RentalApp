@@ -95,13 +95,13 @@ export class FilterModalComponent implements OnInit {
 
   onSubmit() {
     let formValue = this.form.value;
-    let jsonObj = JSON.stringify(formValue, (key, value) => {
+    let jsonStr = JSON.stringify(formValue, (key, value) => {
       if (value !== null && value !== 'Any') {
         return value;
       }
     });
 
-    let filteredObj = JSON.parse(jsonObj);
+    let filteredObj = JSON.parse(jsonStr);
 
     this.router.navigate([], {
       relativeTo: this.route,
