@@ -40,7 +40,7 @@ export class OrderHistoryComponent implements OnInit {
       data: { order: order, hotel: hotel },
     });
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
+      
     });
   }
 }
