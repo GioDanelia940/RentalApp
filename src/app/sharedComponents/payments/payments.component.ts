@@ -105,6 +105,7 @@ export class PaymentsComponent implements OnInit {
       });
     }, 500);
     this.fireStore.update(tempUser, this.user.id);
+    localStorage.setItem('user', JSON.stringify(tempUser));
     localStorage.removeItem('payments');
   }
 
