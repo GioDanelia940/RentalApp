@@ -11,7 +11,7 @@ import { User } from '../user.model';
   styleUrls: ['./account-details.component.css'],
 })
 export class AccountDetailsComponent implements OnInit {
-  user: User = new User('1', '', '', true, '', '', '', '', '', '');
+  user: User = new User('1', '', '', true, '', '', '', '', '', '',[]);
   changeDetails: boolean = false;
   constructor(
     private accountService: AccountServiceService,
@@ -23,7 +23,7 @@ export class AccountDetailsComponent implements OnInit {
     if (localStorage.getItem('user') === null) {
       localStorage.setItem(
         'user',
-        JSON.stringify(new User('1', '', '', true, '', '', '', '', '', ''))
+        JSON.stringify(new User('1', '', '', true, '', '', '', '', '', '',[]))
       );
       this.user = JSON.parse(<string>localStorage.getItem('user'));
     } else {
@@ -86,7 +86,8 @@ export class AccountDetailsComponent implements OnInit {
       this.userDetailForm.get('card')?.value,
       this.userDetailForm.get(
         `cardNumber.${this.userDetailForm.get('card')?.value}`
-      )?.value
+      )?.value,
+      this.user.orders
     );
     this.firebaseWorker.update(tempUser, this.user.id);
     window.alert('account details have been changed successfully');

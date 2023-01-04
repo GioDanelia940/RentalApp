@@ -30,7 +30,8 @@ export class RegisterComponent implements OnInit {
       '',
       '',
       '',
-      ''
+      '',
+      []
     );
     this.firebaseWorker.signUp(tempUser).then((Response) => {
       console.log(Response);

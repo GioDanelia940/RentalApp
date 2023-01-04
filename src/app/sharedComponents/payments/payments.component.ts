@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiServiceService } from 'src/app/sharedServices/cardApiService/api-service.service';
-import Swal from 'sweetalert2'
+import { FirebaseWorkerService } from 'src/app/sharedServices/firebase-worker.service';
+import { User } from 'src/app/user-account/user.model';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-payments',
@@ -9,21 +11,35 @@ import Swal from 'sweetalert2'
   styleUrls: ['./payments.component.css'],
 })
 export class PaymentsComponent implements OnInit {
+  user: User = new User('1', '', '', true, '', '', '', '', '', '', []);
   payFull: boolean = true;
   payPart: boolean = false;
   selectedValue!: string;
   cardEl!: any;
   paymentsObj!: any;
   guestsObj!: any;
-  paramsId!:string
-  constructor(private route: ActivatedRoute, private http: ApiServiceService,private router:Router) {}
+  paramsId!: string;
+  constructor(
+    private route: ActivatedRoute,
+    private http: ApiServiceService,
+    private router: Router,
+    private fireStore: FirebaseWorkerService
+  ) {}
 
   ngOnInit(): void {
     this.getRange();
     this.paymentsObj = JSON.parse(localStorage.getItem('payments')!);
-
+    if (localStorage.getItem('user') === null) {
+      localStorage.setItem(
+        'user',
+        JSON.stringify(new User('1', '', '', true, '', '', '', '', '', '', []))
+      );
+      this.user = JSON.parse(<string>localStorage.getItem('user'));
+    } else {
+      this.user = JSON.parse(<string>localStorage.getItem('user'));
+    }
     this.route.params.subscribe((params) => {
-      this.paramsId = params['id']
+      this.paramsId = params['id'];
       this.http
         .getHotelById(params['id'])
         .subscribe((hotelObj) => (this.cardEl = hotelObj));
@@ -51,31 +67,45 @@ export class PaymentsComponent implements OnInit {
   }
 
   inputChecked(input: any) {
-    if(input.value == 1){
-      this.payFull = true
-      this.payPart = false
-    }else{
-      this.payFull = false
-      this.payPart = true
+    if (input.value == 1) {
+      this.payFull = true;
+      this.payPart = false;
+    } else {
+      this.payFull = false;
+      this.payPart = true;
     }
     return (input.checked = true);
   }
 
   onSubmit() {
-    let tmpObj = this.paymentsObj
-    tmpObj.id = this.paramsId
-    console.log(tmpObj)
-    this.router.navigate(['/view'])
+    let tmpObj = this.paymentsObj;
+    tmpObj.id = this.paramsId;
+    console.log(tmpObj);
+    let tempUser = new User(
+      this.user.id,
+      this.user.email,
+      this.user.password,
+      true,
+      this.user.firstName,
+      this.user.lastName,
+      this.user.country,
+      this.user.city,
+      this.user.cardType,
+      this.user.cardNumber,
+      [...this.user.orders, this.paymentsObj]
+    );
+    this.router.navigate(['/view']);
     setTimeout(() => {
       Swal.fire({
         icon: 'success',
-        title: 'Your order has been placed, check order history for more information',
+        title:
+          'Your order has been placed, check order history for more information',
         showConfirmButton: true,
-        confirmButtonText: "Close",
-
-      })
-    },500)
-    localStorage.removeItem('payments')
+        confirmButtonText: 'Close',
+      });
+    }, 500);
+    this.fireStore.update(tempUser, this.user.id);
+    localStorage.removeItem('payments');
   }
 
   getRange() {

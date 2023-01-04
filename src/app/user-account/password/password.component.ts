@@ -11,7 +11,7 @@ import { User } from '../user.model';
 })
 export class PasswordComponent implements OnInit {
   hide: boolean = true;
-  user: User = new User('1', '', '', true, '', '', '', '', '', '');
+  user: User = new User('1', '', '', true, '', '', '', '', '', '',[]);
   @ViewChild('formDirective') formDirective: NgForm | undefined;
   changeDetails: boolean = false;
   constructor(
@@ -24,7 +24,7 @@ export class PasswordComponent implements OnInit {
     if (localStorage.getItem('user') === null) {
       localStorage.setItem(
         'user',
-        JSON.stringify(new User('1', '', '', true, '', '', '', '', '', ''))
+        JSON.stringify(new User('1', '', '', true, '', '', '', '', '', '',[]))
       );
       this.user = JSON.parse(<string>localStorage.getItem('user'));
     } else {
@@ -60,7 +60,8 @@ export class PasswordComponent implements OnInit {
       this.user.country,
       this.user.city,
       this.user.cardType,
-      this.user.cardNumber
+      this.user.cardNumber,
+      this.user.orders
     );
     this.firebaseWorker.update(tempUser, this.user.id);
     this.firebaseWorker.updateFirePassword(tempUser.password);

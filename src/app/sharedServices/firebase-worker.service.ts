@@ -115,6 +115,7 @@ export class FirebaseWorkerService implements OnDestroy {
       city: user.city,
       cardType: user.cardType,
       cardNumber: user.cardNumber,
+      orders: []
     } as User;
     return userRef.set(userData, {
       merge: true,

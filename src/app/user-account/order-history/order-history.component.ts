@@ -3,20 +3,15 @@ import { Order } from './order.model';
 import { ApiServiceService } from '../../sharedServices/cardApiService/api-service.service';
 import { MatDialog } from '@angular/material/dialog';
 import { OrderModalComponent } from './order-modal/order-modal.component';
+import { User } from '../user.model';
 @Component({
   selector: 'app-order-history',
   templateUrl: './order-history.component.html',
   styleUrls: ['./order-history.component.css'],
 })
 export class OrderHistoryComponent implements OnInit {
-  orders: Order[] = [
-    new Order('ef4ce06a-bb68-47bb-9c06-1e9b6e39ce8f', 2, 500),
-    new Order('ef4ce06a-bb68-47bb-9c06-1e9b6e39ce8f', 2, 500),
-    new Order('ef4ce06a-bb68-47bb-9c06-1e9b6e39ce8f', 2, 500),
-    new Order('ef4ce06a-bb68-47bb-9c06-1e9b6e39ce8f', 2, 500),
-    new Order('ef4ce06a-bb68-47bb-9c06-1e9b6e39ce8f', 2, 500),
-    new Order('ef4ce06a-bb68-47bb-9c06-1e9b6e39ce8f', 2, 500),
-  ];
+  user: User = new User('1', '', '', true, '', '', '', '', '', '', []);
+  orders!:any[];
   hotels!: any[];
   constructor(private http: ApiServiceService, private dialog: MatDialog) {}
 
@@ -24,6 +19,17 @@ export class OrderHistoryComponent implements OnInit {
     this.http.getAllHotels().subscribe((response: any) => {
       this.hotels = response;
     });
+    if (localStorage.getItem('user') === null) {
+      localStorage.setItem(
+        'user',
+        JSON.stringify(new User('1', '', '', true, '', '', '', '', '', '', []))
+      );
+      this.user = JSON.parse(<string>localStorage.getItem('user'));
+      this.orders=this.user.orders;
+    } else {
+      this.user = JSON.parse(<string>localStorage.getItem('user'));
+      this.orders = this.user.orders;
+    }
   }
   getHotelById(id: string) {
     return this.hotels.filter((hotel) => hotel.id == id)[0];
