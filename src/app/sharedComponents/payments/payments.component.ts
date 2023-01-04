@@ -94,16 +94,17 @@ export class PaymentsComponent implements OnInit {
       this.user.cardNumber,
       [...this.user.orders, this.paymentsObj]
     );
+
     this.router.navigate(['/view']);
-    setTimeout(() => {
-      Swal.fire({
-        icon: 'success',
-        title:
-          'Your order has been placed, check order history for more information',
-        showConfirmButton: true,
-        confirmButtonText: 'Close',
-      });
-    }, 500);
+
+    Swal.fire({
+      icon: 'success',
+      title:
+        'Your order has been placed, check order history for more information',
+      showConfirmButton: true,
+      confirmButtonText: 'Close',
+    });
+
     this.fireStore.update(tempUser, this.user.id);
     localStorage.setItem('user', JSON.stringify(tempUser));
     localStorage.removeItem('payments');
@@ -115,5 +116,9 @@ export class PaymentsComponent implements OnInit {
     let endTime = new Date(tmpObj.range.end).getTime();
     let range = ((startTime - endTime) / (1000 * 3600 * 24)) * -1 + 1;
     return Math.ceil(range);
+  }
+
+  goBackBtn() {
+    this.router.navigate(['/view',this.paramsId])
   }
 }
