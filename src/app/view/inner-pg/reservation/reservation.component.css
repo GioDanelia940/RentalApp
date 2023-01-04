@@ -89,6 +89,6 @@ p-inputnumber,
   width: 50px!important;
 }
 
- ::ng-deep  .cdk-overlay-pane{
+ ::ng-deep  .cdk-overlay-panel{
   min-width: 338px!important;
 }

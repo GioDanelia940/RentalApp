@@ -80,12 +80,9 @@ export class PaymentsComponent implements OnInit {
 
   getRange() {
     let tmpObj = JSON.parse(localStorage.getItem('payments')!);
-
     let startTime = new Date(tmpObj.range.start).getTime();
     let endTime = new Date(tmpObj.range.end).getTime();
-
     let range = ((startTime - endTime) / (1000 * 3600 * 24)) * -1 + 1;
-
     return Math.ceil(range);
   }
 }
