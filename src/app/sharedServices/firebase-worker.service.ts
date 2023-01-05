@@ -10,6 +10,7 @@ import { Subscription } from 'rxjs';
 import { AccountServiceService } from '../user-account/account-service.service';
 import { User } from '../user-account/user.model';
 import { getAuth, updatePassword } from 'firebase/auth';
+import Swal from 'sweetalert2';
 
 @Injectable({
   providedIn: 'root',
@@ -61,6 +62,16 @@ export class FirebaseWorkerService implements OnDestroy {
       .createUserWithEmailAndPassword(user.email, user.password)
       .then((result) => {
         this.setUserDataForSignUp(result.user, user);
+        setTimeout(() => {
+          Swal.fire({
+            icon: 'success',
+            title:
+              'account has been successfully created',
+            showConfirmButton: true,
+            confirmButtonText: 'Close',
+          });
+          this.signIn(user.email, user.password);
+        }, 1000);
         this.router.navigate(['']);
       })
       .catch((error) => {
@@ -115,7 +126,7 @@ export class FirebaseWorkerService implements OnDestroy {
       city: user.city,
       cardType: user.cardType,
       cardNumber: user.cardNumber,
-      orders: []
+      orders: [],
     } as User;
     return userRef.set(userData, {
       merge: true,
