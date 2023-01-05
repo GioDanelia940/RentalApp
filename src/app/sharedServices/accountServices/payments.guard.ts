@@ -1,5 +1,12 @@
 import { Injectable } from '@angular/core';
-import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
+import {
+  ActivatedRoute,
+  ActivatedRouteSnapshot,
+  CanActivate,
+  Router,
+  RouterStateSnapshot,
+  UrlTree,
+} from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -17,6 +24,13 @@ export class PaymentsGuard implements CanActivate {
     | UrlTree {
     if (JSON.parse(<string>localStorage.getItem('payments')) == null) {
       this.router.navigate(['**']);
+    } else if (
+      route.paramMap.get('id') !=
+      JSON.parse(<string>localStorage.getItem('payments')).id
+    ) {
+      this.router.navigate(['**']);
+    }
+    {
     }
     return true;
   }

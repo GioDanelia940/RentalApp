@@ -31,6 +31,8 @@ export class InnerPgComponent implements OnInit {
   faCalendar: any = faCalendar;
   faChildren: any = faChildren;
   faUserCheck: any = faUserCheck;
+  startDate: Date = new Date();
+  endDate: Date = new Date();
   constructor(
     private dialog: MatDialog,
     private cardService: CardServiceService,
@@ -124,12 +126,14 @@ export class InnerPgComponent implements OnInit {
     });
     return images.length > 30 ? images.slice(0, 30) : images;
   }
-  
+
   takedata(event: any) {
-      console.log(event)
+    this.startDate = event[0];
+    this.endDate = event[1];
+    console.log(`${this.startDate} :  ${this.endDate}`);
   }
 
-  getCardPrice(room: Array<any>) : number {
+  getCardPrice(room: Array<any>): number {
     let price = 0;
     room.forEach((bedroom) => {
       price += bedroom.price;
