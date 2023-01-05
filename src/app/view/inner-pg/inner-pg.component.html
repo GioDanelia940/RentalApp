@@ -194,6 +194,8 @@
             <app-reservation
               [maxGuestCount]="personCount(card.rooms)"
               [payOnDay]="getCardPrice(card.rooms)"
+              [startDate]="startDate"
+              [endDate]="endDate"
             ></app-reservation>
           </div>
         </div>

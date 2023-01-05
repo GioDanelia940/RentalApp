@@ -79,7 +79,6 @@ export class PaymentsComponent implements OnInit {
 
   onSubmit() {
     let tmpObj = this.paymentsObj;
-    tmpObj.id = this.paramsId;
     console.log(tmpObj);
     let tempUser = new User(
       this.user.id,
