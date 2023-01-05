@@ -6,6 +6,7 @@ import { TermsComponent } from './footer/terms/terms.component';
 import { CalendarComponent } from './sharedComponents/calendar/calendar.component';
 import { PaymentsComponent } from './sharedComponents/payments/payments.component';
 import { AuthGuard } from './sharedServices/accountServices/auth.guard';
+import { PaymentsGuard } from './sharedServices/accountServices/payments.guard';
 import { AccountDetailsComponent } from './user-account/account-details/account-details.component';
 import { LoginComponent } from './user-account/login/login.component';
 import { OrderHistoryComponent } from './user-account/order-history/order-history.component';
@@ -26,7 +27,7 @@ const routes: Routes = [
   { path: 'privacy', component:PrivacyComponent},
   { path: 'terms' , component:TermsComponent},
   { path: 'calendar' , component:CalendarComponent},
-  { path: 'payments/:id', component: PaymentsComponent },
+  { path: 'payments/:id', component: PaymentsComponent, canActivate:[AuthGuard,PaymentsGuard] },
   {
     path: 'account',
     component: UserAccountComponent,
