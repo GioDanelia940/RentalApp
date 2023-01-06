@@ -89,7 +89,7 @@ export class PaymentsComponent implements OnInit {
       this.user.city,
       this.user.cardType,
       this.user.cardNumber,
-      [...this.user.orders, this.paymentsObj]
+      this.updateOrders(this.user.orders, this.paymentsObj.id)
     );
 
     this.router.navigate(['/view']);
@@ -117,5 +117,13 @@ export class PaymentsComponent implements OnInit {
 
   goBackBtn() {
     this.router.navigate(['/view', this.paramsId]);
+  }
+  updateOrders(orders: any[], id: string) {
+    orders.forEach((order,index) => {
+      if (order.id == id) {
+        orders[index].pending=false;
+      }
+    });
+    return orders;
   }
 }
