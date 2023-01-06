@@ -84,37 +84,33 @@ export class PaymentsComponent implements OnInit {
   }
 
   onSubmit() {
-    if(this.cardValue.length == 0){
-      console.log(this.cardValue)
-    }
-    
-    // let tempUser = new User(
-    //   this.user.id,
-    //   this.user.email,
-    //   this.user.password,
-    //   true,
-    //   this.user.firstName,
-    //   this.user.lastName,
-    //   this.user.country,
-    //   this.user.city,
-    //   this.user.cardType,
-    //   this.user.cardNumber,
-    //   this.updateOrders(this.user.orders, this.paymentsObj.id)
-    // );
+    let tempUser = new User(
+      this.user.id,
+      this.user.email,
+      this.user.password,
+      true,
+      this.user.firstName,
+      this.user.lastName,
+      this.user.country,
+      this.user.city,
+      this.user.cardType,
+      this.user.cardNumber,
+      this.updateOrders(this.user.orders, this.paymentsObj.id)
+    );
 
-    // this.router.navigate(['/view']);
+    this.router.navigate(['/view']);
 
-    // Swal.fire({
-    //   icon: 'success',
-    //   title:
-    //     'Your order has been placed, check order history for more information',
-    //   showConfirmButton: true,
-    //   confirmButtonText: 'Close',
-    // });
+    Swal.fire({
+      icon: 'success',
+      title:
+        'Your order has been placed, check order history for more information',
+      showConfirmButton: true,
+      confirmButtonText: 'Close',
+    });
 
-    // this.fireStore.update(tempUser, this.user.id);
-    // localStorage.setItem('user', JSON.stringify(tempUser));
-    // localStorage.removeItem('payments');
+    this.fireStore.update(tempUser, this.user.id);
+    localStorage.setItem('user', JSON.stringify(tempUser));
+    localStorage.removeItem('payments');
     
   }
 
