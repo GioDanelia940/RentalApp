@@ -78,7 +78,6 @@ export class PaymentsComponent implements OnInit {
 
   onSubmit() {
     let tmpObj = this.paymentsObj;
-    console.log(tmpObj);
     let tempUser = new User(
       this.user.id,
       this.user.email,
