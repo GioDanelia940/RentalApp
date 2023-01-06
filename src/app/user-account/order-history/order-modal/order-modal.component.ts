@@ -56,6 +56,24 @@ export class OrderModalComponent implements OnInit {
     localStorage.setItem('user', JSON.stringify(tempUser));
     this.accountService.userUpdated.next(tempUser);
   }
+  delete() {
+    let tempUser = new User(
+      this.user.id,
+      this.user.email,
+      this.user.password,
+      true,
+      this.user.firstName,
+      this.user.lastName,
+      this.user.country,
+      this.user.city,
+      this.user.cardType,
+      this.user.cardNumber,
+      this.deleteOrder(this.user.orders, this.order.id)
+    );
+    this.fireStore.update(tempUser, this.user.id);
+    localStorage.setItem('user', JSON.stringify(tempUser));
+    this.accountService.userUpdated.next(tempUser);
+  }
   updateOrders(orders: any[], id: string) {
     orders.forEach((order, index) => {
       if (order.id == id) {
@@ -63,5 +81,8 @@ export class OrderModalComponent implements OnInit {
       }
     });
     return orders;
+  }
+  deleteOrder(orders: any[], id: string) {
+    return orders.filter((order) => order.id != id);
   }
 }
