@@ -6,7 +6,7 @@
       [width]="'400px'"
     ></app-image-slider>
   </div>
-  <mat-card-content (click)="toInnerPage(card.id)" style="cursor: pointer">
+  <mat-card-content (click)="toInnerPage(card.id)">
     <mat-card-title>{{ card.city }}, {{ card.country }}</mat-card-title>
     <mat-card-subtitle>{{ card.rooms[0].price }}$ - night</mat-card-subtitle>
   </mat-card-content>

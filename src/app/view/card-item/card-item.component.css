@@ -2,17 +2,16 @@
   width: 400px;
   height: 400px;
   margin: 7px;
-  
 }
 .card-img {
   width: 400px;
   height: 300px;
-  border-radius: 4%!important;
   display: flex;
   justify-content: center;
-  background-color: rgb(45, 44, 44);
+  background-color: none;
   object-fit: fill;
 }
+
 a {
   text-decoration: none;
 }
@@ -21,3 +20,7 @@ mat-card{
   box-shadow: none!important;
 }
 
+mat-card-content{
+  cursor: pointer;
+  margin-top: 10px;
+}
