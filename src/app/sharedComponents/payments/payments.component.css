@@ -188,3 +188,7 @@ button:hover{
 .total-fee p{
 	font-weight: bold;
 }
+
+.credit-card{
+	width: 100%;
+}

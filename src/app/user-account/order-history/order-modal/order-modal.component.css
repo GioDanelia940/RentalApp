@@ -99,7 +99,7 @@ p{
 	font-weight: bold;
 }
 
-.close-btn{
+button{
 	width: 20%;
 	height: 48px;
 	background-color: #f44336;
@@ -112,4 +112,9 @@ button{
 
 button:hover{
 	transform: scale(0.96);
+}
+
+.group-btn{
+	display: flex;
+	justify-content: space-between;
 }

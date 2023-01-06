@@ -1,4 +1,4 @@
-<div *ngIf="cardEl!=undefined">
+<div *ngIf="hotel!=undefined">
 <article>
   <header class="header-wrapper">
     <div class="payments-header">
@@ -102,16 +102,26 @@
             </div>
           </fieldset>
         </div>
+        <div class="credit-card">
+          <hr>
+            <mat-form-field style="width: 100%;" appearance="outline">
+              <mat-label>enter card information</mat-label>
+              <input type="text" matInput [formControl]="cardForm" [(ngModel)]="cardValue"  placeholder="1234-5678-9123">
+              <mat-error *ngIf="cardForm.hasError('pattern')">
+                please enter card number in this format: 0000-0000-0000-0000
+              </mat-error>
+            </mat-form-field>
+        </div>
       </div>
     </section>
     <section class="right-side-wrapper">
       <div class="right-side-card">
         <div class="hotel-info-card">
-          <img class="card-img" [src]="cardEl.mainImages[0]" />
+          <img class="card-img" [src]="hotel.mainImages[0]" />
           <div class="card-info">
             <div class="card-description">
-              <p class="text-muted text-sm">{{ cardEl.country }}, {{ cardEl.city }}</p>
-              <p>{{ cardEl.name }}</p>
+              <p class="text-muted text-sm">{{ hotel.country }}, {{ hotel.city }}</p>
+              <p>{{ hotel.name }}</p>
             </div>
             <div class="card-stars">
               <svg
@@ -136,7 +146,7 @@
                   fill="#222222"
                 ></path>
               </svg>
-              <p class="rating text-sm">{{cardEl.starCount}} ({{cardEl.freeCancellationDaysCount}} reviews)</p>
+              <p class="rating text-sm">{{hotel.starCount}} ({{hotel.freeCancellationDaysCount}} reviews)</p>
             </div>
           </div>
         </div>
@@ -207,7 +217,7 @@
           </div>
         </div>
         <hr>
-        <button class="submit-btn" mat-raised-button color="accent" (click)="onSubmit()">Confirm and pay</button>
+        <button class="submit-btn" [disabled]="!cardForm.valid || !cardValue"  mat-raised-button color="accent" (click)="onSubmit()">Confirm and pay</button>
       </div>
     </section>
   </body>
