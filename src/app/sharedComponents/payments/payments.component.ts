@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiServiceService } from 'src/app/sharedServices/cardApiService/api-service.service';
 import { FirebaseWorkerService } from 'src/app/sharedServices/firebase-worker.service';
@@ -11,14 +12,15 @@ import Swal from 'sweetalert2';
   styleUrls: ['./payments.component.css'],
 })
 export class PaymentsComponent implements OnInit {
-  user: User = new User('1', '', '', true, '', '', '', '', '', '', []);
+  user!: User
   payFull: boolean = true;
   payPart: boolean = false;
-  selectedValue!: string;
-  cardEl!: any;
+  hotel!: any;
   paymentsObj!: any;
   guestsObj!: any;
   paramsId!: string;
+  cardForm!:FormControl
+  cardValue!:string
   constructor(
     private route: ActivatedRoute,
     private http: ApiServiceService,
@@ -27,22 +29,27 @@ export class PaymentsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+
     this.getRange();
+
     this.paymentsObj = JSON.parse(localStorage.getItem('payments')!);
-    if (localStorage.getItem('user') === null) {
-      localStorage.setItem(
-        'user',
-        JSON.stringify(new User('1', '', '', true, '', '', '', '', '', '', []))
-      );
-      this.user = JSON.parse(<string>localStorage.getItem('user'));
-    } else {
-      this.user = JSON.parse(<string>localStorage.getItem('user'));
-    }
+    this.user = JSON.parse(<string>localStorage.getItem('user'));
+
+    this.cardForm =  new FormControl(this.user.cardNumber, [
+      Validators.maxLength(20),
+      Validators.pattern(
+        `[0-9][0-9][0-9][0-9]+-[0-9][0-9][0-9][0-9]+-[0-9][0-9][0-9][0-9]+-[0-9][0-9][0-9][0-9]`
+      ),
+      //Validators.pattern()
+    ]),
+
+    this.cardValue = this.user.cardNumber
 
     this.paramsId = this.paymentsObj.hotelId;
+    
     this.http
       .getHotelById(this.paramsId)
-      .subscribe((hotelObj) => (this.cardEl = hotelObj));
+      .subscribe((hotelObj) => (this.hotel = hotelObj));
 
     this.guestsObj = Object.entries(this.paymentsObj).reduce(
       (acc: any, [key, value]) => {
@@ -77,34 +84,38 @@ export class PaymentsComponent implements OnInit {
   }
 
   onSubmit() {
-    let tmpObj = this.paymentsObj;
-    let tempUser = new User(
-      this.user.id,
-      this.user.email,
-      this.user.password,
-      true,
-      this.user.firstName,
-      this.user.lastName,
-      this.user.country,
-      this.user.city,
-      this.user.cardType,
-      this.user.cardNumber,
-      this.updateOrders(this.user.orders, this.paymentsObj.id)
-    );
+    if(this.cardValue.length == 0){
+      console.log(this.cardValue)
+    }
+    
+    // let tempUser = new User(
+    //   this.user.id,
+    //   this.user.email,
+    //   this.user.password,
+    //   true,
+    //   this.user.firstName,
+    //   this.user.lastName,
+    //   this.user.country,
+    //   this.user.city,
+    //   this.user.cardType,
+    //   this.user.cardNumber,
+    //   this.updateOrders(this.user.orders, this.paymentsObj.id)
+    // );
 
-    this.router.navigate(['/view']);
+    // this.router.navigate(['/view']);
 
-    Swal.fire({
-      icon: 'success',
-      title:
-        'Your order has been placed, check order history for more information',
-      showConfirmButton: true,
-      confirmButtonText: 'Close',
-    });
+    // Swal.fire({
+    //   icon: 'success',
+    //   title:
+    //     'Your order has been placed, check order history for more information',
+    //   showConfirmButton: true,
+    //   confirmButtonText: 'Close',
+    // });
 
-    this.fireStore.update(tempUser, this.user.id);
-    localStorage.setItem('user', JSON.stringify(tempUser));
-    localStorage.removeItem('payments');
+    // this.fireStore.update(tempUser, this.user.id);
+    // localStorage.setItem('user', JSON.stringify(tempUser));
+    // localStorage.removeItem('payments');
+    
   }
 
   getRange() {
@@ -118,6 +129,7 @@ export class PaymentsComponent implements OnInit {
   goBackBtn() {
     this.router.navigate(['/view', this.paramsId]);
   }
+  
   updateOrders(orders: any[], id: string) {
     orders.forEach((order,index) => {
       if (order.id == id) {

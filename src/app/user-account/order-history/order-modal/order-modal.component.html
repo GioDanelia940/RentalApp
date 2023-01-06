@@ -105,26 +105,33 @@
         </div>
       </div>
     </div>
-    <button class="close-btn" mat-raised-button mat-dialog-close color="accent">
-      close
-    </button>
-    <button
-      (click)="reserve()"
-      mat-raised-button
-      mat-dialog-close
-      color="accent"
-      style="margin-left: 10px"
-    >
-      reserve
-    </button>
-    <button
-      (click)="delete()"
-      mat-raised-button
-      mat-dialog-close
-      color="accent"
-      style="margin-left: 10px"
-    >
-      cancel order
-    </button>
+    <div class="group-btn">
+      <button
+        class="close-btn"
+        mat-raised-button
+        mat-dialog-close
+        color="accent"
+      >
+        close
+      </button>
+      <button
+        (click)="reserve()"
+        mat-raised-button
+        mat-dialog-close
+        color="accent"
+        style="margin-left: 10px"
+      >
+        reserve
+      </button>
+      <button
+        (click)="delete()"
+        mat-raised-button
+        mat-dialog-close
+        color="accent"
+        style="margin-left: 10px"
+      >
+        cancel order
+      </button>
+    </div>
   </div>
 </section>

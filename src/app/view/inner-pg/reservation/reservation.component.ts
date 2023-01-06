@@ -82,7 +82,10 @@ export class ReservationComponent implements OnInit {
       this.fireStore.update(tempUser, this.user.id);
       localStorage.setItem('user', JSON.stringify(tempUser));
       this.router.navigate([`/payments/${formValue.id}`]);
+    }else{
+      this.router.navigate(['login'])
     }
+
   }
   ngOnChanges(changes: SimpleChanges) {
     if (this.reserveDetailForm != null) {
