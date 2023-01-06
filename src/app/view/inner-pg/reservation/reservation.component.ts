@@ -41,10 +41,10 @@ export class ReservationComponent implements OnInit {
         start: new FormControl(this.startDate),
         end: new FormControl(this.endDate),
       }),
-      adults: new FormControl(),
-      children: new FormControl(),
-      infants: new FormControl(),
-      pets: new FormControl(),
+      adults: new FormControl(1),
+      children: new FormControl(0),
+      infants: new FormControl(0),
+      pets: new FormControl(0),
       price: new FormControl(this.totalPrice),
     });
     if (JSON.parse(<string>localStorage.getItem('logged')) == true) {
