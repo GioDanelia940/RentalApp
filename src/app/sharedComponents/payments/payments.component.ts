@@ -38,12 +38,11 @@ export class PaymentsComponent implements OnInit {
     } else {
       this.user = JSON.parse(<string>localStorage.getItem('user'));
     }
-    this.route.params.subscribe((params) => {
-      this.paramsId = params['id'];
-      this.http
-        .getHotelById(params['id'])
-        .subscribe((hotelObj) => (this.cardEl = hotelObj));
-    });
+
+    this.paramsId = this.paymentsObj.hotelId;
+    this.http
+      .getHotelById(this.paramsId)
+      .subscribe((hotelObj) => (this.cardEl = hotelObj));
 
     this.guestsObj = Object.entries(this.paymentsObj).reduce(
       (acc: any, [key, value]) => {
@@ -79,7 +78,6 @@ export class PaymentsComponent implements OnInit {
 
   onSubmit() {
     let tmpObj = this.paymentsObj;
-    console.log(tmpObj);
     let tempUser = new User(
       this.user.id,
       this.user.email,
@@ -91,7 +89,7 @@ export class PaymentsComponent implements OnInit {
       this.user.city,
       this.user.cardType,
       this.user.cardNumber,
-      [...this.user.orders, this.paymentsObj]
+      this.updateOrders(this.user.orders, this.paymentsObj.id)
     );
 
     this.router.navigate(['/view']);
@@ -118,6 +116,14 @@ export class PaymentsComponent implements OnInit {
   }
 
   goBackBtn() {
-    this.router.navigate(['/view',this.paramsId])
+    this.router.navigate(['/view', this.paramsId]);
+  }
+  updateOrders(orders: any[], id: string) {
+    orders.forEach((order,index) => {
+      if (order.id == id) {
+        orders[index].pending=false;
+      }
+    });
+    return orders;
   }
 }

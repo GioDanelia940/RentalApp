@@ -1,9 +1,9 @@
-<div *ngIf="orders!=undefined">
+<div *ngIf="hotels!=undefined">
   <div class="d-flex flex-column">
   <div
     class="d-flex justify-content-between"
     *ngFor="let order of orders"
-    (click)="openDialogOrder(order, getHotelById(order.id))"
+    (click)="openDialogOrder(order, getHotelById(order.hotelId))"
     style="
       height: 60px;
       width: 100%;
@@ -12,16 +12,17 @@
       cursor: pointer;
       margin: 1px;
     "
+    [ngStyle]="{'background-color': order.pending === true ? '#FFF9A6' : 'white'}"
   >
     <img
-      src="{{ getHotelById(order.id).mainImages[0] }}"
+      src="{{ getHotelById(order.hotelId).mainImages[0] }}"
       style="height: 55px; width: 55px; margin: 2px; border-radius: 10px"
     />
     <div
       class="d-flex justify-content-center align-items-center"
       style="font-size: 16px; font-weight: 400; margin: 3px"
     >
-      {{ getHotelById(order.id).address }}
+      {{ getHotelById(order.hotelId).address }}
     </div>
     <div
       class="d-flex justify-content-center align-items-center"

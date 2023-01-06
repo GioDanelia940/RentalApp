@@ -1,6 +1,8 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FirebaseWorkerService } from 'src/app/sharedServices/firebase-worker.service';
+import { User } from 'src/app/user-account/user.model';
 
 @Component({
   selector: 'app-reservation',
@@ -24,7 +26,13 @@ export class ReservationComponent implements OnInit {
   reserveDetailForm!: FormGroup;
   paramsId!: string;
   totalPrice!: number;
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  user!: User;
+  paymentsObj!:any;
+  constructor(
+    private router: Router,
+    private route: ActivatedRoute,
+    private fireStore: FirebaseWorkerService
+  ) {}
 
   ngOnInit(): void {
     this.route.params.subscribe((params) => (this.paramsId = params['id']));
@@ -33,24 +41,48 @@ export class ReservationComponent implements OnInit {
         start: new FormControl(this.startDate),
         end: new FormControl(this.endDate),
       }),
-      adults: new FormControl(),
-      children: new FormControl(),
-      infants: new FormControl(),
-      pets: new FormControl(),
+      adults: new FormControl(1),
+      children: new FormControl(0),
+      infants: new FormControl(0),
+      pets: new FormControl(0),
       price: new FormControl(this.totalPrice),
     });
+    if (JSON.parse(<string>localStorage.getItem('logged')) == true) {
+      this.user = JSON.parse(<string>localStorage.getItem('user'));
+    }
   }
   onSubmit() {
-    let formValue = this.reserveDetailForm.value;
-    formValue.id=this.paramsId;
-    let jsonStr = JSON.stringify(formValue, (key, value) => {
-      if (value !== null && value !== 'Any') {
-        return value;
-      }
-    });
-    console.log(formValue);
-    localStorage.setItem('payments', jsonStr);
-    this.router.navigate([`/payments/${this.paramsId}`]);
+    if (JSON.parse(<string>localStorage.getItem('logged')) == true){
+      let formValue = this.reserveDetailForm.value;
+      formValue.id = Date.now();
+      formValue.hotelId = this.paramsId;
+      formValue.pending = true;
+      let jsonStr = JSON.stringify(formValue, (key, value) => {
+        if (value !== null && value !== 'Any') {
+          return value;
+        }
+      });
+      console.log(jsonStr);
+
+      localStorage.setItem('payments', jsonStr);
+      this.paymentsObj = JSON.parse(localStorage.getItem('payments')!);
+      let tempUser = new User(
+        this.user.id,
+        this.user.email,
+        this.user.password,
+        true,
+        this.user.firstName,
+        this.user.lastName,
+        this.user.country,
+        this.user.city,
+        this.user.cardType,
+        this.user.cardNumber,
+        [...this.user.orders, this.paymentsObj]
+      );
+      this.fireStore.update(tempUser, this.user.id);
+      localStorage.setItem('user', JSON.stringify(tempUser));
+      this.router.navigate([`/payments/${formValue.id}`]);
+    }
   }
   ngOnChanges(changes: SimpleChanges) {
     if (this.reserveDetailForm != null) {
