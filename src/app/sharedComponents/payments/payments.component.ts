@@ -38,12 +38,11 @@ export class PaymentsComponent implements OnInit {
     } else {
       this.user = JSON.parse(<string>localStorage.getItem('user'));
     }
-    this.route.params.subscribe((params) => {
-      this.paramsId = params['id'];
-      this.http
-        .getHotelById(params['id'])
-        .subscribe((hotelObj) => (this.cardEl = hotelObj));
-    });
+
+    this.paramsId = this.paymentsObj.hotelId;
+    this.http
+      .getHotelById(this.paramsId)
+      .subscribe((hotelObj) => (this.cardEl = hotelObj));
 
     this.guestsObj = Object.entries(this.paymentsObj).reduce(
       (acc: any, [key, value]) => {
@@ -118,6 +117,6 @@ export class PaymentsComponent implements OnInit {
   }
 
   goBackBtn() {
-    this.router.navigate(['/view',this.paramsId])
+    this.router.navigate(['/view', this.paramsId]);
   }
 }

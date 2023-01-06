@@ -42,15 +42,17 @@ export class ReservationComponent implements OnInit {
   }
   onSubmit() {
     let formValue = this.reserveDetailForm.value;
-    formValue.id=this.paramsId;
+    formValue.id=Date.now();
+    formValue.hotelId=this.paramsId;
+    formValue.pending=true;
     let jsonStr = JSON.stringify(formValue, (key, value) => {
       if (value !== null && value !== 'Any') {
         return value;
       }
     });
-    console.log(formValue);
+    console.log(jsonStr);
     localStorage.setItem('payments', jsonStr);
-    this.router.navigate([`/payments/${this.paramsId}`]);
+    this.router.navigate([`/payments/${formValue.id}`]);
   }
   ngOnChanges(changes: SimpleChanges) {
     if (this.reserveDetailForm != null) {
