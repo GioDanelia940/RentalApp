@@ -37,7 +37,6 @@ export class PasswordComponent implements OnInit {
           Validators.required,
           Validators.minLength(6),
           Validators.maxLength(50),
-          Validators.pattern(this.user.password),
         ]),
         newPassword: new FormControl('', [
           Validators.required,

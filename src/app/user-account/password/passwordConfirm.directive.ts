@@ -7,10 +7,8 @@ export const passwordConfirm: ValidatorFn = (
   const confirmPassword = control.get('newPasswordConfirm');
 
   if (newPassword?.value != confirmPassword?.value) {
-    console.log("yeah it's true bruh");
     return { passwordConfirm: true };
   } else {
-    console.log("no not true dude");
     return null;
   }
 };
