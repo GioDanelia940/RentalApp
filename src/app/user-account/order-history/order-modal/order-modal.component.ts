@@ -3,6 +3,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FirebaseWorkerService } from 'src/app/sharedServices/firebase-worker.service';
+import Swal from 'sweetalert2';
 import { AccountServiceService } from '../../account-service.service';
 import { User } from '../../user.model';
 @Component({
@@ -39,22 +40,37 @@ export class OrderModalComponent implements OnInit {
     return Math.ceil(range);
   }
   reserve() {
-    let tempUser = new User(
-      this.user.id,
-      this.user.email,
-      this.user.password,
-      true,
-      this.user.firstName,
-      this.user.lastName,
-      this.user.country,
-      this.user.city,
-      this.user.cardType,
-      this.user.cardNumber,
-      this.updateOrders(this.user.orders, this.order.id)
-    );
-    this.fireStore.update(tempUser, this.user.id);
-    localStorage.setItem('user', JSON.stringify(tempUser));
-    this.accountService.userUpdated.next(tempUser);
+    if(this.user.cardNumber){
+      let tempUser = new User(
+        this.user.id,
+        this.user.email,
+        this.user.password,
+        true,
+        this.user.firstName,
+        this.user.lastName,
+        this.user.country,
+        this.user.city,
+        this.user.cardType,
+        this.user.cardNumber,
+        this.updateOrders(this.user.orders, this.order.id)
+      );
+      this.fireStore.update(tempUser, this.user.id);
+      localStorage.setItem('user', JSON.stringify(tempUser));
+      this.accountService.userUpdated.next(tempUser);
+      Swal.fire({
+        icon: 'success',
+        title: 'Your trip has been booked',
+        showConfirmButton: true,
+        timer: 1500
+      })
+    }else{
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Please add your credit card to complete reservation',
+      })
+    }
+    
   }
   delete() {
     let tempUser = new User(
