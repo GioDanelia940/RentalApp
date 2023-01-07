@@ -27,7 +27,7 @@ export class ReservationComponent implements OnInit {
   paramsId!: string;
   totalPrice!: number;
   user!: User;
-  paymentsObj!:any;
+  paymentsObj!: any;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
@@ -51,8 +51,10 @@ export class ReservationComponent implements OnInit {
       this.user = JSON.parse(<string>localStorage.getItem('user'));
     }
   }
+
   onSubmit() {
-    if (JSON.parse(<string>localStorage.getItem('logged')) == true){
+    if (JSON.parse(<string>localStorage.getItem('logged')) == true) {
+      this.setTimeInLocalStorage()
       let formValue = this.reserveDetailForm.value;
       formValue.id = Date.now();
       formValue.hotelId = this.paramsId;
@@ -82,10 +84,9 @@ export class ReservationComponent implements OnInit {
       this.fireStore.update(tempUser, this.user.id);
       localStorage.setItem('user', JSON.stringify(tempUser));
       this.router.navigate([`/payments/${formValue.id}`]);
-    }else{
-      this.router.navigate(['login'])
+    } else {
+      this.router.navigate(['login']);
     }
-
   }
   ngOnChanges(changes: SimpleChanges) {
     if (this.reserveDetailForm != null) {
@@ -107,5 +108,10 @@ export class ReservationComponent implements OnInit {
       range * this.payOnDay + 163
     );
     return Math.ceil(range);
+  }
+
+  setTimeInLocalStorage() {
+    let now: any = new Date().getTime();
+    localStorage.setItem('setupTime', now);
   }
 }
