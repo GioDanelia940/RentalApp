@@ -50,5 +50,16 @@ header of page has clickable buttons
 
 filter that lets you filter hotels based on certain characteristics, these characteristics are associated with icons and text
 ![Algorithm schema](./images/filter.png)
+
 filter button at the right side of the filter bar displays filter modal, that lets you filter hotels with more specific data
 ![Algorithm schema](./images/filter-modal.png)
+
+card display area, where hotels are displayed, hotels are taken from API and then displayed on view page
+![Algorithm schema](./images/card-area.png)
+
+footer of website, which has 3 buttons which take you to following pages
+
+- privacy
+- contact
+- terms
+  ![Algorithm schema](./images/footer.png)
