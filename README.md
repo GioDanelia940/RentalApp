@@ -37,4 +37,18 @@ $ ng serve
 
 this segments explains how website works and what you can do with it.
 
-![Algorithm schema](./images/1.png)
+- view page
+  when you first visit website, initial page looks like this.
+  ![Algorithm schema](./images/1.png)
+
+header of page has clickable buttons
+
+- airbnb logo, which takes you to home(initial page)
+- log in , lets you log in to your account
+- register, lets you register account
+  ![Algorithm schema](./images/header.png)
+
+filter that lets you filter hotels based on certain characteristics, these characteristics are associated with icons and text
+![Algorithm schema](./images/filter.png)
+filter button at the right side of the filter bar displays filter modal, that lets you filter hotels with more specific data
+![Algorithm schema](./images/filter-modal.png)
