@@ -13,7 +13,7 @@ this project is clone of airbnb as a part of angular development course.
 
 Project is created with:
 
-- AngularJS 14
+- Angular 14
 - typescript
 - rxjs
 - ngrx
@@ -41,7 +41,7 @@ this segments explains how website works and what you can do with it.
   when you first visit website, initial page looks like this.
   ![Algorithm schema](./images/1.png)
 
-header of page has clickable buttons
+header page has clickable buttons
 
 - airbnb logo, which takes you to home(initial page)
 - log in , lets you log in to your account
