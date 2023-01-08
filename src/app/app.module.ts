@@ -30,27 +30,32 @@ import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-import {GalleriaModule} from 'primeng/galleria';
+import { GalleriaModule } from 'primeng/galleria';
 
 import { AmenitiesModalComponent } from './view/inner-pg/amenities-modal/amenities-modal.component';
 import { AircoverModalComponent } from './view/inner-pg/aircover-modal/aircover-modal.component';
 import { DescriptionModalComponent } from './view/inner-pg/description-modal/description-modal.component';
 
-import {CarouselModule} from 'primeng/carousel';
+import { CarouselModule } from 'primeng/carousel';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { MapComponent } from './view/inner-pg/map/map.component';
 import { InnerPgFooterComponent } from './view/inner-pg/inner-pg-footer/inner-pg-footer.component';
 import { PrivacyComponent } from './footer/privacy/privacy.component';
 import { CalendarComponent } from './sharedComponents/calendar/calendar.component';
-import {CalendarModule} from 'primeng/calendar';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { CalendarModule } from 'primeng/calendar';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 import { ReservationComponent } from './view/inner-pg/reservation/reservation.component';
 import { MatNativeDateModule } from '@angular/material/core';
-import {InputNumberModule} from 'primeng/inputnumber';
-
-
+import { InputNumberModule } from 'primeng/inputnumber';
 
 import { OrderModalComponent } from './user-account/order-history/order-modal/order-modal.component';
+import { LoadingComponent } from './sharedComponents/loading/loading.component';
+import { LoadingInterceptor } from './sharedInterceptors/loading.interceptor';
+import { LoadingService } from './sharedServices/loading.service';
+
+const httpInterceptorProviders = [
+  { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+];
 
 @NgModule({
   declarations: [
@@ -88,6 +93,7 @@ import { OrderModalComponent } from './user-account/order-history/order-modal/or
     InnerPgFooterComponent,
     ReservationComponent,
     OrderModalComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
@@ -107,9 +113,11 @@ import { OrderModalComponent } from './user-account/order-history/order-modal/or
     CalendarModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    InputNumberModule
+    InputNumberModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
