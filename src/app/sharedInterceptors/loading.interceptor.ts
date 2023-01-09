@@ -15,7 +15,6 @@ export class LoadingInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>,next: HttpHandler): Observable<HttpEvent<unknown>> {
     this.loader.handle(request.urlWithParams, true);
-    
     return next
       .handle(request)
       .pipe(

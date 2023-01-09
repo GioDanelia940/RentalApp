@@ -15,12 +15,11 @@ export class PasswordComponent implements OnInit {
   user: User = new User('1', '', '', true, '', '', '', '', '', '', []);
   @ViewChild('formDirective') formDirective: NgForm | undefined;
   changeDetails: boolean = false;
-  constructor(
-    private accountService: AccountServiceService,
-    private firebaseWorker: FirebaseWorkerService,
-    private router: Router
-  ) {}
+
+  constructor(private firebaseWorker: FirebaseWorkerService) {}
+
   userPasswordForm!: FormGroup;
+
   ngOnInit(): void {
     if (localStorage.getItem('user') === null) {
       localStorage.setItem(
