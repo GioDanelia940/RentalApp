@@ -27,7 +27,6 @@ export class LoadingInterceptor implements HttpInterceptor {
       )
       .pipe(
         map((evt: any) => {
-          console.log(evt)
           if (evt instanceof HttpResponse) {
             this.loader.handle(evt.url!, false);
           }

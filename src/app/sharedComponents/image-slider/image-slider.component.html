@@ -14,6 +14,8 @@
 >
   <ng-template pTemplate="item" let-item>
     <img
+    (click)="toInnerPage()"
+
       [src]="item"
       style="display: block"
       [style.height]="height"
