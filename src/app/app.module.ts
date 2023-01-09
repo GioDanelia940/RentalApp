@@ -116,7 +116,7 @@ const httpInterceptorProviders = [
     InputNumberModule,
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true },
+    httpInterceptorProviders, LoadingService
   ],
   bootstrap: [AppComponent],
 })

@@ -12,10 +12,8 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.loader.loadingEmitter.subscribe((resp) => {
-      console.log(resp);
       this.loadingStatus = resp
     });
-
     let now: any = new Date();
     let hours = 24;
     let setupTime: any = localStorage.getItem('setupTime');

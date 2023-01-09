@@ -11,13 +11,11 @@ import { LoadingService } from '../sharedServices/loading.service';
 
 @Injectable()
 export class LoadingInterceptor implements HttpInterceptor {
-  constructor(private loader:LoadingService) {}
+  constructor(private loader: LoadingService) {}
 
-  intercept(
-    request: HttpRequest<unknown>,
-    next: HttpHandler
-  ): Observable<HttpEvent<unknown>> {
-    this.loader.handle(request.url, true);
+  intercept(request: HttpRequest<unknown>,next: HttpHandler): Observable<HttpEvent<unknown>> {
+    this.loader.handle(request.urlWithParams, true);
+    
     return next
       .handle(request)
       .pipe(
@@ -29,6 +27,7 @@ export class LoadingInterceptor implements HttpInterceptor {
       )
       .pipe(
         map((evt: any) => {
+          console.log(evt)
           if (evt instanceof HttpResponse) {
             this.loader.handle(evt.url!, false);
           }

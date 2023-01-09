@@ -12,15 +12,15 @@ import Swal from 'sweetalert2';
   styleUrls: ['./payments.component.css'],
 })
 export class PaymentsComponent implements OnInit {
-  user!: User
+  user!: User;
   payFull: boolean = true;
   payPart: boolean = false;
   hotel!: any;
   paymentsObj!: any;
   guestsObj!: any;
   paramsId!: string;
-  cardForm!:FormControl
-  cardValue!:string
+  cardForm!: FormControl;
+  cardValue!: string;
   constructor(
     private route: ActivatedRoute,
     private http: ApiServiceService,
@@ -29,24 +29,22 @@ export class PaymentsComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-
     this.getRange();
 
     this.paymentsObj = JSON.parse(localStorage.getItem('payments')!);
     this.user = JSON.parse(<string>localStorage.getItem('user'));
 
-    this.cardForm =  new FormControl(this.user.cardNumber, [
+    (this.cardForm = new FormControl(this.user.cardNumber, [
       Validators.maxLength(20),
       Validators.pattern(
         `[0-9][0-9][0-9][0-9]+-[0-9][0-9][0-9][0-9]+-[0-9][0-9][0-9][0-9]+-[0-9][0-9][0-9][0-9]`
       ),
       //Validators.pattern()
-    ]),
-
-    this.cardValue = this.user.cardNumber
+    ])),
+      (this.cardValue = this.user.cardNumber);
 
     this.paramsId = this.paymentsObj.hotelId;
-    
+
     this.http
       .getHotelById(this.paramsId)
       .subscribe((hotelObj) => (this.hotel = hotelObj));
@@ -111,7 +109,6 @@ export class PaymentsComponent implements OnInit {
     this.fireStore.update(tempUser, this.user.id);
     localStorage.setItem('user', JSON.stringify(tempUser));
     localStorage.removeItem('payments');
-    
   }
 
   getRange() {
@@ -125,11 +122,11 @@ export class PaymentsComponent implements OnInit {
   goBackBtn() {
     this.router.navigate(['/view', this.paramsId]);
   }
-  
+
   updateOrders(orders: any[], id: string) {
-    orders.forEach((order,index) => {
+    orders.forEach((order, index) => {
       if (order.id == id) {
-        orders[index].pending=false;
+        orders[index].pending = false;
       }
     });
     return orders;

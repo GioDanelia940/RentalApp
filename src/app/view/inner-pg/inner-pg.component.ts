@@ -1,8 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { ApiServiceService } from 'src/app/sharedServices/cardApiService/api-service.service';
 import { CardServiceService } from '../card-service.service';
-import { Card } from '../card.model';
 import {
   faUserCheck,
   faStar,
