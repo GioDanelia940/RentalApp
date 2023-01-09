@@ -40,9 +40,11 @@ export class OrderHistoryComponent implements OnInit {
       this.orders = response.orders;
     });
   }
+  
   getHotelById(id: string) {
     return this.hotels.filter((hotel) => hotel.id == id)[0];
   }
+  
   openDialogOrder(order: any, hotel: any): void {
     const dialogRef = this.dialog.open(OrderModalComponent, {
       width: '1000px',

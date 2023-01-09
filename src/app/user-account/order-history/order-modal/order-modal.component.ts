@@ -1,6 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Router } from '@angular/router';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import { FirebaseWorkerService } from 'src/app/sharedServices/firebase-worker.service';
 import Swal from 'sweetalert2';
@@ -16,6 +15,8 @@ export class OrderModalComponent implements OnInit {
   order!: any;
   hotel!: any;
   user!: User;
+  pendingStatus!:boolean
+
   constructor(
     private accountService: AccountServiceService,
     private fireStore: FirebaseWorkerService,
@@ -27,7 +28,7 @@ export class OrderModalComponent implements OnInit {
     this.order = this.data.order;
     this.hotel = this.data.hotel;
     this.user = this.user = JSON.parse(<string>localStorage.getItem('user'));
-    console.log(this.order);
+    this.pendingStatus = this.data.order.pending
   }
   closeDialog() {
     this.dialogRef.close();
@@ -39,6 +40,7 @@ export class OrderModalComponent implements OnInit {
     let range = ((startTime - endTime) / (1000 * 3600 * 24)) * -1 + 1;
     return Math.ceil(range);
   }
+
   reserve() {
     if(this.user.cardNumber){
       let tempUser = new User(
@@ -72,7 +74,7 @@ export class OrderModalComponent implements OnInit {
     }
     
   }
-  delete() {
+  cancelOrder() {
     let tempUser = new User(
       this.user.id,
       this.user.email,
@@ -90,6 +92,7 @@ export class OrderModalComponent implements OnInit {
     localStorage.setItem('user', JSON.stringify(tempUser));
     this.accountService.userUpdated.next(tempUser);
   }
+
   updateOrders(orders: any[], id: string) {
     orders.forEach((order, index) => {
       if (order.id == id) {
@@ -98,6 +101,7 @@ export class OrderModalComponent implements OnInit {
     });
     return orders;
   }
+
   deleteOrder(orders: any[], id: string) {
     return orders.filter((order) => order.id != id);
   }
