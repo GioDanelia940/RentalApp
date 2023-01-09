@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FilterServiceService } from '../header/filter/filter-service.service';
-import { ApiServiceService } from '../sharedServices/cardApiService/api-service.service';
 
 @Component({
   selector: 'app-view',
@@ -10,7 +9,7 @@ import { ApiServiceService } from '../sharedServices/cardApiService/api-service.
 })
 export class ViewComponent implements OnInit {
   cards!: any[];
-  constructor(private http:ApiServiceService, private route:ActivatedRoute,private filterS:FilterServiceService) {}
+  constructor( private route:ActivatedRoute,private filterS:FilterServiceService) {}
 
   ngOnInit(): void {
     this.route.queryParams.subscribe((params) => {

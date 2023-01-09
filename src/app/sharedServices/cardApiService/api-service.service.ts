@@ -17,6 +17,7 @@ export class ApiServiceService {
 
   getHotelById(id:string):Observable<any>{
     const hotelById = `http://airbnb-dev.us-east-1.elasticbeanstalk.com/api/Hotel/${id}`
+    
     return this.http.get(hotelById)
   }
 
