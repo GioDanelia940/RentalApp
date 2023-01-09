@@ -16,11 +16,14 @@ a {
   text-decoration: none;
 }
 
-mat-card{
-  box-shadow: none!important;
+mat-card {
+  box-shadow: none !important;
 }
 
-mat-card-content{
+mat-card {
   cursor: pointer;
+}
+
+mat-card-content {
   margin-top: 10px;
 }
