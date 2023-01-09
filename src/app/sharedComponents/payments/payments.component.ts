@@ -39,7 +39,6 @@ export class PaymentsComponent implements OnInit {
       Validators.pattern(
         `[0-9][0-9][0-9][0-9]+-[0-9][0-9][0-9][0-9]+-[0-9][0-9][0-9][0-9]+-[0-9][0-9][0-9][0-9]`
       ),
-      //Validators.pattern()
     ])),
       (this.cardValue = this.user.cardNumber);
 
