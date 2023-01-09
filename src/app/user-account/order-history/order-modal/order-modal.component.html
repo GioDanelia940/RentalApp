@@ -115,6 +115,7 @@
         close
       </button>
       <button
+      [ngClass]="{visibilityHidden:!pendingStatus}"
         (click)="reserve()"
         mat-raised-button
         mat-dialog-close
@@ -124,7 +125,8 @@
         reserve
       </button>
       <button
-        (click)="delete()"
+        [ngClass]="{visibilityHidden:!pendingStatus}"
+        (click)="cancelOrder()"
         mat-raised-button
         mat-dialog-close
         color="accent"
