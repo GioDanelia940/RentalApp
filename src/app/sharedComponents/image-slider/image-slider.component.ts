@@ -10,17 +10,18 @@ export class ImageSliderComponent implements OnInit {
   @Input() sliderImages!: string[];
   @Input() height!: string;
   @Input() width!: string;
-  @Input() cardId!:string
+  @Input() cardId!: string;
 
-  constructor(private router:Router, private route:ActivatedRoute) {}
+  constructor(private router: Router, private route: ActivatedRoute) {}
 
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
-
-  }
-
-  toInnerPage(){
-    this.router.navigate([this.cardId],{relativeTo:this.route})
-    
+  toInnerPage() {
+    if (
+      this.router.url.substring(0, 5) == '/view' &&
+      this.router.url.length < 7
+    ) {
+      this.router.navigate([this.cardId], { relativeTo: this.route });
+    }
   }
 }
