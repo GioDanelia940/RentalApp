@@ -20,7 +20,7 @@ export class LoadingInterceptor implements HttpInterceptor {
       .pipe(
         catchError((error: any) => {
           console.log(error);
-          this.loader.handle(error.url, true);
+          this.loader.handle(error.url, false);
           return error;
         })
       )
