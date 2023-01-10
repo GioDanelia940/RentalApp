@@ -70,7 +70,7 @@ by clicking one of the hotels, you will be taken to inner page where hotel infor
 ![Algorithm schema](./images/inner_page_1.png)
 
 hotel name and image gallery, you can scroll through images with image slider.
-![Algorithm schema](./images/inner_page_2.png)
+![Algorithm schema](./images/inner_page_2 .png)
 
 hotel details, description, what hotel offers, each section has button to get more detailed information with modal
 
