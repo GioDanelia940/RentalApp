@@ -1,4 +1,4 @@
 
-body{
-	margin-bottom: 50px!important;
+main{
+	min-height: 100vh;
 }

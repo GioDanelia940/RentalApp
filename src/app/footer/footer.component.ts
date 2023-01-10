@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router, RoutesRecognized } from '@angular/router';
+
 
 @Component({
   selector: 'app-footer',
@@ -6,9 +8,20 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./footer.component.css'],
 })
 export class FooterComponent implements OnInit {
-  @Input() position: string = 'fixed';
-  @Input() backgroundColor: string = 'white';
-  constructor() {}
 
-  ngOnInit(): void {}
+  fixedPos:boolean = true
+  constructor(private router:Router) { }
+
+  ngOnInit(): void {
+    this.router.events.subscribe((event:any) => {
+      if (event instanceof RoutesRecognized) {
+        console.log(event.url)
+        if(event.url == '/view' || event.url.substring(0,6) == '/view?'){
+          this.fixedPos = true
+        }else{
+          this.fixedPos = false
+        }
+      }
+    })
+  }
 }

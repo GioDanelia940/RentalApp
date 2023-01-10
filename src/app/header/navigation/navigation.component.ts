@@ -29,7 +29,7 @@ export class NavigationComponent implements OnInit, OnDestroy {
     });
   }
   toHomePage() {
-    this.router.navigate(['']);
+    this.router.navigate(['/view']);
   }
   tologin() {
     this.router.navigate(['login']);
