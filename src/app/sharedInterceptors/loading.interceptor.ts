@@ -15,13 +15,12 @@ export class LoadingInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>,next: HttpHandler): Observable<HttpEvent<unknown>> {
     this.loader.handle(request.urlWithParams, true);
-    
     return next
       .handle(request)
       .pipe(
         catchError((error: any) => {
           console.log(error);
-          this.loader.handle(error.url, true);
+          this.loader.handle(error.url, false);
           return error;
         })
       )

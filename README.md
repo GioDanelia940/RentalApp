@@ -1,27 +1,65 @@
-# RentalApp
+## Table of contents
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.2.
+- [General info](#general-info)
+- [Technologies](#technologies)
+- [Setup](#setup)
+- [Website functionalities](#Website-functionalities)
 
-## Development server
+## General info
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+this project is clone of airbnb as a part of angular development course.
 
-## Code scaffolding
+## Technologies
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Project is created with:
 
-## Build
+- Angular 14
+- typescript
+- rxjs
+- ngrx
+- bootstrap
+- primeNG
+- sweetalert
+- font-awasome
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Setup
 
-## Running unit tests
+To run this project, install it locally using npm:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```
+$ clone github reposity
+$ npm install
+$ ng serve
 
-## Running end-to-end tests
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Website functionalities
 
-## Further help
+this segments explains how website works and what you can do with it.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- view page
+  when you first visit website, initial page looks like this.
+  ![Algorithm schema](./images/1.png)
+
+header page has clickable buttons
+
+- airbnb logo, which takes you to home(initial page)
+- log in , lets you log in to your account
+- register, lets you register account
+  ![Algorithm schema](./images/header.png)
+
+filter that lets you filter hotels based on certain characteristics, these characteristics are associated with icons and text
+![Algorithm schema](./images/filter.png)
+
+filter button at the right side of the filter bar displays filter modal, that lets you filter hotels with more specific data
+![Algorithm schema](./images/filter-modal.png)
+
+card display area, where hotels are displayed, hotels are taken from API and then displayed on view page
+![Algorithm schema](./images/card-area.png)
+
+footer of website, which has 3 buttons which take you to following pages
+
+- privacy
+- contact
+- terms
+  ![Algorithm schema](./images/footer.png)
