@@ -1,11 +1,10 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Subject } from 'rxjs';
+import { EventEmitter, Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root',
 })
 export class LoadingService {
-  loadingEmitter: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(true);
+  loadingEmitter: EventEmitter<boolean> = new EventEmitter<boolean>(true);
   loadings: Map<string, boolean> = new Map<string, boolean>();
 
   constructor() {}
@@ -13,12 +12,13 @@ export class LoadingService {
   handle(url: string, loadingStatus: boolean): void {
     if (loadingStatus) {
       this.loadings.set(url, loadingStatus);
-      this.loadingEmitter.next(true);
+      this.loadingEmitter.emit(true);
     } else if (!loadingStatus && this.loadings.has(url)) {
       this.loadings.delete(url);
     }
-    if (this.loadings.size == 0) {
-      this.loadingEmitter.next(false);
+
+    if (this.loadings.size == 0 || !loadingStatus) {
+      this.loadingEmitter.emit(false);
     }
   }
 }
