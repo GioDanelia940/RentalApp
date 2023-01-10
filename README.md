@@ -98,7 +98,7 @@ where you can finalize your reserve, on payment page you can select which option
 ![Algorithm schema](./images/payment_1.png)
 
 by clicking reserve button on payment page, your order will be saved on order-history page in account section.
-in case you leave this page, you can continue your order with 24 hours and finalize your order with link to this page. also in for of pending order, this order will be saved in order-history too. but with yellow  background, idicating that you need to finish reservation or cancel order.
+in case you leave this page, you can continue your order within 24 hours and finalize your order with link to this page. also in case you don't reserve order they will be saved as pending order in order history, but with yellow  background, indicating that you need to finish reservation or cancel order.
 
 - Account page
 
@@ -112,7 +112,7 @@ login page, where you can enter your email and password which you have already c
 by clicking on account button on header you will be taken to your account. initial page is account detail page, where your information is displayed, by clicking change button you can change your information and then either click apply to make changes or click cancel to cancel changes.
 ![Algorithm schema](./images/account_1.png)
 
-order history page, where you can see your reserved orders, yellow background orders are not yet reserved, by clicking on orders you can see their details, also, by clicking on yellow orders you can finalize your reservation.
+order history page, where you can see your reserved orders, yellow background orders are not yet reserved, by clicking on orders you can see their details, also, by clicking on yellow orders you are given option to reserve your pending order.
 
 ![Algorithm schema](./images/order_history_1.png)
 ![Algorithm schema](./images/order_history_2.png)
