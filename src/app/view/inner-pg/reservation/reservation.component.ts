@@ -64,7 +64,6 @@ export class ReservationComponent implements OnInit {
           return value;
         }
       });
-      console.log(jsonStr);
 
       localStorage.setItem('payments', jsonStr);
       this.paymentsObj = JSON.parse(localStorage.getItem('payments')!);
@@ -90,7 +89,6 @@ export class ReservationComponent implements OnInit {
   }
   ngOnChanges(changes: SimpleChanges) {
     if (this.reserveDetailForm != null) {
-      console.log(changes);
       this.reserveDetailForm
         .get('range')
         ?.get('start')
