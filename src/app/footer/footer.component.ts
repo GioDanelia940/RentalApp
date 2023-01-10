@@ -15,10 +15,10 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {
     this.router.events.subscribe((event:any) => {
       if (event instanceof RoutesRecognized) {
-        if(event.url === '/view' || event.url.substring(0,6) === '/view?' ){
-          this.fixedPos = true
-        }else{
+        if( event.url.substring(0,6) === '/view/' ){
           this.fixedPos = false
+        }else{
+          this.fixedPos = true
         }
       }
     })
