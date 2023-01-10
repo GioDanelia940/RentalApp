@@ -26,7 +26,6 @@ export class FirebaseWorkerService implements OnDestroy {
     private accountService: AccountServiceService
   ) {}
   ngOnDestroy(): void {
-    console.log('inside ondestroy');
     this.subSigned.unsubscribe();
   }
 
@@ -36,13 +35,11 @@ export class FirebaseWorkerService implements OnDestroy {
       .then((result) => {
         this.subSigned = this.auth.authState.subscribe((user) => {
           if (user) {
-            console.log(user);
           }
         });
         this.router.navigate(['']);
         this.subLogged = this.getUserDoc(result.user?.uid ?? '').subscribe(
           (user: any) => {
-            console.log('sign in successful');
             localStorage.setItem('user', JSON.stringify(user));
             localStorage.setItem('logged', JSON.stringify(true));
             this.accountService.userLogged.next(true);
@@ -53,7 +50,12 @@ export class FirebaseWorkerService implements OnDestroy {
         );
       })
       .catch((error) => {
-        window.alert(error.message);
+        Swal.fire({
+          icon: 'error',
+          title: error,
+          showConfirmButton: true,
+          confirmButtonText: 'Close',
+        });
       });
   }
 
@@ -65,8 +67,7 @@ export class FirebaseWorkerService implements OnDestroy {
         setTimeout(() => {
           Swal.fire({
             icon: 'success',
-            title:
-              'account has been successfully created',
+            title: 'account has been successfully created',
             showConfirmButton: true,
             confirmButtonText: 'Close',
           });
@@ -75,12 +76,16 @@ export class FirebaseWorkerService implements OnDestroy {
         this.router.navigate(['']);
       })
       .catch((error) => {
-        window.alert(error.message);
+        Swal.fire({
+          icon: 'error',
+          title: error,
+          showConfirmButton: true,
+          confirmButtonText: 'Close',
+        });
       });
   }
   SignOut() {
     return this.auth.signOut().then(() => {
-      console.log('sign out successful');
       this.subLogged.unsubscribe();
       this.subSigned.unsubscribe();
       localStorage.removeItem('user');
@@ -88,14 +93,6 @@ export class FirebaseWorkerService implements OnDestroy {
       this.router.navigate(['']);
     });
   }
-  sendVerificationMail() {
-    // return this.afAuth.currentUser
-    // .then((u: any) => u.sendEmailVerification())
-    // .then(() => {
-    // this.router.navigate(['verify-email-address']);
-    // });
-  }
-
   getUserDoc(id: string): any {
     return this.firestore.collection('users').doc(id).valueChanges();
   }
@@ -104,14 +101,23 @@ export class FirebaseWorkerService implements OnDestroy {
     let currentUser = auth.currentUser;
     updatePassword(currentUser!, newPassword)
       .then(() => {
-        console.log('password changed successfully');
+        Swal.fire({
+          icon: 'success',
+          title: 'password changed successfully',
+          showConfirmButton: true,
+          confirmButtonText: 'Close',
+        });
       })
       .catch((error) => {
-        window.alert(error.message);
+        Swal.fire({
+          icon: 'error',
+          title: error,
+          showConfirmButton: true,
+          confirmButtonText: 'Close',
+        });
       });
   }
   setUserDataForSignUp(fireUser: any, user: User) {
-    console.log(user);
     const userRef: AngularFirestoreDocument<any> = this.firestore.doc(
       `users/${fireUser.uid}`
     );
