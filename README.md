@@ -64,7 +64,7 @@ footer of website, which has 3 buttons which take you to following pages
 - terms
   ![Algorithm schema](./images/footer.png)
 
-- privacy
+- inner-page
 
 by clicking one of the hotels, you will be taken to inner page where hotel information is displayed in detail, you can also make a reservation from this page.
 ![Algorithm schema](./images/inner_page_1.png)
@@ -89,3 +89,31 @@ inner page footer
 hotel reservation area that lets you pick date range and number of guests children and pets you want to reserve. reserve button takes you to payments page where you will finalize you reserve.
 
 ![Algorithm schema](./images/inner_page_6.png)
+
+- payment page
+
+by submiting reserve details and clicking reserve button, you will be taken to payment page.
+where you can finalize your reserve, on payment page you can select which option do you want for your payment, also enter card information and mobile number, in case you already have card information saved, card information will be submited automatically.
+
+![Algorithm schema](./images/payment_1.png)
+
+by clicking reserve button on payment page, your order will be saved on order-history page in account section.
+in case you leave this page, you can continue your order with 24 hours and finalize your order with link to this page. also in for of pending order, this order will be saved in order-history too. but with yellow  background, idicating that you need to finish reservation or cancel order.
+
+- Account page
+
+registration page, where you can submit your email and password and make a new account
+![Algorithm schema](./images/register.png)
+
+login page, where you can enter your email and password which you have already created and log in to your account
+
+![Algorithm schema](./images/login.png)
+
+by clicking on account button on header you will be taken to your account. initial page is account detail page, where your information is displayed, by clicking change button you can change your information and then either click apply to make changes or click cancel to cancel changes.
+![Algorithm schema](./images/account_1.png)
+
+order history page, where you can see your reserved orders, yellow background orders are not yet reserved, by clicking on orders you can see their details, also, by clicking on yellow orders you can finalize your reservation.
+
+![Algorithm schema](./images/order_history_1.png)
+![Algorithm schema](./images/order_history_2.png)
+![Algorithm schema](./images/order_history_3.png)
