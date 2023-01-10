@@ -117,3 +117,19 @@ order history page, where you can see your reserved orders, yellow background or
 ![Algorithm schema](./images/order_history_1.png)
 ![Algorithm schema](./images/order_history_2.png)
 ![Algorithm schema](./images/order_history_3.png)
+
+password page, by clicking on password section of account you will be taken to your password change page, where you can enter your current password and your new password, and change your password.
+![Algorithm schema](./images/password.png)
+
+- footer components 
+
+by clicking on footers privacy button, you will be taken to privacy, page where privacy information is displayed
+
+![Algorithm schema](./images/privacy.png)
+
+by clicking on contact page on footer, you will be taken to contact page where contact information is displayed 
+![Algorithm schema](./images/contact.png)
+
+by clicking on terms page on footer, you will be taken to terms page where terms and conditions are displayed
+
+![Algorithm schema](./images/terms.png)
