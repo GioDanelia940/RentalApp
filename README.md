@@ -63,3 +63,29 @@ footer of website, which has 3 buttons which take you to following pages
 - contact
 - terms
   ![Algorithm schema](./images/footer.png)
+
+- privacy
+
+by clicking one of the hotels, you will be taken to inner page where hotel information is displayed in detail, you can also make a reservation from this page.
+![Algorithm schema](./images/inner_page_1.png)
+
+hotel name and image gallery, you can scroll through images with image slider.
+![Algorithm schema](./images/inner_page_2.png)
+
+hotel details, description, what hotel offers, each section has button to get more detailed information with modal
+
+![Algorithm schema](./images/inner_page_3.png)
+![Algorithm schema](./images/inner_page_modal_1.png)
+![Algorithm schema](./images/inner_page_modal_3.png)
+![Algorithm schema](./images/inner_page_modal_2.png)
+
+calendar which lets you pick up range of days you want to reserve hotel, also map which shows hotel location, and host information
+
+![Algorithm schema](./images/inner_page_4.png)
+
+inner page footer
+![Algorithm schema](./images/inner_page_5.png)
+
+hotel reservation area that lets you pick date range and number of guests children and pets you want to reserve. reserve button takes you to payments page where you will finalize you reserve.
+
+![Algorithm schema](./images/inner_page_6.png)
