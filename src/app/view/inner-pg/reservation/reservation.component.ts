@@ -14,6 +14,7 @@ export class ReservationComponent implements OnInit {
   @Input() maxGuestCount: number = 0;
   @Input() startDate!: Date;
   @Input() endDate!: Date;
+  @Input() childPolicy!: boolean;
   testArr = [
     ['adults', '13+'],
     ['children', '3-13'],
@@ -35,6 +36,19 @@ export class ReservationComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    if (this.childPolicy) {
+      this.testArr = [
+        ['adults', '13+'],
+        ['children', '3-13'],
+        ['infants', 'Under 2'],
+        ['pets', 'Bringing a service animal?'],
+      ];
+    } else {
+      this.testArr = [
+        ['adults', '13+'],
+        ['pets', 'service animal?'],
+      ];
+    }
     this.route.params.subscribe((params) => (this.paramsId = params['id']));
     this.reserveDetailForm = new FormGroup({
       range: new FormGroup({
@@ -54,7 +68,7 @@ export class ReservationComponent implements OnInit {
 
   onSubmit() {
     if (JSON.parse(<string>localStorage.getItem('logged')) == true) {
-      this.setTimeInLocalStorage()
+      this.setTimeInLocalStorage();
       let formValue = this.reserveDetailForm.value;
       formValue.id = Date.now();
       formValue.hotelId = this.paramsId;

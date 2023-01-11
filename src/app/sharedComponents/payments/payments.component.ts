@@ -20,7 +20,6 @@ export class PaymentsComponent implements OnInit {
   guestsObj!: any;
   paramsId!: string;
   cardForm!: FormControl;
-  cardValue!: string;
   constructor(
     private route: ActivatedRoute,
     private http: ApiServiceService,
@@ -35,14 +34,13 @@ export class PaymentsComponent implements OnInit {
     this.user = JSON.parse(<string>localStorage.getItem('user'));
 
     (this.cardForm = new FormControl(this.user.cardNumber, [
+      Validators.required,
       Validators.maxLength(20),
       Validators.pattern(
         `[0-9][0-9][0-9][0-9]+-[0-9][0-9][0-9][0-9]+-[0-9][0-9][0-9][0-9]+-[0-9][0-9][0-9][0-9]`
       ),
     ])),
-      (this.cardValue = this.user.cardNumber);
-
-    this.paramsId = this.paymentsObj.hotelId;
+      (this.paramsId = this.paymentsObj.hotelId);
 
     this.http
       .getHotelById(this.paramsId)

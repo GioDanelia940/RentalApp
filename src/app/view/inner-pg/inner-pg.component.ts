@@ -80,6 +80,15 @@ export class InnerPgComponent implements OnInit {
     });
     return text.substring(0, text.length - 2);
   }
+  childrenAllowed(rooms: Array<any>) {
+    let allowed: boolean = false;
+    rooms.forEach((element, index) => {
+      if (element.childPolicy == true) {
+        allowed = true;
+      }
+    });
+    return allowed;
+  }
   openDialogAmenities(offers: any): void {
     const dialogRef = this.dialog.open(AmenitiesModalComponent, {
       width: '780px',

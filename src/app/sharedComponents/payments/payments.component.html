@@ -117,7 +117,6 @@
                 type="text"
                 matInput
                 [formControl]="cardForm"
-                [(ngModel)]="cardValue"
                 placeholder="1234-5678-9123"
               />
               <mat-error *ngIf="cardForm.hasError('pattern')">
@@ -246,7 +245,7 @@
           <hr />
           <button
             class="submit-btn"
-            [disabled]="!cardForm.valid || !cardValue"
+            [disabled]="!cardForm.valid"
             mat-raised-button
             color="accent"
             (click)="onSubmit()"
