@@ -15,12 +15,7 @@ export class ReservationComponent implements OnInit {
   @Input() startDate!: Date;
   @Input() endDate!: Date;
   @Input() childPolicy!: boolean;
-  testArr = [
-    ['adults', '13+'],
-    ['children', '3-13'],
-    ['infants', 'Under 2'],
-    ['pets', 'Bringing a service animal?'],
-  ];
+  testArr!:any;
   value!: number;
   dateSelection: boolean = false;
   minDate: Date = new Date();
@@ -41,7 +36,7 @@ export class ReservationComponent implements OnInit {
         ['adults', '13+'],
         ['children', '3-13'],
         ['infants', 'Under 2'],
-        ['pets', 'Bringing a service animal?'],
+        ['pets', 'service animal?'],
       ];
     } else {
       this.testArr = [
