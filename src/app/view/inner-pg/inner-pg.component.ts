@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { ApiServiceService } from 'src/app/sharedServices/cardApiService/api-service.service';
-import { CardServiceService } from '../card-service.service';
 import {
   faUserCheck,
   faStar,
@@ -34,7 +33,6 @@ export class InnerPgComponent implements OnInit {
   endDate: Date = new Date();
   constructor(
     private dialog: MatDialog,
-    private cardService: CardServiceService,
     private route: ActivatedRoute,
     private ApiService: ApiServiceService
   ) {}
