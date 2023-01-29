@@ -10,13 +10,9 @@
   .reservation
   .mat-form-field-type-mat-date-range-input
   .mat-form-field-infix {
-  /* width: 180px !important; */
   width: 300px !important;
 }
-/* ::ng-deep.mat-form-field-infix {
 
-    width: 170px !important;
-}  */
 ::ng-deep .reservation .mat-form-field-appearance-fill .mat-form-field-flex {
   background-color: transparent !important;
 }
@@ -85,10 +81,10 @@ p-inputnumber,
   border: none;
 }
 
-::ng-deep .inputOnDataTable input{
-  width: 50px!important;
+::ng-deep .inputOnDataTable input {
+  width: 50px !important;
 }
 
- ::ng-deep  .cdk-overlay-panel{
-  min-width: 338px!important;
+::ng-deep .cdk-overlay-panel {
+  min-width: 338px !important;
 }

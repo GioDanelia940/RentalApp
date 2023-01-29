@@ -32,12 +32,5 @@ export class FilterComponent implements OnInit {
     });
   }
 
-  setQueryParams(id: string) {
-    this.router.navigate([], {
-      relativeTo: this.route,
-      queryParams: {
-        Id: id,
-      },
-    });
-  }
+  
 }

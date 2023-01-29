@@ -15,7 +15,7 @@ export class ReservationComponent implements OnInit {
   @Input() startDate!: Date;
   @Input() endDate!: Date;
   @Input() childPolicy!: boolean;
-  testArr!:any;
+  testArr!: any;
   value!: number;
   dateSelection: boolean = false;
   minDate: Date = new Date();
@@ -96,6 +96,7 @@ export class ReservationComponent implements OnInit {
       this.router.navigate(['login']);
     }
   }
+
   ngOnChanges(changes: SimpleChanges) {
     if (this.reserveDetailForm != null) {
       this.reserveDetailForm
@@ -108,6 +109,7 @@ export class ReservationComponent implements OnInit {
         ?.setValue(changes['endDate'].currentValue);
     }
   }
+  
   getRange(start: any, end: any) {
     let range =
       ((start.getTime() - end.getTime()) / (1000 * 3600 * 24)) * -1 + 1;
