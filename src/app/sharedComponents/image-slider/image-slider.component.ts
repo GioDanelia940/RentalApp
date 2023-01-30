@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-image-slider',
@@ -12,16 +11,8 @@ export class ImageSliderComponent implements OnInit {
   @Input() width!: string;
   @Input() cardId!: string;
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor() {}
 
   ngOnInit(): void {}
 
-  toInnerPage() {
-    if (
-      this.router.url.substring(0, 5) == '/view' &&
-      this.router.url.length < 7
-    ) {
-      this.router.navigate([this.cardId], { relativeTo: this.route });
-    }
-  }
 }

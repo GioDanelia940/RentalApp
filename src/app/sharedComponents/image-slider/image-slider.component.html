@@ -13,12 +13,13 @@
   [showIndicatorsOnItem]="true"
 >
   <ng-template pTemplate="item" let-item>
-    <img
-    (click)="toInnerPage()"
-      [src]="item"
-      style="display: block"
-      [style.height]="height"
-      [style.width]="width"
-    />
+    <a [routerLink]="cardId" >
+      <img
+        [src]="item"
+        style="display: block"
+        [style.height]="height"
+        [style.width]="width"
+      />
+    </a>
   </ng-template>
 </p-galleria>
