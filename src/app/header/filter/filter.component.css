@@ -39,19 +39,19 @@ p-carousel {
   text-align: center;
 }
 
-p-carousel button {
+p-carousel a {
   border: none;
-  border-bottom: 2px solid transparent !important;
+  border-bottom: 2px solid transparent ;
   transition: all 0.3s;
   background: none;
   cursor: pointer;
 }
 
-p-carousel button:hover {
-  border-bottom: 2px solid #dddd !important;
+p-carousel a:hover {
+  border-bottom: 2px solid #dddd ;
 }
 
-p-carousel button:focus {
+.active {
   border-bottom: 2px solid black !important;
 }
 
@@ -77,4 +77,9 @@ p {
 
 ::ng-deep .icon-container .p-disabled {
   visibility: hidden !important;
+}
+
+a {
+  text-decoration: none;
+  width: 100%;
 }

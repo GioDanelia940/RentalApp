@@ -28,18 +28,9 @@ export class NavigationComponent implements OnInit, OnDestroy {
       this.logged = response;
     });
   }
-  toHomePage() {
-    this.router.navigate(['/view']);
-  }
-  tologin() {
-    this.router.navigate(['login']);
-  }
-  toRegister() {
-    this.router.navigate(['register']);
-  }
-  toAccount() {
-    this.router.navigate(['account']);
-  }
+  
+  
+ 
   SignOut() {
     this.firebaseWorker.SignOut();
     this.accountService.userLogged.next(false);

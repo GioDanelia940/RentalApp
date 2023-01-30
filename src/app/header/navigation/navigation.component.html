@@ -1,6 +1,6 @@
 <nav>
   <mat-toolbar class="header-container">
-    <span class="main-logo" (click)="toHomePage()">
+    <a class="main-logo" routerLink="/">
       <svg
         xmlns:xlink="http://www.w3.org/1999/xlink"
         xmlns="http://www.w3.org/2000/svg"
@@ -17,32 +17,35 @@
           fill="#FF385C"
         ></path>
       </svg>
-    </span>
+    </a>
     <div class="header-buttons">
-      <button
+      <a
+        type="button"
         *ngIf="!logged"
-        (click)="tologin()"
+        routerLink="/login"
         mat-raised-button
         color="primary"
       >
         Log in
-      </button>
-      <button
+      </a>
+      <a
+        type="button"
         *ngIf="!logged"
-        (click)="toRegister()"
+        routerLink="/register"
         mat-raised-button
         color="accent"
       >
         Register
-      </button>
-      <button
+      </a>
+      <a
+        type="button"
         *ngIf="logged"
-        (click)="toAccount()"
+        routerLink="/account"
         mat-raised-button
         color="accent"
       >
         Account
-      </button>
+      </a>
       <button
         *ngIf="logged"
         (click)="SignOut()"
