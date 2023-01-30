@@ -13,7 +13,7 @@
   [showIndicatorsOnItem]="true"
 >
   <ng-template pTemplate="item" let-item>
-    <a [routerLink]="cardId" (click)="toInnerPage()">
+    <a [routerLink]="cardId" >
       <img
         [src]="item"
         style="display: block"
